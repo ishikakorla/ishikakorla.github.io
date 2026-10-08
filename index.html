@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ishika Korla, product designer. Cognitive Science and Information Science at Cornell.">
+<title>Ishika Korla Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Birthstone+Bounce:wght@400;500&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: Figma-exact pink intro (outline drawing + name + draggable glass circles) · green sidebar with outline face · three case-study "pages" built on the Figma card template (animated thumbnail + title bar) · About me · When not designing · Contact. Case studies open as full-screen sheets. */
+:root{
+  --pink:#FFD6D6; --pink-2:#FFEDED; --mauve:#9E7474; --rose:#A94F62; --green:#1F3B2D; --green-2:#2C4F3D; --mint:#DCE8D6; --cream:#FBF7F2; --page:#FFFDF9;
+  --ink:#1C2A22; --ink-2:#5B6B60; --line:rgba(28,42,34,.14); --on-dark:#FBF7F2; --on-dark-2:rgba(251,247,242,.74); --shade:rgba(31,59,45,.16); --glass:rgba(251,247,242,.86); --face-ink:#4A2E2E;
+  --f-serif:'Abyssinica SIL','Source Serif 4',Georgia,serif; --f-script:'Birthstone Bounce','Great Vibes',cursive; --f-sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --sb:268px; --ease:cubic-bezier(.22,.8,.2,1); --ease-io:cubic-bezier(.65,0,.35,1);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--cream:#101A14;--page:#18241C;--mint:#22332A;--ink:#F3EEE8;--ink-2:#B9C4BB;--line:rgba(240,235,228,.15);--shade:rgba(0,0,0,.45);--glass:rgba(16,26,20,.86);--green:#142A1F;--green-2:#1F3B2D;--rose:#D98A97;color-scheme:dark}}
+:root[data-theme="dark"]{--cream:#101A14;--page:#18241C;--mint:#22332A;--ink:#F3EEE8;--ink-2:#B9C4BB;--line:rgba(240,235,228,.15);--shade:rgba(0,0,0,.45);--glass:rgba(16,26,20,.86);--green:#142A1F;--green-2:#1F3B2D;--rose:#D98A97;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--f-serif);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit} button{font:inherit;color:inherit;cursor:pointer} img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance;letter-spacing:-.01em} p{margin:0}
+.label{font-family:var(--f-sans);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--f-sans);font-size:.95rem;font-weight:600;text-decoration:none;padding:.95rem 1.4rem;border-radius:999px;border:1.5px solid currentColor;background:transparent;transition:background .35s var(--ease),color .35s,border-color .35s,transform .35s var(--ease)}
+.btn:hover{transform:translateY(-2px)} .btn svg{width:15px;height:15px;transition:transform .35s var(--ease)} .btn:hover svg{transform:translateX(4px)}
+.btn.rose{background:var(--rose);border-color:var(--rose);color:#fff} .btn.rose:hover{background:var(--green);border-color:var(--green)}
+.btn.pinkb{background:var(--pink);border-color:var(--pink);color:#1C2A22} .btn.pinkb:hover{background:#fff;border-color:#fff}
+.btn.ghost-l{color:var(--on-dark)} .btn.ghost-l:hover{background:var(--on-dark);color:var(--green)}
+.round{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--green);background:transparent;color:var(--green);display:grid;place-items:center;transition:background .3s,color .3s,transform .3s var(--ease)}
+.round:hover:not(:disabled){background:var(--green);color:var(--on-dark);transform:scale(1.06)}
+.round svg{width:16px;height:16px}
+
+/* ---------- intro (Figma frame 1440×1024) ---------- */
+.intro{position:relative;height:100vh;height:100svh;background:#FFD6D6;overflow:hidden;container-type:size;transition:height 1.4s var(--ease-io)}
+.intro.peek{height:62vh;height:62svh}
+.stage{position:absolute;left:50%;top:50%;width:min(100cqw,140.625cqh);aspect-ratio:1440/1024;transform:translate(-50%,-50%);container-type:inline-size}
+.hi{position:absolute;left:39.236%;top:37.012%;font-family:'Abyssinica SIL',serif;font-size:3.333cqw;line-height:1.3;color:#000;white-space:nowrap;margin:0;font-weight:400;opacity:0;filter:blur(8px);transform:translateY(14px);transition:opacity 1.1s var(--ease),filter 1.1s var(--ease),transform 1.1s var(--ease)}
+.pd{position:absolute;left:46.667%;top:44.043%;font-family:'Birthstone Bounce',cursive;font-size:4.861cqw;line-height:1.3;color:#9E7474;white-space:nowrap;margin:0;font-weight:400;opacity:0;filter:blur(8px);transform:translateY(14px);transition:opacity 1.1s .35s var(--ease),filter 1.1s .35s var(--ease),transform 1.1s .35s var(--ease)}
+.intro.named .hi,.intro.named .pd{opacity:1;filter:none;transform:none}
+.art{position:absolute;left:-4.306%;top:45.41%;width:43.542%;color:var(--face-ink);pointer-events:none}
+.art svg{width:100%;height:auto;display:block;overflow:visible}
+.art .st path{stroke-dasharray:1;stroke-dashoffset:1}
+.intro.drawn .art .st path{animation:draw 2.4s var(--ease-io) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.art .fl{opacity:0;transition:opacity .9s 1.4s}
+.intro.drawn .art .fl{opacity:1}
+.blob{position:absolute;border-radius:50%;cursor:grab;touch-action:none;will-change:transform;z-index:3;
+  background:radial-gradient(120% 95% at 30% 22%,rgba(255,255,255,.82),rgba(255,255,255,.38) 42%,rgba(255,255,255,.22) 72%,rgba(255,255,255,.34));
+  border:1.5px solid rgba(255,255,255,.85);
+  box-shadow:inset -14px -22px 46px rgba(255,150,170,.32),inset 12px 16px 34px rgba(255,255,255,.7),0 22px 44px rgba(170,80,100,.16);
+  backdrop-filter:blur(10px) saturate(1.35);-webkit-backdrop-filter:blur(10px) saturate(1.35);transform:translateY(-160cqh)}
+.blob::before{content:"";position:absolute;left:16%;top:12%;width:30%;height:18%;border-radius:50%;background:rgba(255,255,255,.85);filter:blur(6px);transform:rotate(-20deg)}
+.blob::after{content:"";position:absolute;right:14%;bottom:14%;width:12%;height:9%;border-radius:50%;background:rgba(255,255,255,.6);filter:blur(3px)}
+.blob:active{cursor:grabbing}
+.b1{left:16.875%;top:4.492%;width:23.472%;height:27.148%}
+.b2{left:40.347%;top:62.793%;width:23.403%;height:27.148%}
+.b3{left:69.653%;top:4.492%;width:22.083%;height:27.148%}
+.intro-ui{position:absolute;z-index:4;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;padding:1rem;pointer-events:none}
+.intro-ui > *{pointer-events:auto}
+.cue{display:block;width:24px;height:36px;border:1.5px solid #9E7474;border-radius:12px;position:relative;opacity:0;transition:opacity 1s}
+.intro.done .cue{opacity:1}
+.cue::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:#9E7474;animation:wheel 1.6s var(--ease-io) infinite}
+@keyframes wheel{to{transform:translateY(12px);opacity:0}}
+.replay{position:absolute;right:1rem;bottom:1rem;border:0;background:rgba(255,255,255,.5);border-radius:50%;width:40px;height:40px;display:grid;place-items:center;color:#9E7474;z-index:4}
+.replay svg{width:18px;height:18px}
+@media (max-aspect-ratio:4/5){
+  .stage{width:100cqw;height:100cqh;aspect-ratio:auto}
+  .hi{left:8%;top:31%;font-size:9cqw} .pd{left:8%;top:37%;font-size:11.5cqw}
+  .art{left:-6%;top:50%;width:96%}
+  .b1{left:5%;top:5%;width:46%;height:20%} .b3{left:55%;top:9%;width:40%;height:18%} .b2{left:52%;top:73%;width:42%;height:18%}
+}
+
+/* ---------- sidebar ---------- */
+.sidebar{position:fixed;inset:0 auto 0 0;width:var(--sb);z-index:50;background:var(--green);color:var(--on-dark);transition:transform .6s var(--ease)}
+.sb-inner{height:100%;overflow-y:auto;display:flex;flex-direction:column;gap:1.8rem;padding:1.8rem 1.6rem 1.6rem}
+.face{width:116px;height:116px;border-radius:50%;background:#FFD6D6;border:0;padding:0;overflow:hidden;color:var(--face-ink);transition:transform .5s var(--ease)}
+.face:hover{transform:rotate(-5deg) scale(1.05)}
+.face svg{width:100%;height:100%;display:block}
+.sb-who h2{font-size:1.75rem;line-height:1.15;margin-top:.9rem}
+.sb-who .pdl{font-family:var(--f-script);font-size:2rem;color:#FFD6D6;line-height:1}
+.sb-nav{display:grid;gap:.1rem}
+.sb-nav a{display:flex;align-items:center;gap:.7rem;padding:.5rem 0;text-decoration:none;font-size:1.15rem;color:var(--on-dark-2);transition:color .3s,transform .4s var(--ease)}
+.sb-nav a:hover{color:var(--on-dark);transform:translateX(4px)}
+.sb-nav a.active{color:#FFD6D6}
+.sb-nav a.active::after{content:"";flex:1;height:1.5px;background:#FFD6D6;animation:grow .5s var(--ease)}
+.sb-nav .grp{font-family:var(--f-sans);font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-2);opacity:.7;margin:.6rem 0 .1rem}
+@keyframes grow{from{transform:scaleX(0);transform-origin:left}}
+.sb-foot{margin-top:auto;display:grid;gap:.7rem}
+.sb-foot .btn{justify-content:center}
+.edge{position:absolute;top:50%;right:-30px;width:30px;height:64px;margin-top:-32px;border-radius:0 64px 64px 0;border:0;background:var(--green);display:grid;place-items:center;padding:0 5px 0 0;color:#FFD6D6;box-shadow:6px 0 18px var(--shade);transition:width .3s var(--ease),right .3s var(--ease)}
+.edge:hover{width:36px;right:-36px}
+.edge svg{width:15px;height:15px;transition:transform .6s var(--ease)}
+.sb-closed .sidebar{transform:translateX(-100%)} .sb-closed .edge svg{transform:rotate(180deg)}
+.at-intro .sidebar,html:not(.sb-ready) .sidebar{transform:translateX(calc(-100% - 40px))}
+.main{margin-left:var(--sb);transition:margin .6s var(--ease);min-width:0;position:relative}
+.sb-closed .main{margin-left:0}
+.scrim{position:fixed;inset:0;z-index:45;background:rgba(10,24,16,.4);opacity:0;pointer-events:none;transition:opacity .4s}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,56px)}
+.rv{transition:transform 1.1s var(--ease),opacity 1.1s var(--ease)}
+.js .rv:not(.in){opacity:.25;transform:translateY(40px) scale(.97)}
+
+/* ---------- case study pages (Figma card template) ---------- */
+.proj-sec{padding-block:clamp(2rem,6vh,4rem);min-height:100vh;min-height:100svh;display:grid;align-content:center}
+.proj-sec:first-of-type{padding-top:clamp(2rem,5vh,3rem)}
+.card{width:min(100%,calc((100svh - 7rem) * 1.385));margin-inline:auto;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px var(--shade);background:var(--page);cursor:pointer;transition:transform .6s var(--ease),box-shadow .6s}
+.card:hover{transform:translateY(-6px);box-shadow:0 40px 80px var(--shade)}
+.media{position:relative;aspect-ratio:1215/716;overflow:hidden;background:var(--mb,#E6E6E6);container-type:inline-size}
+.tbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;border:0;text-align:left;padding:clamp(1rem,2.2cqw,1.6rem) clamp(1.2rem,2.6vw,2.2rem);background:var(--tb,#F2EFEC);color:var(--ink)}
+.tbar h2{font-size:clamp(1.7rem,3.2vw,2.8rem);line-height:1.05}
+.tbar .meta{display:block;font-family:var(--f-sans);font-size:.88rem;color:var(--ink-2);margin-top:.35rem}
+.tbar .go{flex:none;display:inline-flex;align-items:center;gap:.6rem;font-family:var(--f-sans);font-weight:600;font-size:.95rem;padding:.8rem 1.2rem;border-radius:999px;background:var(--green);color:#fff;transition:gap .35s var(--ease)}
+.tbar .go svg{width:15px;height:15px}
+.card:hover .tbar .go{gap:1rem}
+/* goodreads thumbnail: cursor taps the app, carousel of designs */
+.gt{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,#FFEDED,#FFD6D6)}
+.gt .slot{position:absolute;top:7%;left:50%;height:86%;aspect-ratio:440/950;border-radius:6cqw/2.6cqw;overflow:hidden;border:.55cqw solid #18211C;background:#fff;box-shadow:0 2cqw 4cqw rgba(60,20,30,.25);transition:transform .8s var(--ease),opacity .8s var(--ease),filter .8s;transform:translateX(-50%) scale(.82);opacity:0}
+.gt .slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.gt .slot.c{transform:translateX(-50%);opacity:1;z-index:3}
+.gt .slot.l{transform:translateX(-148%) scale(.84) rotate(-3deg);opacity:.92;z-index:2;filter:saturate(.9)}
+.gt .slot.r{transform:translateX(48%) scale(.84) rotate(3deg);opacity:.92;z-index:2;filter:saturate(.9)}
+.gt .slot.ll{transform:translateX(-230%) scale(.7);opacity:0}
+.gt .slot.rr{transform:translateX(130%) scale(.7);opacity:0}
+.home{position:absolute;inset:0;background:linear-gradient(170deg,#F7E3E3,#DCE8D6);display:grid;grid-template-columns:repeat(4,1fr);align-content:start;gap:7% 9%;padding:22% 10% 0;transition:opacity .4s}
+.home i{aspect-ratio:1;border-radius:24%;display:block;box-shadow:0 .3cqw .6cqw rgba(0,0,0,.12)}
+.home .gr{background:#F4F1EA url('assets/gr/gr-logo.webp') center/80% no-repeat;position:relative}
+.home .gr::after{content:"Goodreads";position:absolute;top:104%;left:50%;transform:translateX(-50%);font-family:var(--f-sans);font-size:.8cqw;color:#333;white-space:nowrap}
+.home .tm{position:absolute;top:5%;left:0;right:0;text-align:center;font-family:var(--f-sans);font-weight:600;font-size:1.3cqw;color:#333}
+.launch{position:absolute;inset:0;clip-path:circle(0% at var(--ix,50%) var(--iy,40%));transition:clip-path .7s var(--ease-io)}
+.gt.open .launch{clip-path:circle(150% at var(--ix,50%) var(--iy,40%))}
+.gt.open .home{opacity:0;transition-delay:.5s}
+.ripple{position:absolute;width:5cqw;height:5cqw;margin:-2.5cqw 0 0 -2.5cqw;border-radius:50%;border:.3cqw solid #A94F62;opacity:0;pointer-events:none;z-index:6}
+.gt.click .ripple{animation:rip .6s ease-out}
+@keyframes rip{from{opacity:1;transform:scale(.3)}to{opacity:0;transform:scale(1.6)}}
+.cursor{position:absolute;width:3.2cqw;z-index:7;left:88%;top:92%;transition:left 1.2s var(--ease-io),top 1.2s var(--ease-io),transform .15s,opacity .4s;filter:drop-shadow(0 .3cqw .4cqw rgba(0,0,0,.3))}
+.gt.click .cursor{transform:scale(.82)}
+.gt.open .cursor{opacity:0}
+.gt .cap{position:absolute;left:50%;bottom:2.5%;transform:translateX(-50%);font-family:var(--f-sans);font-size:1.15cqw;font-weight:600;color:#9E7474;letter-spacing:.06em;opacity:0;transition:opacity .6s;white-space:nowrap}
+.gt.open .cap{opacity:1}
+/* fashion thumbnail */
+.ft{position:absolute;inset:0;background:linear-gradient(160deg,#E8F4E6,#FCE4EC)}
+.ft .win{position:absolute;left:14%;top:12%;width:72%;height:80%;border-radius:1.2cqw;overflow:hidden;background:#fff;box-shadow:0 2.4cqw 5cqw rgba(160,40,80,.22);display:flex;flex-direction:column}
+.ft .bar{height:4.2%;min-height:10px;background:#EFE8E8;display:flex;gap:.5cqw;align-items:center;padding:0 1cqw}
+.ft .bar i{width:.8cqw;height:.8cqw;border-radius:50%;background:#E59A9A} .ft .bar i:nth-child(2){background:#E8CF8A} .ft .bar i:nth-child(3){background:#9DC49A}
+.ft .hdr{font-family:Arial,Helvetica,sans-serif;font-weight:700;color:#D6246E;font-size:2.2cqw;padding:1.4cqw 2cqw .8cqw;border-bottom:.35cqw solid #D6246E}
+.ft .tabs{display:flex;justify-content:center;gap:1cqw;padding:1cqw;background:#E8F4E6;border-bottom:.35cqw solid #D6246E}
+.ft .tabs span{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:1.05cqw;color:#fff;background:#D6246E;border-radius:.5cqw;padding:.55cqw 1.1cqw;transition:transform .3s,background .3s,box-shadow .3s}
+.ft .tabs span.on{background:#A0124F;transform:translateY(-.3cqw) scale(1.06);box-shadow:0 .5cqw 1cqw rgba(160,18,79,.35)}
+.ft .shot{flex:1;min-height:0;overflow:hidden;position:relative}
+.ft .shot img{width:100%;margin-top:-11.6%;animation:shotpan 10s ease-in-out infinite alternate}
+@keyframes shotpan{to{transform:translateY(-34%)}}
+.ft .spark{position:absolute;color:#D6246E;font-size:3cqw;animation:twinkle 2.4s ease-in-out infinite}
+.ft .spark.g{color:#5FA06B}
+@keyframes twinkle{0%,100%{transform:scale(.6) rotate(0);opacity:.4}50%{transform:scale(1.15) rotate(25deg);opacity:1}}
+.ft .heart{position:absolute;width:3cqw;animation:floatup 4s ease-in infinite}
+@keyframes floatup{0%{transform:translateY(0) scale(.6);opacity:0}20%{opacity:1}100%{transform:translateY(-22cqw) scale(1.1);opacity:0}}
+.ft .fcur{position:absolute;width:2.6cqw;z-index:5;transition:left .9s var(--ease-io),top .9s var(--ease-io);filter:drop-shadow(0 .3cqw .4cqw rgba(0,0,0,.3))}
+/* statler thumbnail */
+.stt{position:absolute;inset:0;background:#1F3B2D}
+.stt .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 16s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.16) translate(-3%,-2%)}}
+.stt .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,30,22,.15),rgba(15,30,22,.55))}
+.stt .plan{position:absolute;right:3.5%;bottom:6%;width:40%;border-radius:1cqw;overflow:hidden;background:#111;box-shadow:0 2cqw 4cqw rgba(0,0,0,.45);border:.3cqw solid rgba(255,255,255,.85)}
+.stt .plan img{width:100%;display:block}
+.stt .pn{position:absolute;width:2.4cqw;height:2.4cqw;margin:-2.4cqw 0 0 -1.2cqw;border:0;padding:0;background:none;cursor:pointer;transition:transform .3s var(--ease)}
+.stt .pn::before{content:"";position:absolute;inset:0;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#F2A33A;box-shadow:0 .3cqw .6cqw rgba(0,0,0,.4)}
+.stt .pn span{position:relative;font-family:var(--f-sans);font-size:1cqw;font-weight:700;color:#1C2A22}
+.stt .pn.on{transform:translateY(-.4cqw) scale(1.25)} .stt .pn.on::before{background:#FFD6D6}
+.stt .lens{position:absolute;left:5%;top:8%;width:42%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:.45cqw solid #FFD6D6;box-shadow:0 2cqw 5cqw rgba(0,0,0,.45);background:#000}
+.stt .lens img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity .6s,transform 1.2s var(--ease)}
+.stt .lens img.on{opacity:1;transform:none}
+.stt .ltag{position:absolute;left:5%;top:calc(8% + 42cqw * .92);transform:translateY(-120%);margin-left:8cqw;font-family:var(--f-sans);font-weight:600;font-size:1.2cqw;color:#1C2A22;background:#FFD6D6;padding:.5cqw 1cqw;border-radius:999px;white-space:nowrap}
+.stt .hint{position:absolute;right:3.5%;bottom:calc(6% + 40% * .53 + 2cqw);font-family:var(--f-sans);font-size:1.05cqw;color:#fff;opacity:.85}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+.about .art2{background:#FFD6D6;border-radius:24px;padding:1.5rem;color:var(--face-ink);position:sticky;top:2rem}
+.about h2{font-size:clamp(2.6rem,5.6vw,4.4rem);line-height:1;margin-bottom:1.4rem}
+.about h2 em{font-family:var(--f-script);font-style:normal;color:var(--rose);font-size:1.25em}
+.dti{border-radius:18px;background:var(--green);color:var(--on-dark);padding:1.3rem 1.4rem;margin-bottom:1.6rem}
+.dti b{color:#FFD6D6;font-weight:400}
+.about .body{display:grid;gap:1rem;color:var(--ink-2);font-size:1.08rem}
+.facts{list-style:none;margin:1.6rem 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.facts li{border:1px solid var(--line);border-radius:14px;padding:.85rem 1rem;background:var(--page);font-size:1rem;line-height:1.35}
+.wnd{margin-top:3.5rem}
+.wnd h3{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:1.2rem}
+.bento{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:1rem}
+.tile{border-radius:18px;background:var(--page);border:1px solid var(--line);min-height:230px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.tile h4{font-size:1.35rem;padding:1rem 1.1rem;position:relative;z-index:1}
+.tile .ts{flex:1;display:grid;place-items:center;padding:0 1rem 1rem}
+.tile.photo{min-height:300px}
+.tile.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.tile.photo:hover img{transform:scale(1.06)}
+.tile.photo h4{margin-top:auto;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff;padding-top:3rem}
+.flipbook{width:130px;height:96px;position:relative;perspective:600px}
+.flipbook i{position:absolute;top:0;width:50%;height:100%;background:#FFD6D6;border:1.5px solid var(--green)}
+.flipbook i.l{left:0;border-radius:8px 0 0 8px} .flipbook i.r{right:0;border-radius:0 8px 8px 0;transform-origin:left center} .flipbook i.f{background:var(--cream);z-index:2;animation:flip 2.4s var(--ease-io) infinite}
+@keyframes flip{to{transform:rotateY(-180deg)}}
+.contact{background:#FFD6D6;text-align:center;padding-block:clamp(4rem,10vw,7rem)}
+.contact h2{font-size:clamp(3rem,9vw,6.5rem);line-height:1;color:#1C2A22}
+.contact h2 em{font-family:var(--f-script);font-style:normal;color:#9E7474}
+.mail{display:inline-flex;align-items:center;gap:1rem;margin-top:2rem;padding:.5rem .5rem .5rem 1.5rem;border-radius:999px;background:#fff;max-width:100%;flex-wrap:wrap;justify-content:center;color:#1C2A22}
+.mail span{font-size:1.1rem;user-select:all;overflow-wrap:anywhere}
+.links{display:flex;gap:1.6rem;justify-content:center;margin-top:1.6rem;flex-wrap:wrap;font-family:var(--f-sans);font-weight:600;color:#1C2A22}
+.foot{background:var(--green);color:var(--on-dark-2);font-family:var(--f-sans);font-size:.8rem;padding-block:1.2rem}
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,160%);background:var(--ink);color:var(--cream);font-family:var(--f-sans);font-size:.85rem;padding:.7rem 1.2rem;border-radius:999px;z-index:400;transition:transform .45s var(--ease)}
+.toast.show{transform:translate(-50%,0)}
+.ring{position:fixed;left:0;top:0;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;border:1.5px solid var(--rose);pointer-events:none;z-index:500;display:grid;place-items:center;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .35s,border-color .35s,opacity .3s;opacity:0}
+.ring span{font-family:var(--f-sans);font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1C2A22;opacity:0}
+.ring.on{opacity:1} .ring.big{width:84px;height:84px;margin:-42px 0 0 -42px;background:#FFD6D6;border-color:#FFD6D6} .ring.big span{opacity:1}
+
+/* bubble labels */
+.blob .bt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 14%;font-family:'Abyssinica SIL',serif;font-size:1.75cqw;line-height:1.2;color:#7A5555;pointer-events:none;user-select:none;-webkit-user-select:none;z-index:1}
+@media (max-aspect-ratio:4/5){.blob .bt{font-size:4.4cqw}}
+/* character */
+.chara{display:block;width:100%;height:auto;overflow:visible;color:var(--face-ink);--c-skin:#E3B48E;--c-shade:#CF9A74;--c-shade2:#B9805E;--c-hair:#58392A;--c-hair2:#3F281D;--c-hl:#9E7455;--c-hline:#3B2219;--c-brow:#5A3A2C;--c-lip:#A9505A;--c-top:#2B2624}
+.face .chara{--face-fill:#FFD6D6}
+.face{display:grid;place-items:center}
+.cw{position:relative}
+.peekc{position:absolute;right:7%;top:0;width:clamp(78px,8vw,104px);transform:translateY(-82%);z-index:5;pointer-events:none;transition:transform .7s var(--ease);--face-fill:var(--cream)}
+.js .cw:not(.in) .peekc{transform:translateY(-10%)}
+.peekc .chara,.face .chara{overflow:hidden}
+.cw:hover .peekc{transform:translateY(-92%) rotate(-3deg)}
+.contact .hey{width:clamp(140px,16vw,190px);margin:0 auto 1rem;--face-fill:#FFEDED}
+.contact .hey .wave{transform-origin:146px 172px;animation:wave 2.2s ease-in-out infinite}
+@keyframes wave{0%,60%,100%{transform:rotate(0)}10%,30%{transform:rotate(-14deg)}20%,40%{transform:rotate(8deg)}}
+/* phones without canvas */
+.prow{display:flex;gap:clamp(1rem,3vw,2rem);justify-content:center;flex-wrap:wrap;align-items:flex-start}
+.prow figure{margin:0;display:grid;gap:.6rem;justify-items:center;width:min(230px,42%)}
+.prow figcaption{font-family:var(--f-sans);font-size:.82rem;color:var(--ink-2);text-align:center}
+.pz{border:0;background:none;padding:0;cursor:zoom-in;width:100%;transition:transform .5s var(--ease)}
+.pz:hover{transform:translateY(-6px)}
+.pz img{width:100%;border-radius:16px;box-shadow:0 18px 40px var(--shade);border:1px solid var(--line)}
+.ask.c{text-align:center;margin-top:1.4rem}
+/* continuous case studies */
+.cs-sent{display:grid;justify-items:center;gap:.6rem;padding:4rem 1rem 6rem;background:linear-gradient(var(--cream),var(--pink-2));text-align:center}
+.cs-sent .nt{font-size:clamp(2rem,5vw,3.4rem);line-height:1}
+.cs-sent .chev{font-size:1.6rem;color:var(--rose);animation:bobd 1.4s ease-in-out infinite}
+@keyframes bobd{50%{transform:translateY(8px)}}
+.cs-div{display:flex;align-items:center;gap:1rem;padding:1.2rem clamp(16px,6vw,72px);background:var(--green);color:var(--on-dark)}
+.cs-div .label{color:#FFD6D6}
+.cs-end{display:grid;justify-items:center;gap:1rem;padding:4rem 1rem 6rem;text-align:center;background:var(--pink-2)}
+.cs-end .chara{width:150px;--face-fill:#FFEDED}
+.cs-end h3{font-size:clamp(1.8rem,4vw,2.6rem)}
+/* resume */
+.rs{position:fixed;inset:0;z-index:420;background:rgba(10,24,16,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:clamp(0px,3vw,32px);opacity:0;transition:opacity .4s}
+.rs.open{opacity:1}
+.rs .doc{background:var(--page);color:var(--ink);width:min(860px,100%);max-height:100%;overflow-y:auto;border-radius:18px;padding:clamp(1.4rem,4vw,3rem);position:relative;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.rs .doc h2{font-size:clamp(2rem,4vw,2.8rem)}
+.rs .doc .contact-l{font-family:var(--f-sans);font-size:.9rem;color:var(--ink-2);margin-top:.3rem}
+.rs .doc h3{font-family:var(--f-sans);font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin:1.8rem 0 .7rem;padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+.rs .item{margin-bottom:1rem}
+.rs .item .top{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap}
+.rs .item b{font-weight:400;font-size:1.08rem}
+.rs .item .dt{font-family:var(--f-sans);font-size:.82rem;color:var(--ink-2)}
+.rs .item p{color:var(--ink-2);font-size:.98rem;margin-top:.25rem}
+.rs .x{position:sticky;top:0;float:right;margin:-.6rem -.6rem 0 0;background:var(--page)}
+
+/* ---------- case study sheet ---------- */
+.cs-ov{position:fixed;inset:0;z-index:200;background:rgba(10,24,16,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity .5s var(--ease)}
+.cs-ov.open{opacity:1}
+.cs{position:absolute;inset:clamp(0px,2vw,24px) clamp(0px,2vw,24px) 0;background:var(--cream);border-radius:24px 24px 0 0;display:flex;flex-direction:column;overflow:hidden;transform:translateY(80px);transition:transform .75s var(--ease);box-shadow:0 -20px 60px rgba(0,0,0,.3)}
+.cs-ov.open .cs{transform:none}
+.cs-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem clamp(16px,3vw,28px);border-bottom:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:relative;z-index:3}
+.cs-bar .t{font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0} .cs-bar .t i{color:var(--ink-2)}
+.cs-bar .g{display:flex;gap:.4rem;align-items:center} .cs-bar .round{width:40px;height:40px}
+.cs-prog{position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:var(--rose);transform-origin:0 50%;transform:scaleX(0)}
+.cs-sc{flex:1;overflow-y:auto;overscroll-behavior:contain}
+.cs-hero{padding:clamp(2.5rem,6vw,5rem) clamp(16px,6vw,72px) clamp(2rem,4vw,3rem);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:2rem;align-items:center;background:var(--hb,var(--pink));color:var(--hc,var(--ink));position:relative;overflow:hidden}
+.cs-hero .label{color:inherit;opacity:.75}
+.cs-hero h1{font-size:clamp(3rem,7.5vw,6.4rem);line-height:.95}
+.cs-hero h1 em{font-style:italic}
+.cs-hero .sub{font-size:clamp(1.1rem,2vw,1.45rem);margin-top:1rem;font-weight:300;opacity:.85}
+.cs-hero .by{margin-top:1.4rem}
+.cs-hero.photo{min-height:min(70vh,560px);grid-template-columns:minmax(0,1fr)}
+.cs-hero.photo > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;animation:kb 18s ease-in-out infinite alternate}
+.cs-hero.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,24,16,.82),rgba(10,24,16,.35));z-index:1}
+.cs-hero.photo > div{position:relative;z-index:2}
+.hero-fan{position:relative;height:clamp(260px,34vw,440px)}
+.hero-fan img{position:absolute;top:50%;left:50%;height:100%;width:auto;border-radius:14px;box-shadow:0 30px 60px var(--shade);transition:transform .25s linear}
+.cfacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.cfacts div{padding:1.2rem clamp(16px,3vw,28px);border-right:1px solid var(--line)} .cfacts div:last-child{border-right:0}
+.cfacts dt{font-family:var(--f-sans);font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+.cfacts dd{margin:.3rem 0 0;font-size:1.1rem}
+.cs-body{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(2rem,5vw,4.5rem);padding:clamp(2.5rem,5vw,4rem) clamp(16px,6vw,72px) 4rem}
+.rail{position:sticky;top:2rem;align-self:start}
+.rail ol{list-style:none;margin:1rem 0 0;padding:0;position:relative}
+.rail ol::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1.5px;background:var(--line)}
+.rail .fill{position:absolute;left:0;top:0;width:1.5px;height:0;background:var(--rose);transition:height .25s linear}
+.rail a{display:block;padding:.5rem 0 .5rem 1.1rem;text-decoration:none;color:var(--ink-2);font-size:1rem;font-weight:300;transition:color .3s,transform .4s var(--ease);position:relative}
+.rail a small{display:block;font-family:var(--f-sans);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.rail a.active{color:var(--ink);transform:translateX(4px)}
+.rail a.active::before{content:"";position:absolute;left:-4px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--rose)}
+.st{padding-bottom:4.5rem;scroll-margin-top:1rem}
+.st + .st{border-top:1px solid var(--line);padding-top:4rem}
+.st > .label{display:block;margin-bottom:.8rem;color:var(--rose)}
+.st h2{font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.02;margin-bottom:1.4rem}
+.st h2 em{font-style:italic;color:var(--rose)}
+.st h3{font-size:1.5rem;margin:2.6rem 0 1rem}
+.prose{color:var(--ink-2);font-weight:300;font-size:1.1rem;max-width:42rem;display:grid;gap:1rem}
+.prose b{color:var(--ink);font-weight:500}
+.quote{font-size:clamp(1.6rem,3.2vw,2.5rem);line-height:1.18;font-weight:300;font-style:italic;max-width:40rem;margin-top:2rem;min-height:2.4em}
+.quote .cur{display:inline-block;width:1.5px;height:1em;background:var(--rose);vertical-align:-.12em;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.quote-by{font-family:var(--f-sans);font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-top:.8rem}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.25rem}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.card{background:var(--page);border:1px solid var(--line);border-radius:16px;padding:1.3rem}
+.card .label{display:block;margin-bottom:.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.chips span{font-family:var(--f-sans);font-size:.78rem;padding:.45rem .9rem;border-radius:999px;background:var(--pink);color:var(--green);font-weight:500}
+.logo-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1.5rem;align-items:center;margin-top:1.5rem}
+.logo-row img{width:96px;height:96px;border-radius:22px}
+.why{margin-top:2rem;border-left:3px solid var(--rose);padding-left:1.4rem}
+.why p{font-size:1.25rem;font-weight:300;font-style:italic;line-height:1.45;max-width:40rem}
+.walk{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:2rem;align-items:center;margin-top:1.5rem}
+.walk-ph{position:relative;max-width:280px;margin-inline:auto;width:100%;aspect-ratio:470/1022}
+.walk-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:scale(.96) translateX(16px);transition:opacity .6s var(--ease),transform .6s var(--ease);filter:drop-shadow(0 24px 40px var(--shade))}
+.walk-ph img.on{opacity:1;transform:none}
+.tap{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:2px solid var(--rose);background:rgba(169,79,98,.25);animation:tapP 1.6s var(--ease) infinite;pointer-events:none;z-index:3;transition:left .6s var(--ease),top .6s var(--ease)}
+@keyframes tapP{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.5);opacity:0}}
+.steps{display:grid;gap:.6rem}
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem;align-items:start;text-align:left;border:1px solid var(--line);background:var(--page);border-radius:14px;padding:1rem 1.1rem;transition:border-color .3s,background .3s,transform .4s var(--ease);color:var(--ink)}
+.step .k{font-family:var(--f-sans);font-size:.7rem;font-weight:600;letter-spacing:.14em;color:var(--ink-2);padding-top:.25rem}
+.step b{font-weight:400;font-size:1.1rem;display:block} .step span{color:var(--ink-2);font-weight:300;font-size:.96rem}
+.step.on{border-color:var(--rose);background:var(--pink-2);transform:translateX(6px)}
+.tapcount{font-family:var(--f-sans);font-size:.78rem;color:var(--ink-2);margin-top:.6rem} .tapcount b{color:var(--rose);font-weight:700}
+.persona{display:flex;align-items:center;gap:1rem}
+.persona .ic{width:56px;height:56px;border-radius:50%;background:#F4EC7A;display:grid;place-items:center;flex:none;transition:transform .5s var(--ease)}
+.persona:hover .ic{transform:rotate(-10deg) scale(1.08)} .persona .ic svg{width:30px}
+.persona b{display:block;font-weight:400;font-size:1.2rem} .persona span{font-family:var(--f-sans);font-size:.78rem;color:var(--ink-2)}
+.pains{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+.pain{text-align:left;border:1px solid var(--line);background:var(--page);border-radius:16px;padding:1.1rem;min-height:190px;display:flex;flex-direction:column;gap:.5rem;transition:transform .5s var(--ease),border-color .3s,background .3s;color:var(--ink)}
+.pain:hover{transform:translateY(-4px)}
+.pain .n{font-family:var(--f-sans);font-size:.7rem;font-weight:600;letter-spacing:.14em;color:var(--rose)}
+.pain b{font-weight:300;font-size:1.4rem;line-height:1.12}
+.pain .more{max-height:0;overflow:hidden;color:var(--ink-2);font-size:.92rem;font-weight:300;transition:max-height .5s var(--ease)}
+.pain .h{margin-top:auto;font-family:var(--f-sans);font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.pain[aria-expanded="true"]{background:var(--pink-2);border-color:var(--rose)} .pain[aria-expanded="true"] .more{max-height:9rem}
+.insight{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;margin-top:1.5rem}
+.insight .card b{font-weight:300;font-size:1.35rem;line-height:1.2;display:block}
+.tabs{display:inline-flex;flex-wrap:wrap;gap:.3rem;padding:.3rem;border-radius:999px;border:1px solid var(--line);background:var(--page)}
+.tab{border:0;background:transparent;border-radius:999px;padding:.55rem 1.05rem;font-family:var(--f-sans);font-size:.78rem;font-weight:600;color:var(--ink-2);transition:background .35s,color .35s}
+.tab[aria-selected="true"]{background:var(--rose);color:#fff}
+.tp{margin-top:1.5rem;animation:tpIn .6s var(--ease)}
+@keyframes tpIn{from{opacity:.01;transform:translateY(14px)}to{opacity:1;transform:none}}
+.fix{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2rem;align-items:center}
+.zoom{position:relative;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);cursor:zoom-in;padding:0;display:block;width:100%}
+.zoom img{width:100%;height:auto;transition:transform .8s var(--ease)} .zoom:hover img{transform:scale(1.04)}
+.zoom .zi{position:absolute;right:.7rem;bottom:.7rem;font-family:var(--f-sans);font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--cream);padding:.35rem .7rem;border-radius:999px;opacity:0;transform:translateY(6px);transition:all .35s var(--ease)}
+.zoom:hover .zi,.zoom:focus-visible .zi{opacity:1;transform:none}
+.pc{display:grid;gap:1.2rem}
+.pc ul{margin:.4rem 0 0;padding-left:1.1rem;color:var(--ink-2);font-weight:300;display:grid;gap:.25rem}
+.pc .label{color:var(--ink)}
+.chosen{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--f-sans);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:#FFD6D6;color:#1C2A22;border-radius:999px;padding:.45rem .85rem;justify-self:start}
+.flow{border:1px solid var(--line);border-radius:18px;background:var(--page);padding:1.5rem;overflow-x:auto}
+.flow-grid{display:grid;grid-template-columns:auto 22px auto 22px auto 22px auto 22px auto 22px auto;grid-template-rows:repeat(5,auto);align-items:center;gap:.5rem 0;min-width:720px}
+.fn{border:1px solid var(--line);background:var(--cream);border-radius:10px;padding:.5rem .65rem;font-family:var(--f-sans);font-size:.74rem;font-weight:500;text-align:center;transition:all .4s var(--ease);max-width:9.5rem;line-height:1.3}
+.fn.d{border-radius:999px;border-style:dashed}
+.fn.lit{background:var(--rose);border-color:var(--rose);color:#fff;transform:scale(1.06);box-shadow:0 8px 20px var(--shade)}
+.fa{height:1.5px;background:var(--line);position:relative}
+.fa::after{content:"";position:absolute;right:0;top:-3px;border:3.5px solid transparent;border-left:5px solid var(--ink-2);border-right:0}
+.flow-hint{display:block;font-family:var(--f-sans);font-size:.7rem;color:var(--ink-2);margin-top:.5rem}
+.flow-ctl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1rem}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:999px;padding:.25rem;background:var(--page)}
+.seg button{border:0;background:transparent;border-radius:999px;padding:.45rem .9rem;font-family:var(--f-sans);font-size:.76rem;font-weight:600;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--cream)}
+.variants{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:center}
+.vimg{max-width:300px;margin-inline:auto;width:100%}
+.ask{font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:300;font-style:italic;line-height:1.2}
+.finals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,3vw,2.5rem);align-items:start}
+.fin{display:grid;gap:.9rem;justify-items:center;margin:0}
+.fin .ph{position:relative;width:100%;max-width:260px}
+.fin .ph img{border-radius:18px;box-shadow:0 26px 50px var(--shade);border:6px solid #1c1716}
+.fin figcaption{font-size:1.1rem;font-weight:300}
+.hs{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:0;background:var(--rose);color:#fff;font-family:var(--f-sans);font-size:.72rem;font-weight:700;display:grid;place-items:center;animation:hsP 2.2s infinite;z-index:2}
+@keyframes hsP{0%{box-shadow:0 0 0 0 rgba(169,79,98,.6)}70%{box-shadow:0 0 0 12px rgba(169,79,98,0)}100%{box-shadow:0 0 0 0 rgba(169,79,98,0)}}
+.hs[aria-expanded="true"]{background:var(--ink);animation:none}
+.tip{position:absolute;z-index:4;left:50%;width:min(240px,80vw);transform:translate(-50%,10px);background:var(--ink);color:var(--cream);font-family:var(--f-sans);font-size:.8rem;line-height:1.45;padding:.8rem .9rem;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease)}
+.tip.on{opacity:1;transform:translate(-50%,0)}
+.ba{position:relative;max-width:320px;margin:1.5rem auto 0;aspect-ratio:470/1022;border-radius:20px;overflow:hidden;box-shadow:0 26px 50px var(--shade);border:6px solid #1c1716;--x:50%;touch-action:none}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.ba .after{clip-path:inset(0 0 0 var(--x))}
+.ba .handle{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:#fff}
+.ba .handle::after{content:"⟷";position:absolute;top:50%;left:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:#FFD6D6;color:#1c1716;display:grid;place-items:center;font-size:1rem;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.ba .tg{position:absolute;top:.8rem;font-family:var(--f-sans);font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;background:rgba(28,23,22,.8);color:#fff;padding:.3rem .6rem;border-radius:999px}
+.ba input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:ew-resize}
+.end{text-align:center;padding:4rem 1rem 2rem}
+.end .script{font-size:clamp(3rem,8vw,5.5rem);color:var(--rose);line-height:1}
+.next{display:flex;justify-content:space-between;align-items:center;gap:1rem;border-top:1px solid var(--line);padding:2rem clamp(16px,6vw,72px) 2.6rem;flex-wrap:wrap;background:var(--pink)}
+.next button{border:0;background:none;padding:0;text-align:right}
+.next .nt{font-size:clamp(1.8rem,4vw,3rem);font-weight:300;line-height:1;transition:color .3s}
+.next button:hover .nt{color:var(--rose)}
+.ph-slot{border:1.5px dashed var(--line);border-radius:16px;min-height:180px;display:grid;place-items:center;text-align:center;color:var(--ink-2);padding:1.2rem;font-family:var(--f-sans);font-size:.85rem}
+.todo{font-family:var(--f-sans);font-size:.78rem;color:var(--rose);border:1.5px dashed var(--rose);border-radius:10px;padding:.6rem .9rem;margin-top:1.2rem;display:inline-block}
+/* statler */
+.emo{border:1px solid var(--line);border-radius:18px;background:var(--page);padding:1.2rem 1.2rem .8rem;margin-top:1rem}
+.emo svg{width:100%;height:auto;display:block;overflow:visible}
+.emo .ln{fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1000;stroke-dashoffset:1000;transition:opacity .4s,stroke-width .4s}
+.emo.in .ln{animation:draw 2.2s var(--ease-io) forwards}
+.emo .ln.d1{animation-delay:.2s} .emo .ln.d2{animation-delay:.45s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.emo.focus .ln:not(.on),.emo.focus .pt:not(.on){opacity:.12}
+.emo .pt{transition:opacity .4s}
+.emo text{font-family:var(--f-sans);font-size:11px;fill:var(--ink-2)}
+.emo .stg{cursor:pointer}
+.emo .stg rect{fill:transparent}
+.emo .stg:hover rect,.emo .stg.on rect{fill:rgba(169,79,98,.07)}
+.thought{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin-top:1rem}
+.thought .card{transition:transform .4s var(--ease)}
+.thought .card b{font-weight:400;display:block;margin-top:.2rem}
+.leg{display:inline-flex;align-items:center;gap:.45rem}
+.leg i{width:14px;height:4px;border-radius:2px;display:inline-block}
+.concept{position:relative;border-radius:20px;overflow:hidden;min-height:340px;display:grid;place-items:center;padding:2rem}
+.concept img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 20s ease-in-out infinite alternate}
+.concept .box{position:relative;background:#FBF7F2;color:#1F3B2D;text-align:center;padding:2rem 2.4rem;border-radius:4px;max-width:420px}
+.concept .box h3{font-size:clamp(2rem,4vw,3rem);margin:.4rem 0 .8rem;letter-spacing:.02em;text-transform:uppercase;font-weight:400}
+.concept .box p{font-family:var(--f-sans);font-size:.9rem;color:#1F3B2D;line-height:1.7}
+.mood{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;align-items:stretch}
+.mood .zoom{height:100%} .mood .zoom img{height:100%;object-fit:cover}
+.pal{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.4rem;align-content:start}
+.pal button{aspect-ratio:1/1.6;border-radius:10px;border:0;background:var(--sw);position:relative;transition:transform .4s var(--ease)}
+.pal button:hover{transform:translateY(-8px) scale(1.05)}
+.pal button span{position:absolute;bottom:.4rem;left:50%;transform:translateX(-50%);font-family:var(--f-sans);font-size:.55rem;font-weight:600;color:#fff;mix-blend-mode:difference;opacity:0;transition:opacity .3s}
+.pal button:hover span{opacity:1}
+.fp{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:1.5rem;align-items:center}
+.fp-map{position:relative;border-radius:14px;overflow:hidden;background:#111}
+.fp-map img{width:100%}
+.fpin{position:absolute;width:30px;height:30px;margin:-30px 0 0 -15px;border:0;padding:0;background:none;transition:transform .3s var(--ease)}
+.fpin::before{content:"";position:absolute;inset:0;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#F2A33A;box-shadow:0 4px 10px rgba(0,0,0,.4)}
+.fpin span{position:relative;font-family:var(--f-sans);font-size:.72rem;font-weight:700;color:#1C2A22}
+.fpin:hover,.fpin[aria-pressed="true"]{transform:translateY(-4px) scale(1.15)}
+.fpin[aria-pressed="true"]::before{background:var(--rose)} .fpin[aria-pressed="true"] span{color:#fff}
+.fp-card{border-radius:16px;overflow:hidden;background:var(--page);border:1px solid var(--line)}
+.fp-card img{width:100%;height:260px;object-fit:cover;animation:tpIn .6s var(--ease)}
+.fp-card div{padding:1rem 1.2rem}
+.fp-card b{font-weight:400;font-size:1.3rem;display:block}
+.closer{position:relative;border-radius:20px;overflow:hidden;min-height:360px;display:grid;place-items:center;text-align:center;color:#fff;padding:2rem}
+.closer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55);animation:kb 18s ease-in-out infinite alternate}
+.closer > div{position:relative}
+.closer h3{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:300;text-transform:uppercase;letter-spacing:.03em}
+.closer p{font-family:var(--f-sans);font-size:.8rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#F2C4CB;border:1px solid #F2C4CB;display:inline-block;padding:.7rem 1.2rem;margin-top:1rem}
+.lb{position:fixed;inset:0;z-index:450;background:rgba(8,18,12,.88);display:grid;place-items:center;padding:clamp(12px,4vw,48px);opacity:0;transition:opacity .4s;cursor:zoom-out}
+.lb.open{opacity:1}
+.lb img{max-width:100%;max-height:100%;border-radius:12px;background:#fff;transform:scale(.94);transition:transform .5s var(--ease)}
+.lb.open img{transform:none}
+.lb button{position:absolute;top:1rem;right:1rem;background:#fff;color:#1c1716;border:0}
+
+/* fashion case study */
+.fp-hbtn{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.fp-hbtn .btn{color:var(--ink)} .fp-hbtn .btn.rose{color:#fff}
+.fp-hero{position:relative;padding:0 6% 8% 0}
+.fp-win{border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 30px 60px var(--shade);border:1px solid var(--line)}
+.fp-bar{display:flex;align-items:center;gap:.35rem;padding:.55rem .8rem;background:#F3EEE9;border-bottom:1px solid var(--line)}
+.fp-bar i{width:9px;height:9px;border-radius:50%;background:#E3B7BF} .fp-bar i:nth-child(2){background:#EFD9A6} .fp-bar i:nth-child(3){background:#BFD8BE}
+.fp-bar span{flex:1;margin-left:.6rem;font-family:var(--f-sans);font-size:.7rem;color:var(--ink-2);background:#fff;border-radius:999px;padding:.25rem .8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fp-bar a{color:var(--ink-2);display:grid;place-items:center;padding:.2rem} .fp-bar a:hover{color:var(--rose)}
+.fp-shots{position:relative;aspect-ratio:1280/900}
+.fp-shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .8s var(--ease)}
+.fp-shots img.on{opacity:1}
+.fp-phone{position:absolute;right:0;bottom:0;width:24%;border-radius:18px;border:5px solid #1c1716;overflow:hidden;background:#fff;box-shadow:0 24px 50px var(--shade)}
+.fp-phone .fp-shots{aspect-ratio:390/844}
+.fp-nav{display:flex;flex-wrap:wrap;gap:.5rem;padding:.8rem;background:#E8F4E6;border-top:3px solid #D6246E;border-bottom:3px solid #D6246E;border-radius:6px}
+.fp-nav a,.fp-nav span{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:.85rem;color:#fff;background:#D6246E;border-radius:6px;padding:.55rem 1rem;text-decoration:none;transition:transform .3s var(--ease),background .3s}
+.fp-nav a:hover{background:#A0124F;transform:translateY(-3px)}
+.fp-nav.sm{padding:.5rem;gap:.35rem} .fp-nav.sm span{font-size:.72rem;padding:.4rem .7rem}
+.fp-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;counter-reset:s}
+.fp-steps li{position:relative;border-top:3px solid var(--rose);padding-top:.8rem}
+.fp-steps b{display:block;font-weight:400;font-size:1.2rem} .fp-steps span{font-family:var(--f-sans);font-size:.8rem;color:var(--ink-2)}
+.fp-inspo .card{display:grid;gap:.9rem;align-content:start}
+.fp-crop{max-height:340px;overflow:hidden;border-radius:16px}
+.fp-crop .zoom img{object-fit:cover;object-position:top}
+.fp-host{font-family:var(--f-sans);font-size:.85rem;font-weight:600;color:var(--rose);text-decoration:none;display:inline-flex;gap:.4rem;align-items:center}
+.fp-inspo dl{margin:0;display:grid;gap:.25rem}
+.fp-inspo dt{font-family:var(--f-sans);font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-top:.6rem}
+.fp-inspo dd{margin:0;color:var(--ink-2);font-weight:300}
+.fp-per{align-items:flex-start} .fp-per .ic{background:var(--pink);font-size:1.4rem;color:var(--rose)}
+.fp-per b + span{display:block;margin-top:.2rem;line-height:1.45}
+.fp-q{display:flex;gap:1rem;align-items:baseline;font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:300;font-style:italic;line-height:1.3;max-width:46rem;margin-bottom:1.2rem}
+.fp-q span{font-family:var(--f-sans);font-style:normal;font-size:.75rem;font-weight:700;color:#fff;background:var(--rose);border-radius:999px;padding:.3rem .65rem;flex:none}
+.fp-ans p{color:var(--ink-2);font-weight:300}
+.fu{display:block;margin-top:.7rem;padding-top:.7rem;border-top:1px dashed var(--line);font-size:.93rem} .fu b{color:var(--ink);font-weight:500}
+.fp-goals{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.8rem}
+.fp-goals li{background:var(--pink-2);border-radius:16px;padding:1.1rem;display:flex;flex-direction:column;gap:.6rem;min-height:170px;transition:transform .5s var(--ease),background .3s}
+.fp-goals li:hover{transform:translateY(-6px);background:var(--pink)}
+.fp-goals .n{font-family:var(--f-sans);font-size:.7rem;font-weight:700;letter-spacing:.14em;color:var(--rose)}
+.fp-goals b{font-weight:300;font-size:1.25rem;line-height:1.2}
+.fp-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem}
+.fp-content ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.fp-content li{font-weight:300;color:var(--ink-2);font-size:.95rem;line-height:1.4}
+.fp-content i{display:inline-block;font-style:normal;font-family:var(--f-sans);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;padding:.15rem .4rem;margin-right:.4rem;vertical-align:.1em;background:#E8F4E6;color:var(--green)}
+.fp-content i[data-t="Image"]{background:var(--pink);color:var(--rose)} .fp-content i[data-t="Button"]{background:#F4EC7A;color:#1C2A22}
+.fp-sort{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2rem;align-items:center}
+.fp-sort-img{position:relative;aspect-ratio:4/3}
+.fp-sort-img .pz{position:absolute;inset:0;opacity:0;pointer-events:none;transform:scale(.97) rotate(-1deg);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.fp-sort-img .pz.on{opacity:1;pointer-events:auto;transform:none}
+.fp-sort-img .pz img{height:100%;object-fit:cover}
+.fp-fig{margin:0;display:grid;gap:.6rem}
+.fp-fig figcaption{font-family:var(--f-sans);font-size:.82rem;color:var(--ink-2);text-align:center}
+.fp-fig figcaption b{display:block;font-family:var(--f-serif,inherit);font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:.2rem}
+.fp-narrow{max-width:520px;margin-inline:auto}
+.fp-idea{display:flex;flex-direction:column;gap:.6rem} .fp-idea .n{font-family:var(--f-sans);font-size:.7rem;font-weight:700;letter-spacing:.14em;color:var(--rose)}
+.fp-idea p{font-weight:300;color:var(--ink-2)} .fp-idea .chosen{margin-top:auto;align-self:flex-start}
+.fp-code{margin-top:1.5rem;background:#1F3B2D;color:#DCE8D6;border-radius:16px;padding:1.2rem 1.4rem;overflow-x:auto}
+.fp-code .label{color:#FFD6D6}
+.fp-code pre{margin:.7rem 0 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;line-height:1.6;white-space:pre}
+.fp-ctl{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:space-between;margin-bottom:1rem}
+.fp-stage{display:grid;justify-items:center}
+.fp-live .fp-win{max-width:100%}
+.fp-frame{position:relative;overflow:hidden;background:#fff}
+.fp-frame iframe{border:0;display:block;transform-origin:0 0;background:#fff}
+.fp-live.mob .fp-win{border-radius:28px;border:8px solid #1c1716} .fp-live.mob .fp-bar{display:none}
+.fp-hint{font-family:var(--f-sans);font-size:.8rem;color:var(--ink-2);margin-top:1rem;text-align:center}
+.fp-live > .btn{display:flex;width:max-content;margin-inline:auto}
+.fp-act{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr) minmax(0,1fr);gap:1.2rem;align-items:start}
+.fp-act figcaption{text-align:left}
+@media (max-width:1000px){.fp-goals{grid-template-columns:repeat(2,minmax(0,1fr))}.fp-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.fp-sort,.fp-act{grid-template-columns:minmax(0,1fr)}.fp-act .fp-fig:first-child{max-width:300px;margin-inline:auto}.fp-hero{margin-top:1rem}}
+@media (max-width:600px){.fp-goals{grid-template-columns:minmax(0,1fr)}.fp-goals li{min-height:0}}
+@media (max-width:1000px){.pains{grid-template-columns:repeat(2,minmax(0,1fr))}.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.tile.photo{min-height:280px}}
+@media (max-width:900px){
+  .sidebar{width:min(84vw,300px);box-shadow:0 0 50px rgba(0,0,0,.25)}
+  .main,.sb-closed .main{margin-left:0}
+  .sb-open .scrim{opacity:1;pointer-events:auto}
+  .about,.fix,.walk,.variants,.insight,.two,.cs-hero,.fp,.mood{grid-template-columns:minmax(0,1fr)}
+  .about .art2{position:static}
+  .cs-body{grid-template-columns:minmax(0,1fr)}
+  .rail{position:sticky;top:0;z-index:2;background:var(--cream);margin-inline:calc(clamp(16px,6vw,72px) * -1);padding:.6rem clamp(16px,6vw,72px);border-bottom:1px solid var(--line)}
+  .rail > .label{display:none}
+  .rail ol{display:flex;gap:.4rem;overflow-x:auto;margin:0;scrollbar-width:none}
+  .rail ol::before,.rail .fill{display:none}
+  .rail a{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:.35rem .85rem;font-size:.85rem}
+  .rail a small{display:none}
+  .rail a.active{background:var(--rose);color:#fff;transform:none;border-color:var(--rose)} .rail a.active::before{display:none}
+  .cfacts{grid-template-columns:repeat(2,minmax(0,1fr))} .cfacts div:nth-child(2){border-right:0}
+  .three,.finals,.thought{grid-template-columns:minmax(0,1fr)}
+  .cs{inset:0;border-radius:0}
+  .proj-sec{min-height:0}
+  .card{width:100%}
+  .tbar{flex-wrap:wrap}
+}
+@media (max-width:600px){.pains,.bento{grid-template-columns:minmax(0,1fr)}.facts{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}html{scroll-behavior:auto}.js .rv:not(.in){opacity:1;transform:none}.emo .ln{stroke-dashoffset:0}.art .st path{stroke-dashoffset:0}}
+
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4" fill="none" stroke="#1E1A18" stroke-width="2"/><path d="M5 21c.8-4 3.6-6 7-6s6.2 2 7 6" fill="none" stroke="#1E1A18" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-cursor" viewBox="0 0 24 28"><path d="M3 2l17 11-7.5 1.6L17 24l-3.4 1.6-4.4-9.3L3 21z" fill="#fff" stroke="#1C2A22" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+</svg>
+
+<section class="intro" id="intro" aria-label="Hi, I'm Ishika, product designer">
+  <div class="stage">
+    <div class="art" id="art" aria-hidden="true"></div>
+    <h1 class="hi">Hi, I’m Ishika</h1>
+    <p class="pd">Product Designer</p>
+    <div class="blob b1"><span class="bt">Empathetic designer</span></div>
+    <div class="blob b2"><span class="bt">Accessibility first</span></div>
+    <div class="blob b3"><span class="bt">Challenging the standard user</span></div>
+  </div>
+  <div class="intro-ui"><a class="cue" href="#goodreads-sec" aria-label="Scroll to my work"></a></div>
+  <button class="replay" id="replay" type="button" aria-label="Replay intro" title="Replay intro"><svg><use href="#i-replay"/></svg></button>
+</section>
+
+<aside class="sidebar" id="sidebar" aria-label="Site navigation">
+  <div class="sb-inner">
+    <div class="sb-who">
+      <button type="button" class="face" id="face" aria-label="Change Ishika's expression"></button>
+      <h2>hi, I’m Ishika</h2>
+      <p class="pdl">Product Designer</p>
+    </div>
+    <nav class="sb-nav" aria-label="Sections">
+      <span class="grp">Case studies</span>
+      <a href="#goodreads-sec" data-nav="goodreads-sec">Goodreads</a>
+      <a href="#fashion-sec" data-nav="fashion-sec">Psychology &amp; Fashion</a>
+      <a href="#statler-sec" data-nav="statler-sec">The Statler</a>
+      <span class="grp">Me</span>
+      <a href="#about" data-nav="about">About me</a>
+      <a href="#hello" data-nav="hello">Contact</a>
+    </nav>
+    <div class="sb-foot">
+      <button class="btn pinkb" type="button" data-resume>Resume</button>
+    </div>
+  </div>
+  <button class="edge" id="edge" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="Close sidebar" title="Close sidebar"><svg><use href="#i-left"/></svg></button>
+</aside>
+<div class="scrim" id="scrim"></div>
+
+<div class="main" id="main">
+  <section class="proj-sec wrap" id="goodreads-sec" aria-label="Goodreads case study"><div class="cw rv"><span class="peekc" data-peek></span><article class="card" data-open="goodreads" data-cursor="Open">
+    <div class="media" style="--mb:#FFD6D6"><div class="gt" id="gt"></div></div>
+    <button type="button" class="tbar" style="--tb:#FFEDED" data-open="goodreads"><span><h2>Beyond the Bookshelf: Goodreads</h2><span class="meta">Mobile UX case study · UX designer · Individual project · 3 weeks</span></span><span class="go">View case study <svg><use href="#i-arrow"/></svg></span></button>
+  </article></div></section>
+
+  <section class="proj-sec wrap" id="fashion-sec" aria-label="Psychology and Fashion case study"><div class="cw rv"><span class="peekc" data-peek></span><article class="card" data-open="fashion" data-cursor="Open">
+    <div class="media"><div class="ft" id="ft"></div></div>
+    <button type="button" class="tbar" style="--tb:#E8F4E6" data-open="fashion"><span><h2>Psychology &amp; Fashion</h2><span class="meta">Web design · UX design · UI design</span></span><span class="go">View case study <svg><use href="#i-arrow"/></svg></span></button>
+  </article></div></section>
+
+  <section class="proj-sec wrap" id="statler-sec" aria-label="Statler case study"><div class="cw rv"><span class="peekc" data-peek></span><article class="card" data-open="statler" data-cursor="Open">
+    <div class="media"><div class="stt" id="stt"></div></div>
+    <button type="button" class="tbar" style="--tb:#EEF3EC" data-open="statler"><span><h2>The Statler Redesign</h2><span class="meta">Approachable luxury · Research lead · Group project</span></span><span class="go">View case study <svg><use href="#i-arrow"/></svg></span></button>
+  </article></div></section>
+
+  <section class="wrap" id="about" aria-labelledby="about-h" style="padding-block:clamp(4rem,10vw,7rem)">
+    <div class="about">
+      <div class="art2 rv" id="art2" aria-hidden="true"></div>
+      <div>
+        <h2 id="about-h">About <em>me</em></h2>
+        <div class="dti rv">Product designer on <b>Cornell Digital Tech &amp; Innovation</b>, working on <b>CUAPTS</b>, an off-campus housing discovery platform for Cornell students.</div>
+        <div class="body rv">
+          <p>Growing up in the Bay Area surrounded by a heavy tech influence, I came to Cornell wanting to explore Cognitive Science and its intersection with tech.</p>
+          <p>My interest in Cognitive Science arose from an initial curiosity in neurological disorders, as I couldn’t help but wonder when terms such as “autistic” and “Down syndrome” were stripped of their meanings as a diagnosis and were instead weaponized as insults. Hoping to educate others and reduce stigma, I published and presented a paper comparing treatment methods for children with autism and interned at Prodigy Psychiatric Clinic.</p>
+          <p>While I am now double majoring in both Cognitive Science and Information Science, I find my dedication to human experience and behavior to be something I carry with me. As a product designer, I hope to use my understanding of cognitive diversity to ensure the apps I build are accessible, making the daily routines of every type of person smoother.</p>
+          <p>Whether I am working on wireframes or redesigning a feature to be more intuitive, I aim to create empathetic digital experiences while challenging the concept of a standard user.</p>
+        </div>
+        <ul class="facts rv">
+          <li>Cognitive Science + Information Science, Cornell</li>
+          <li>Product designer, Cornell DTI (CUAPTS)</li>
+          <li>Published and presented a paper on treatment methods for children with autism</li>
+          <li>Intern, Prodigy Psychiatric Group</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wnd">
+      <h3>When not designing</h3>
+      <div class="bento">
+        <div class="tile photo rv"><img src="assets/me/felt.webp" alt="Ishika's handmade felt keychains clipped to a bag" loading="lazy"><h4>Arts and crafts</h4></div>
+        <div class="tile rv"><h4>Reading</h4><div class="ts"><div class="flipbook" aria-hidden="true"><i class="l"></i><i class="r"></i><i class="r f"></i></div></div></div>
+        <div class="tile rv"><h4>Traveling</h4><div class="ts"><svg viewBox="0 0 220 100" width="200" style="max-width:100%" aria-hidden="true"><path id="route" d="M10 80 C50 20 100 90 130 45 S200 30 210 62" fill="none" stroke="var(--ink-2)" stroke-width="1.5" stroke-dasharray="4 6"/><circle cx="10" cy="80" r="5" fill="#A94F62"/><circle cx="130" cy="45" r="5" fill="#A94F62"/><circle cx="210" cy="62" r="5" fill="#A94F62"/><path d="M0 -6 L16 0 L0 6 L4 0Z" fill="var(--ink)"><animateMotion dur="7s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion></path></svg></div></div>
+        <div class="tile rv"><h4>Ping pong</h4><div class="ts"><button type="button" id="pong" aria-label="Hit the ping pong ball" style="border:0;background:none;padding:0"><svg viewBox="0 0 120 110" width="110" height="100"><circle id="ball" cx="90" cy="20" r="7" fill="#FFD6D6" stroke="#1C2A22"/><g transform="rotate(-25 50 70)"><circle cx="50" cy="60" r="26" fill="#A94F62"/><rect x="45" y="84" width="10" height="24" rx="4" fill="#8A6246"/></g></svg></button></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="hello" aria-labelledby="hello-h">
+    <div class="wrap">
+      <div class="hey" id="hey"></div><h2 id="hello-h">Say <em>hello</em></h2>
+      <div class="mail"><span id="email">ik365@cornell.edu</span><button class="btn rose" type="button" id="copy">Copy</button></div>
+      <div class="links"><button type="button" class="btn" data-resume style="color:#1C2A22">View resume</button></div>
+    </div>
+  </section>
+  <footer class="foot"><div class="wrap" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap"><span>© 2026 Ishika Korla</span></div></footer>
+</div>
+
+<div class="cs-ov" id="csOv" hidden>
+  <div class="cs" role="dialog" aria-modal="true" aria-labelledby="csH" id="cs">
+    <div class="cs-bar">
+      <div class="g"><button class="round" id="csPrev" type="button" aria-label="Previous project"><svg><use href="#i-left"/></svg></button><button class="round" id="csNext" type="button" aria-label="Next project"><svg><use href="#i-right"/></svg></button></div>
+      <span class="t" id="csT"></span>
+      <button class="round" id="csX" type="button" aria-label="Close case study"><svg><use href="#i-x"/></svg></button>
+      <i class="cs-prog" id="csProg"></i>
+    </div>
+    <div class="cs-sc" id="csSc"></div>
+  </div>
+</div>
+<div class="lb" id="lb" hidden><img alt="" id="lbImg"><button class="round" type="button" id="lbX" aria-label="Close image"><svg><use href="#i-x"/></svg></button></div>
+<div class="rs" id="rs" hidden role="dialog" aria-modal="true" aria-labelledby="rsH"><div class="doc">
+<button class="round x" type="button" id="rsX" aria-label="Close resume"><svg><use href="#i-x"/></svg></button>
+<h2 id="rsH">Ishika Korla</h2><p class="contact-l">ik365@cornell.edu · Ithaca, NY</p>
+<h3>Education</h3>
+<div class="item"><div class="top"><b>Cornell University, College of Arts &amp; Sciences</b><span class="dt">Expected May 2029</span></div><p>Intended Bachelor of Arts in Cognitive Science and Information Science · GPA: 3.935</p></div>
+<div class="item"><div class="top"><b>Valley Christian High School, San Jose</b><span class="dt">August 2021 – May 2025</span></div><p>Honor Roll, Highest Honors (GPA: 4.5217 weighted)</p></div>
+<h3>Professional Experience</h3>
+<div class="item"><div class="top"><b>Product Designer, Cornell Digital Tech &amp; Innovation Project Team</b><span class="dt">September 2026 – Current</span></div><p>Onboarded as Product Designer for CUAPTS, an off-campus housing discovery platform for Cornell students, familiarizing with existing user flows and the team’s Figma design system. Actively working to evaluate current product interfaces and participate in weekly design critiques to provide fresh perspectives on usability and visual hierarchy.</p></div>
+<div class="item"><div class="top"><b>Apprenticeship, Google</b><span class="dt">July 2026 – Current</span></div><p>Developing a React-based frontend UI for an on-premise ML observability platform, structuring interactive components for database-backed diagnostics. Embedding and configuring Grafana operational dashboard within the frontend to visualize distributed training telemetry, GPU performance, and Google database metrics.</p></div>
+<div class="item"><div class="top"><b>Intern, Prodigy Psychiatric Group, San Jose, CA</b><span class="dt">June 2024 – July 2024</span></div><p>Selected as 1 of 5 interns by the clinic partner, I shadowed medical experts across the clinic and San Jose Behavioral Hospital to observe mental disorder evaluations and treatment plan discussions. Additionally, I studied standard diagnostic scales for neurodevelopmental conditions, including ADHD, gaining insight into comprehensive psychiatric care.</p></div>
+<div class="item"><div class="top"><b>Food Service &amp; Customer Relations Staff</b><span class="dt">June 2024 &amp; Current</span></div><p>Provided high-volume hospitality services across restaurant and dining venue settings at Snack Shack in Summer 2024 and currently at Goldie’s Café Cornell Dining. Demonstrated strong time management, efficient daily operations, strict adherence to food safety protocols, and compassionate customer interaction in fast-paced environments.</p></div>
+<h3>Research Experience / Awareness Initiatives</h3>
+<div class="item"><div class="top"><b>Researcher, Polygence, San Jose, CA</b><span class="dt">Nov 2023 – Sep 2024</span></div><p>Authored review on parental vs. tech assistance for social skills and emotional intelligence in children with ASD with Advisor Dr. JoColl Burgess, Boston University School of Medicine, and published in International Journal Questioz. Presented ASD research to share educational resources at Symposium of Rising Scholars Fall 2024 Academic Conference, and led a webinar and interviewed parents of children with ASD.</p></div>
+<div class="item"><div class="top"><b>Peer Counselor, PALS – Resident camp for kids with Down Syndrome</b><span class="dt">June 2023 – July 2024</span></div><p>Provided 24/7 care and mentored children with Down syndrome and supervised educational and recreational activities, including off-campus field trips, in week-long summer camp for 2 consecutive years. Supported camp leadership with managing students’ evolving needs.</p></div>
+<h3>Extracurricular Activities</h3>
+<div class="item"><div class="top"><b>Secretary, Between the Pages, Cornell University</b><span class="dt">August 2025 – Current</span></div><p>Serve as Secretary for Cornell’s Book Club, facilitating book discussions and curating reading lists across monthly cycles for 20+ members. Manage internal communications, handle membership inquiries, and log executive board meeting notes and attendance.</p></div>
+<h3>Skills and Interests</h3>
+<p style="color:var(--ink-2)">Event Coordination, Academic Literature Review, Public Speaking, Peer Mentorship, Figma, Reading, Video Production/Editing, Neurodiversity outreach, Visual Arts and Mixed Media</p>
+</div></div>
+<div class="ring" id="ring" aria-hidden="true"><span id="ringT"></span></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, fine=matchMedia('(pointer: fine)').matches;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const store=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1800)};
+const A=n=>'assets/gr/'+n+'.webp', S=n=>'assets/st/'+n+'.webp';
+const arrow='<svg><use href="#i-arrow"/></svg>';
+const ART={"w":1158,"h":983,"s":["M348 687 Q348 689 353 692 Q358 694 369 702 Q380 711 389 714 Q399 718 405 717 Q412 717 417 719 Q423 721 431 722 Q439 722 443 721 Q448 719 456 713 Q464 707 468 706 Q472 705 474 705 Q477 706 479 708 Q481 711 483 716 Q485 721 484 726 Q484 732 481 738 Q479 745 475 749 Q472 753 467 757 Q463 760 459 760 Q455 761 451 760 Q448 759 439 750 Q430 741 426 739 Q423 737 405 742 Q387 747 376 748 Q366 749 357 754 Q349 758 349 760 Q348 761 349 763 Q351 765 356 765 Q362 765 375 760 Q389 754 405 753 Q422 751 425 752 Q429 754 438 763 Q448 771 453 774 Q458 776 466 776 Q474 776 478 772 Q483 768 485 763 Q486 759 489 745 Q491 731 493 722 Q496 714 495 704 Q494 694 492 691 Q490 688 486 688 Q483 688 470 695 Q458 701 453 703 Q449 704 443 708 Q438 712 435 712 Q433 713 422 712 Q412 711 403 708 Q395 705 378 693 Q362 681 358 682 L354 682 Z","M653 396 Q648 398 647 400 Q646 403 646 411 Q646 420 645 425 Q644 430 646 437 Q649 444 647 453 Q645 461 646 463 Q646 465 648 465 Q650 466 654 465 Q658 464 660 463 Q662 462 662 455 Q663 449 666 440 Q669 432 668 426 Q668 421 666 415 Q663 409 661 404 L658 399 Z","M859 213 Q858 220 866 233 Q874 247 880 253 Q886 259 893 270 Q901 281 905 284 Q909 287 911 287 Q913 287 914 285 Q915 283 914 279 Q913 275 911 273 Q909 271 903 268 Q898 264 896 259 Q893 254 888 247 Q883 241 879 230 Q875 219 871 216 L867 213 Z","M895 188 Q892 215 897 224 Q901 234 903 234 Q905 234 908 228 Q910 223 912 221 Q914 220 923 224 Q933 228 932 223 Q930 218 926 209 Q922 200 920 199 Q918 198 914 198 Q909 198 904 194 L899 189 Z","M716 524 Q719 527 720 530 Q721 533 720 546 Q718 559 716 563 Q713 568 711 570 Q709 572 706 572 Q704 572 698 568 Q692 564 690 562 Q689 560 689 558 Q689 556 698 542 Q708 528 710 526 L712 524 Z","M771 471 Q761 473 752 476 Q743 480 737 479 Q731 479 725 476 Q719 473 716 474 Q714 475 713 477 Q712 479 713 483 Q713 488 713 490 Q712 492 708 495 Q705 498 692 506 Q679 513 674 517 Q669 521 665 530 Q661 540 645 555 Q630 571 629 573 Q629 575 629 576 Q630 578 644 585 Q659 592 668 595 Q677 598 699 604 Q722 610 726 610 Q731 609 732 608 Q734 606 737 596 Q739 587 740 585 Q741 584 742 585 Q743 586 746 573 Q749 559 749 552 Q749 545 756 527 Q762 509 764 496 L766 484 Z","M589 467 Q581 473 577 471 Q573 469 561 473 Q549 477 539 477 Q529 478 526 480 Q523 483 525 486 Q526 490 531 498 Q536 506 540 517 Q544 529 557 547 Q569 566 571 568 Q574 569 578 568 Q582 567 584 564 Q587 562 584 557 Q581 553 583 544 Q586 535 588 529 Q591 524 588 520 Q585 516 584 512 Q584 509 587 490 L591 472 Z","M828 395 Q822 392 805 395 Q788 398 770 398 Q752 398 739 396 Q727 394 723 395 Q720 396 717 400 Q714 405 715 414 Q717 423 717 434 Q717 445 714 451 Q711 458 712 459 Q712 461 713 461 Q715 461 719 455 Q724 449 726 441 Q727 433 732 428 Q737 423 741 422 Q745 421 752 422 Q760 423 768 421 Q776 420 784 422 Q793 424 797 423 Q802 423 806 421 Q811 419 820 410 L828 401 Z","M623 579 Q618 581 616 583 Q613 586 605 604 Q596 622 597 625 Q597 628 599 632 Q602 637 601 643 Q601 649 602 653 Q604 658 601 665 Q598 672 599 683 Q601 695 599 706 Q597 718 593 731 Q589 744 586 748 Q583 752 578 756 Q573 760 572 763 Q571 766 573 776 Q574 786 577 794 Q580 803 580 816 Q579 829 582 833 Q584 838 590 842 Q596 846 621 846 Q647 847 661 853 Q676 859 679 862 Q681 866 681 870 Q681 875 682 877 Q683 879 686 874 Q690 869 694 847 Q699 826 704 816 Q708 807 712 791 Q716 776 719 769 Q722 763 722 757 Q723 752 726 747 Q729 743 731 737 Q733 731 734 724 Q735 718 734 711 Q733 704 732 703 Q730 702 726 705 Q722 708 720 707 Q719 706 719 704 Q718 703 721 692 Q724 682 723 674 Q722 666 726 650 Q730 635 730 629 Q730 624 728 618 Q726 612 701 606 Q677 599 654 590 L632 580 Z","M917 303 Q911 304 908 315 Q906 326 901 331 Q896 336 891 337 Q887 337 881 333 Q875 329 874 329 Q872 329 871 331 Q870 333 863 352 Q857 371 857 373 Q858 374 860 375 Q862 375 869 372 Q876 369 878 369 Q880 369 881 372 Q882 375 880 379 Q877 383 858 402 Q839 422 826 438 Q813 455 810 456 Q807 457 806 452 Q805 448 804 447 Q802 446 800 448 Q798 449 792 455 Q787 461 785 465 Q784 469 784 483 Q784 498 787 509 Q791 521 793 523 Q795 526 799 525 Q802 524 813 512 Q824 500 832 489 Q840 477 842 471 Q844 465 849 461 Q853 458 858 449 Q864 440 866 434 Q868 429 871 424 Q875 419 883 411 Q892 402 898 406 Q905 409 908 408 Q911 407 911 394 Q911 381 913 373 Q916 366 916 360 Q916 354 918 343 Q921 333 921 321 L921 310 Z","M742 583 Q734 607 732 611 Q729 616 730 622 Q732 628 730 637 Q729 646 736 640 Q743 635 747 626 Q751 618 752 608 Q753 599 749 595 L744 590 Z","M674 148 Q676 151 679 150 Q682 150 690 142 Q698 135 703 133 Q708 130 717 131 Q726 131 737 133 Q748 136 752 134 Q755 133 768 132 Q780 131 791 133 Q803 135 813 144 Q823 152 826 154 Q830 155 834 152 Q838 150 837 141 Q836 132 838 129 Q839 126 842 126 Q845 125 854 133 Q864 140 870 147 Q876 154 882 160 Q888 166 891 170 Q894 175 895 180 Q896 186 903 192 Q910 197 914 197 Q919 197 920 198 Q922 199 928 212 Q934 225 934 228 Q933 232 939 237 Q944 243 945 243 Q947 243 948 241 Q949 240 950 235 Q950 230 945 211 Q940 193 939 184 Q937 175 929 156 Q920 137 922 133 Q924 130 928 128 Q933 127 932 123 Q932 120 928 111 Q923 103 907 85 Q891 68 887 65 Q884 63 867 58 Q851 53 845 53 Q840 54 830 52 Q821 50 814 50 Q808 50 804 51 Q801 52 794 58 Q787 64 774 66 Q761 67 738 86 Q715 105 710 110 Q705 116 700 119 L696 122 Z","M168 702 Q166 712 166 724 Q166 736 169 739 Q171 742 177 746 Q184 751 185 755 Q187 760 186 764 Q184 769 178 779 Q171 790 165 803 Q160 817 159 830 Q158 844 158 863 Q158 883 160 896 Q163 909 168 922 Q173 935 185 953 Q197 970 200 975 Q202 981 309 981 Q415 981 417 979 Q418 977 416 975 Q414 972 386 958 Q357 944 344 942 Q332 941 329 938 Q326 935 323 930 Q320 925 321 922 Q321 920 324 917 Q327 915 339 912 Q352 909 374 903 Q396 896 426 903 Q456 910 466 910 Q476 909 489 910 Q502 911 512 909 Q522 908 531 910 Q540 912 542 916 Q545 919 547 928 Q548 937 549 950 Q549 963 548 970 Q547 977 548 979 Q550 981 612 981 Q675 982 676 981 Q678 980 677 973 Q677 967 679 960 Q682 954 683 942 Q685 931 684 924 Q682 917 684 910 Q686 903 684 899 Q683 894 683 890 Q684 886 682 880 Q680 875 680 870 Q680 865 678 862 Q676 860 662 854 Q649 848 635 847 Q622 846 610 847 Q599 847 593 844 Q587 841 582 835 Q578 829 579 816 Q579 803 574 783 Q569 763 546 755 Q524 747 510 736 Q495 724 494 726 Q492 728 489 746 Q486 765 483 768 Q480 772 477 775 Q474 777 468 777 Q463 778 458 776 Q453 775 448 772 Q444 769 436 762 Q429 755 425 753 Q422 752 405 754 Q389 755 375 761 Q362 766 357 766 Q353 767 348 765 Q344 763 341 760 Q339 758 339 738 Q338 719 338 716 Q337 714 335 713 Q334 712 329 714 Q324 716 311 725 Q299 734 271 743 Q243 752 234 752 Q226 752 219 750 Q213 747 205 740 Q198 734 194 725 Q189 717 185 705 Q181 694 179 694 L177 694 Z","M322 360 Q317 363 314 366 Q312 369 309 376 Q306 383 305 388 Q305 393 308 398 Q310 404 315 403 Q321 403 324 405 Q328 407 329 409 Q329 412 329 417 Q328 422 331 425 Q334 429 338 430 Q342 430 350 423 Q358 417 370 413 Q383 408 394 401 Q405 394 409 396 Q413 398 420 405 Q427 413 429 416 Q430 419 433 431 Q436 443 435 449 Q433 455 430 458 Q427 462 422 465 Q417 469 411 467 Q406 466 403 466 Q401 467 397 476 Q393 484 392 486 Q390 487 389 487 Q387 486 380 499 Q372 511 372 513 Q372 515 375 520 Q378 526 377 532 Q376 538 376 542 Q377 546 379 546 Q381 547 383 546 Q386 546 391 535 Q397 524 409 516 Q421 508 425 507 Q430 507 438 510 Q446 514 457 515 Q468 516 474 520 Q480 525 483 534 Q485 543 485 548 Q485 553 481 564 Q477 575 478 579 Q478 584 479 586 Q481 588 483 588 Q485 589 491 587 Q498 584 499 587 Q501 590 496 599 Q492 609 490 619 Q488 629 486 631 Q485 634 478 639 Q472 643 462 647 Q453 650 449 650 Q446 650 437 648 Q429 646 414 630 Q400 614 399 615 Q397 616 394 621 Q392 626 389 627 Q387 628 384 627 Q382 625 380 623 Q378 620 373 621 Q368 622 359 619 Q351 617 340 611 Q329 605 318 607 Q307 610 303 613 Q300 617 300 620 Q299 624 307 637 Q316 651 318 657 Q320 663 328 672 Q337 682 341 684 Q345 685 353 683 Q362 680 378 692 Q395 704 404 707 Q414 711 425 711 Q437 711 460 699 Q483 687 487 687 Q491 687 492 686 Q493 685 499 660 Q505 636 510 588 Q515 541 512 532 Q510 524 502 512 Q494 501 492 500 Q491 499 489 502 Q486 505 484 506 Q483 506 481 506 Q479 505 476 502 Q474 500 472 492 Q470 484 467 481 Q464 478 461 472 Q458 467 456 458 Q454 450 454 446 Q455 443 457 439 Q458 436 461 435 Q464 434 471 439 Q479 445 491 450 Q503 455 509 453 Q516 450 516 448 Q517 446 514 438 Q511 430 506 424 Q502 418 484 404 Q467 389 457 384 Q447 379 441 374 Q435 369 428 365 Q422 361 418 356 Q414 351 408 352 Q402 352 397 351 Q393 350 390 357 Q386 365 383 368 Q380 371 377 372 Q374 373 367 373 Q361 372 347 366 L333 359 Z","M410 396 Q403 396 394 402 Q385 408 372 413 Q359 418 349 424 Q340 431 337 431 Q334 430 330 427 Q327 424 328 415 Q328 407 327 415 Q327 423 332 430 Q337 437 337 440 Q337 444 325 463 Q314 482 309 496 Q304 511 304 514 Q305 518 306 520 Q308 522 310 522 Q313 523 319 523 Q324 522 328 527 Q332 533 332 535 Q332 538 328 544 Q324 550 322 555 Q320 560 321 562 Q321 565 322 567 Q324 569 336 570 Q348 571 349 569 Q351 567 352 563 Q353 559 358 559 Q363 558 368 552 Q374 545 375 536 Q377 526 374 519 Q371 513 373 508 Q375 504 370 498 Q364 493 358 492 Q351 491 349 488 Q348 486 357 466 Q366 446 370 431 Q374 416 376 416 Q377 415 378 416 Q380 417 381 423 Q383 429 384 431 Q386 434 391 437 Q396 440 399 446 Q402 451 409 456 Q416 461 415 463 Q414 465 410 464 Q406 463 403 464 Q401 465 398 472 Q395 479 396 475 Q397 472 399 468 Q402 465 404 465 Q406 465 411 466 Q417 468 422 463 Q428 459 431 456 Q433 453 434 447 Q435 442 432 430 L429 418 Z","M868 335 Q860 358 857 362 Q854 367 834 376 Q815 385 810 386 Q806 387 773 387 Q740 387 729 384 Q718 381 715 382 Q712 382 712 385 Q711 387 712 393 Q713 400 710 409 Q707 419 708 433 Q710 448 704 464 Q697 480 694 483 Q691 487 689 487 Q686 488 682 485 Q677 482 670 473 Q664 465 656 466 Q649 467 647 465 Q645 464 644 462 Q643 459 642 459 Q642 459 640 464 Q638 469 639 477 Q639 486 642 503 Q646 520 650 525 Q653 531 653 533 Q654 535 651 537 Q649 539 643 539 Q638 538 634 541 Q630 544 612 566 Q595 589 594 591 Q593 594 593 596 Q594 598 597 599 Q600 601 602 600 Q604 599 610 590 Q615 582 620 579 Q625 576 642 558 Q659 541 663 531 Q668 521 673 516 Q679 512 692 505 Q705 497 708 494 Q712 491 711 484 Q711 478 715 473 Q718 468 714 464 Q710 460 713 452 Q716 445 716 434 Q716 423 714 414 Q713 405 715 400 Q718 396 722 394 Q727 393 739 395 Q752 397 770 397 Q788 397 805 394 Q823 391 829 394 Q835 396 845 384 L855 372 Z","M933 163 Q939 177 940 185 Q941 193 946 211 Q951 230 950 235 Q950 241 949 242 Q947 244 945 244 Q943 244 936 236 Q929 228 922 225 Q915 221 913 222 Q911 223 907 232 Q903 241 915 258 Q927 274 929 276 Q932 277 937 278 Q943 278 948 286 Q954 293 955 291 Q955 289 954 277 Q952 265 953 255 Q955 246 953 237 Q951 229 951 221 Q950 213 946 201 Q941 190 940 182 L938 175 Z","M807 139 Q827 162 828 171 Q829 180 831 188 Q833 197 837 206 Q840 216 845 221 Q849 226 851 233 Q853 241 856 245 Q858 250 858 253 Q858 257 874 270 Q889 283 892 289 Q895 295 901 298 Q907 300 908 304 Q909 308 907 317 Q905 326 908 315 Q910 304 912 303 Q915 301 917 303 Q920 305 921 308 Q922 311 922 320 Q922 330 923 322 Q925 315 931 310 Q938 305 938 303 Q938 301 927 295 Q917 289 912 288 Q908 287 901 281 Q895 276 890 267 Q885 259 878 251 Q871 244 865 233 Q858 222 857 216 Q856 210 849 193 Q842 176 839 165 Q837 154 833 155 Q829 156 827 155 L825 155 Z","M728 133 Q712 131 708 132 Q704 132 700 135 Q697 137 690 143 Q683 150 678 152 Q673 153 660 171 Q647 190 643 194 Q638 199 634 212 Q630 225 630 237 Q630 250 631 252 Q632 254 635 257 Q639 260 643 265 Q646 270 648 270 Q650 270 651 270 Q652 269 656 262 Q660 255 666 250 Q671 244 673 239 Q675 233 674 222 Q674 212 680 198 Q686 185 689 182 Q691 179 704 169 Q718 158 720 152 Q723 146 726 141 L729 137 Z","M377 416 Q374 419 370 432 Q367 446 358 466 Q349 486 350 488 Q351 490 358 490 Q364 491 367 495 Q370 499 372 500 Q375 501 378 499 Q381 496 384 491 Q387 486 389 485 Q392 484 394 478 Q395 473 398 468 Q400 464 403 463 Q406 462 409 463 Q413 465 414 463 Q415 462 414 460 Q413 459 407 455 Q401 451 398 446 Q395 441 390 437 Q384 433 382 426 L380 419 Z","M322 404 Q315 405 310 408 Q305 412 299 420 Q294 429 290 437 Q287 446 279 451 Q271 456 265 464 Q259 472 256 474 Q253 475 245 475 Q238 475 235 476 Q231 477 230 484 Q229 490 224 499 Q220 507 216 509 Q212 512 211 514 Q209 517 209 518 Q209 520 213 524 Q216 529 217 532 Q217 535 209 555 Q200 576 193 603 Q186 631 183 647 Q181 664 181 674 Q182 685 184 696 Q186 708 191 717 Q195 727 200 734 Q206 741 213 745 Q221 750 232 750 Q243 751 271 742 Q299 733 316 721 Q334 708 334 706 Q334 703 332 697 Q330 691 330 684 Q330 678 324 670 Q319 663 317 657 Q315 651 306 637 Q298 624 299 620 Q300 616 303 612 Q307 609 311 607 Q316 606 322 606 Q328 605 332 600 Q337 595 340 593 Q344 590 346 591 Q349 591 355 593 Q361 595 370 595 Q379 595 380 596 Q382 597 382 599 Q383 602 382 611 Q380 621 382 623 Q384 626 386 626 Q388 627 390 626 Q392 624 399 613 Q405 602 410 598 Q416 593 426 590 Q436 586 447 585 Q458 584 461 586 Q465 589 468 593 Q470 597 473 608 Q476 620 477 627 Q478 634 479 635 Q481 636 483 633 Q486 631 488 620 Q491 609 495 601 Q499 593 499 590 Q500 588 499 587 Q498 585 491 588 Q484 590 481 588 Q479 587 478 585 Q477 583 476 578 Q476 574 480 561 Q485 548 483 539 Q482 531 480 527 Q478 524 473 520 Q468 517 457 516 Q446 515 438 511 Q430 508 424 509 Q419 510 410 516 Q401 522 397 525 Q394 529 390 537 Q387 546 384 547 Q382 548 378 547 Q375 546 369 553 Q363 559 359 559 Q354 559 353 563 Q352 567 350 569 Q349 571 346 572 Q344 573 339 572 Q335 570 331 571 Q327 571 324 569 Q321 568 320 566 Q319 564 320 560 Q320 557 322 552 Q324 548 327 543 Q331 539 331 536 Q331 533 328 528 Q324 523 318 524 Q313 524 310 523 Q308 523 306 520 Q304 518 303 514 Q303 511 308 496 Q313 482 323 465 Q334 448 335 444 Q336 441 336 438 Q335 436 331 430 Q326 424 326 416 L327 409 Z","M893 403 Q874 422 871 426 Q868 431 867 435 Q865 440 859 449 Q854 457 850 461 Q845 465 843 471 Q841 477 833 489 Q825 501 815 512 Q805 523 802 525 Q800 527 797 527 Q795 527 793 525 Q790 522 789 518 Q787 514 783 518 Q780 521 776 531 Q772 541 769 554 Q766 568 760 581 Q754 594 753 604 Q752 615 751 620 Q749 625 747 630 Q744 635 737 641 Q731 647 729 650 Q726 654 724 660 Q722 667 724 674 Q725 682 722 693 Q719 703 721 705 Q723 707 726 704 Q730 701 732 702 Q733 702 734 704 Q735 707 735 712 Q736 718 735 725 Q734 732 732 737 Q730 743 727 746 Q725 750 724 754 Q723 758 725 760 Q727 761 733 762 Q739 762 745 768 Q751 774 754 774 Q756 774 758 772 Q760 770 760 762 Q760 755 763 749 Q766 744 767 738 Q768 732 764 703 Q761 675 760 673 Q758 671 754 669 Q749 667 747 664 Q745 661 745 657 Q746 654 751 645 Q756 636 764 626 Q772 617 778 613 Q784 610 786 605 Q789 600 792 596 Q795 593 797 589 Q798 585 803 579 Q807 574 806 568 Q806 563 810 554 Q815 545 818 545 Q822 545 825 542 Q828 539 832 531 Q836 523 838 514 Q840 506 855 497 Q869 487 874 486 Q879 484 889 485 Q900 486 909 489 Q918 491 920 491 Q922 490 920 476 Q919 463 919 450 Q919 437 917 426 Q915 416 914 414 Q912 412 907 411 L903 410 Z","M669 250 Q661 255 655 265 Q648 276 648 297 Q648 319 646 325 Q644 331 643 351 Q643 371 641 377 Q640 383 636 387 Q632 391 629 393 Q626 395 627 398 Q627 402 625 407 Q623 412 602 432 Q582 453 579 459 Q576 464 577 467 Q577 469 579 471 Q580 472 584 469 Q588 466 589 466 Q591 467 592 468 Q592 470 588 489 Q585 509 585 512 Q586 515 589 519 Q592 524 587 538 Q582 552 582 554 Q583 556 585 558 Q588 560 587 563 Q586 565 581 567 Q576 570 573 570 Q570 569 557 550 Q545 531 540 518 Q535 506 529 496 Q523 487 521 474 Q519 461 517 457 Q516 454 515 453 Q513 453 508 454 Q504 456 502 455 Q500 455 495 452 Q490 449 484 447 Q478 445 471 440 Q464 435 461 436 Q459 437 457 441 Q455 445 457 456 Q459 468 462 472 Q464 477 467 480 Q471 483 472 488 Q472 493 474 497 Q476 501 479 503 Q483 505 484 505 Q486 504 488 501 Q491 498 493 499 Q494 500 502 510 Q510 521 512 529 Q515 537 512 579 Q508 621 501 653 Q495 686 496 703 Q497 721 509 733 Q521 745 542 753 Q564 761 567 761 Q571 760 577 755 Q584 750 587 744 Q590 738 593 728 Q596 718 598 706 Q600 695 598 683 Q597 672 600 665 Q603 658 601 653 Q600 649 600 643 Q601 637 598 630 Q595 624 598 614 Q601 605 601 603 Q600 602 596 600 Q593 598 592 595 Q592 592 611 567 Q630 543 634 540 Q638 537 643 538 Q648 538 651 536 Q653 534 653 533 Q652 531 649 525 Q645 520 641 499 Q637 478 638 471 Q638 464 643 456 Q647 448 647 445 Q647 442 645 436 Q643 430 644 424 Q645 418 645 411 Q645 405 646 401 Q647 398 650 396 Q653 395 655 396 Q658 398 663 408 Q668 419 669 427 Q669 435 667 442 Q664 449 664 454 Q664 459 665 462 Q666 466 672 474 Q677 482 682 484 Q687 487 689 486 Q692 485 696 477 Q701 470 705 460 Q709 450 707 434 Q706 419 709 409 Q712 400 711 389 Q710 379 700 371 Q690 363 688 364 Q686 364 684 365 Q682 367 681 369 Q681 371 683 375 Q685 380 685 404 Q685 429 684 432 Q683 435 681 436 Q679 437 677 436 Q675 435 673 432 Q672 430 666 413 Q660 397 659 388 Q659 380 656 374 Q653 369 654 366 Q654 364 655 362 Q657 360 663 357 Q670 355 675 351 Q680 347 674 326 Q668 305 668 288 Q668 272 669 262 L671 253 Z","M790 256 Q790 259 792 260 Q794 260 801 256 Q809 252 814 252 Q819 251 824 254 Q829 256 836 264 Q844 273 848 273 Q853 274 855 272 Q857 270 857 261 Q857 252 856 249 Q854 246 841 238 Q827 230 824 229 Q820 227 818 228 Q816 228 816 232 Q817 236 816 238 Q815 240 807 243 L799 246 Z","M695 177 Q687 185 682 196 Q676 208 675 214 Q674 220 675 223 Q675 227 678 229 Q682 230 690 228 Q699 226 702 226 Q706 226 709 228 Q712 230 717 236 Q722 242 725 242 Q727 242 729 241 Q730 239 731 237 Q732 235 730 231 Q727 227 721 222 Q716 217 707 214 Q698 211 696 209 Q694 207 694 205 Q694 203 696 201 Q698 199 701 199 Q705 198 720 203 Q735 209 736 208 Q738 207 738 205 Q738 204 736 201 Q735 199 730 196 Q725 193 713 188 Q701 183 699 180 L697 177 Z","M841 126 Q838 130 837 133 Q837 136 838 142 Q840 149 839 153 Q838 158 841 167 Q843 176 848 191 Q854 206 856 207 Q858 209 863 211 Q869 213 871 215 Q874 217 876 220 Q878 224 881 232 Q884 241 889 247 Q894 254 897 259 Q899 264 906 268 Q912 273 916 281 Q920 290 927 294 Q935 297 937 299 Q939 302 939 303 Q939 305 936 308 Q933 312 934 325 Q935 338 938 358 Q941 378 942 394 Q942 411 945 422 Q948 434 950 436 Q952 437 953 435 Q954 433 954 423 Q955 412 952 404 Q950 396 946 358 Q942 321 942 316 Q942 312 948 310 Q954 307 955 301 Q956 294 953 293 Q951 292 946 286 Q942 279 937 278 Q932 278 929 277 Q927 275 915 259 Q903 243 897 229 Q891 216 893 198 Q894 180 892 174 Q889 169 875 153 Q860 137 853 132 L847 127 Z","M331 685 Q331 692 335 705 Q339 719 340 736 Q340 753 341 757 Q343 761 355 754 Q368 748 377 747 Q387 746 405 741 Q423 736 426 738 Q430 740 439 749 Q448 758 454 758 Q460 759 465 756 Q471 753 475 747 Q480 741 482 734 Q483 728 483 723 Q483 719 482 715 Q481 712 478 709 Q475 706 471 707 Q467 707 458 713 Q449 720 444 721 Q439 723 431 723 Q423 722 417 720 Q412 718 406 719 Q400 719 390 715 Q380 712 369 703 Q358 695 349 690 Q340 685 337 684 L334 683 Z","M461 586 Q454 585 446 586 Q439 587 431 589 Q424 591 418 594 Q412 597 408 601 Q404 605 404 608 Q403 612 405 616 Q406 621 418 633 Q430 646 441 647 Q453 649 459 647 Q466 645 471 641 Q476 638 476 631 Q476 624 474 614 Q472 604 469 598 L467 592 Z","M321 921 Q322 927 327 933 Q332 940 343 941 Q355 942 384 956 Q414 970 418 976 Q422 981 481 981 Q541 982 542 981 Q544 981 545 979 Q546 977 547 969 Q548 961 548 949 Q547 937 546 928 Q544 919 542 916 Q539 913 533 911 Q527 909 522 909 Q517 909 509 910 Q502 912 489 911 Q476 910 466 911 Q456 911 426 904 Q396 897 373 904 Q351 911 339 913 L328 916 Z","M715 525 Q709 528 699 542 Q690 556 691 559 Q692 563 698 567 Q704 571 708 570 Q712 568 715 563 Q717 559 719 546 Q720 533 719 530 L718 527 Z","M919 493 Q908 489 894 487 Q881 485 876 486 Q871 487 863 492 Q856 496 848 502 Q841 507 840 513 Q838 520 835 527 Q831 535 827 540 Q822 546 819 546 Q815 546 811 553 Q807 561 808 567 Q808 574 803 580 Q798 587 796 598 Q794 610 789 625 Q783 640 782 664 Q782 688 783 693 Q785 698 796 714 Q806 731 809 736 Q812 742 813 744 Q813 747 810 749 Q808 751 796 752 Q785 753 777 751 Q770 749 767 749 Q765 750 763 753 Q761 756 761 763 Q761 770 759 772 Q756 775 752 775 Q749 774 744 769 Q740 764 738 763 Q736 762 731 763 Q726 764 723 767 Q719 770 714 788 Q709 807 705 816 Q700 826 695 847 Q691 869 688 875 Q684 881 684 887 Q684 894 685 899 Q687 903 685 911 Q683 918 684 924 Q686 931 684 942 Q683 954 680 961 Q678 968 678 972 Q679 977 681 979 Q683 981 742 981 Q800 981 802 979 Q804 977 818 950 Q832 923 842 899 Q853 875 867 838 Q880 801 895 769 Q909 738 917 723 Q925 708 928 705 Q930 702 932 689 Q934 677 940 666 Q946 656 946 650 Q946 644 944 635 Q942 627 942 593 Q943 560 941 554 Q939 547 938 533 Q936 518 934 513 L933 508 Z","M804 425 Q793 425 785 423 Q778 421 769 422 Q760 424 750 423 Q741 422 737 424 Q734 426 731 429 Q728 433 727 440 Q726 447 722 454 Q718 462 719 465 Q719 468 722 471 Q724 474 727 476 Q731 478 737 478 Q743 479 755 474 Q768 470 770 471 Q772 471 770 477 Q767 484 764 498 Q761 513 765 496 Q769 480 772 475 Q775 471 791 455 Q807 439 807 436 L808 433 Z","M626 398 Q596 395 588 397 Q580 400 571 404 Q563 408 541 429 Q520 450 519 453 Q519 456 521 465 Q522 474 526 476 Q529 477 538 477 Q547 476 559 472 Q571 468 576 460 Q581 453 601 432 Q622 411 624 407 L626 403 Z","M736 135 Q726 143 723 150 Q720 157 710 166 Q701 174 700 176 Q699 179 701 181 Q703 184 717 190 Q732 196 735 199 Q739 203 739 205 Q739 207 736 208 Q733 209 724 206 Q715 202 709 201 Q703 199 700 200 Q697 200 696 202 Q695 204 697 207 Q699 210 706 213 Q714 215 720 219 Q726 224 729 228 Q732 232 732 236 Q731 240 730 241 Q728 243 725 243 Q723 243 716 237 Q710 230 705 228 Q701 227 690 229 Q679 232 676 236 Q674 241 671 256 Q669 272 669 286 Q669 301 671 312 Q673 324 677 334 Q681 345 681 347 Q681 350 685 355 Q688 360 696 367 Q705 374 720 380 Q735 385 770 385 Q806 386 810 385 Q815 384 834 375 Q853 367 856 362 Q859 358 863 346 Q868 334 870 331 Q872 328 874 328 Q876 328 882 332 Q888 337 893 335 Q898 334 901 328 Q905 323 906 312 Q907 302 906 301 Q905 299 900 298 Q894 296 891 289 Q888 283 875 272 Q862 262 860 263 Q858 263 858 268 Q857 273 854 274 Q851 275 846 274 Q841 272 835 265 Q828 257 824 255 Q819 252 814 253 Q809 253 801 257 Q794 261 792 260 Q789 260 789 257 Q789 255 792 251 Q795 248 805 243 Q815 239 815 234 Q814 229 816 228 Q817 226 822 227 Q827 228 831 232 Q836 235 843 237 Q849 240 850 240 Q851 240 850 233 Q848 226 844 221 Q839 217 836 207 Q832 197 830 188 Q828 180 827 171 Q826 162 817 152 Q809 142 804 138 Q800 135 795 135 Q790 135 785 133 Q780 132 768 133 Q756 134 752 135 L748 137 Z","M793 598 Q789 601 785 609 Q780 618 776 635 Q771 652 766 662 Q762 672 765 702 Q769 732 768 738 Q768 743 770 746 Q772 748 777 750 Q783 752 789 751 Q796 750 793 749 Q790 747 787 743 Q785 740 781 729 Q776 718 775 713 Q775 709 775 705 Q776 702 778 700 Q781 699 783 700 Q785 702 789 706 Q792 710 787 700 Q781 690 781 665 Q782 640 788 624 Q794 608 794 605 L795 602 Z","M333 601 Q334 606 338 609 Q342 612 356 616 Q370 621 372 621 Q374 620 376 619 Q378 617 380 609 Q382 602 380 599 Q378 596 370 596 Q361 596 354 594 Q347 591 343 592 L340 593 Z","M930 312 Q926 314 925 317 Q924 320 923 326 Q923 333 920 343 Q917 354 917 360 Q917 366 914 373 Q912 381 912 388 Q912 396 915 414 Q919 433 919 448 Q920 463 922 478 Q924 494 930 503 Q936 513 938 530 Q940 547 942 553 Q944 560 943 593 Q943 627 945 635 Q947 644 947 649 Q947 654 947 656 Q946 659 941 666 Q936 674 935 680 Q933 686 932 694 Q931 702 929 704 Q927 706 929 708 Q932 710 934 714 Q935 718 937 719 Q938 720 943 717 Q948 713 950 713 Q953 713 958 714 Q963 715 965 713 Q967 711 967 663 Q967 616 969 607 Q972 598 977 595 Q982 592 985 589 Q988 586 990 573 Q992 561 992 550 Q992 539 990 530 Q989 521 989 512 Q988 504 988 502 Q987 501 986 503 Q985 505 984 534 Q983 564 981 566 Q979 569 977 569 Q974 569 973 567 Q971 565 970 558 Q969 551 969 532 Q968 514 967 508 Q965 503 961 473 Q956 444 955 442 Q954 440 950 437 Q947 435 944 423 Q941 411 941 394 Q940 378 939 371 Q937 364 935 344 L933 324 Z","M926 130 Q922 133 922 136 Q922 139 931 157 Q939 175 941 182 Q942 190 946 200 Q951 211 951 220 Q952 229 954 236 Q955 243 954 255 Q953 267 955 279 Q957 291 957 298 Q956 306 954 308 Q953 310 949 311 Q945 312 954 311 Q964 311 979 309 Q994 307 996 305 Q999 303 998 299 Q996 296 981 287 Q965 279 963 277 Q960 274 958 238 Q955 201 952 195 Q949 189 949 181 Q948 173 944 168 Q941 164 939 149 Q937 134 934 132 L932 130 Z","M778 701 Q776 706 776 710 Q776 715 782 729 Q787 742 792 746 Q797 749 801 750 Q806 751 808 750 Q810 749 811 748 Q812 746 812 744 Q811 742 805 730 Q798 719 791 710 L784 702 Z","M777 615 Q773 617 766 624 Q760 631 754 642 Q747 653 747 657 Q746 661 748 664 Q751 667 753 668 Q756 668 758 668 Q759 667 764 662 Q768 657 773 639 L778 621 Z","M780 469 Q776 472 772 477 Q769 482 767 495 Q764 509 757 527 Q750 545 750 552 Q750 559 747 571 Q745 584 745 587 Q746 589 747 591 Q749 593 751 592 Q754 591 757 587 Q759 583 767 557 Q775 531 777 526 Q779 521 782 516 Q786 511 784 502 Q783 492 783 483 L783 474 Z","M881 370 Q876 370 869 373 Q863 376 857 377 Q851 378 844 386 Q838 395 834 397 Q830 400 822 409 Q814 417 810 420 Q807 422 808 428 Q809 435 808 440 Q806 445 807 450 Q808 456 811 455 Q814 453 826 438 Q838 422 857 402 Q876 383 878 379 L881 376 Z","M678 352 Q658 361 656 364 Q654 368 657 374 Q660 380 660 388 Q661 397 667 413 Q673 430 674 432 Q676 435 678 436 Q679 436 681 435 Q682 434 683 431 Q684 429 684 404 Q684 380 682 374 Q680 369 683 364 Q685 359 684 356 L683 354 Z","M889 66 Q884 63 868 58 Q852 53 843 53 Q835 53 826 51 Q818 50 811 50 Q804 50 795 57 Q787 64 776 65 Q765 66 761 68 Q757 69 730 92 Q703 116 692 127 Q681 138 665 163 Q648 189 643 194 Q638 199 634 212 Q630 225 630 237 Q630 249 635 255 Q639 261 640 265 Q642 270 641 319 Q641 368 639 377 Q636 386 634 388 Q631 391 627 392 Q623 393 607 393 Q591 394 578 398 Q566 403 560 406 Q555 410 541 423 Q527 436 523 437 Q520 438 517 437 Q514 436 510 429 Q506 423 487 407 Q468 390 457 384 Q446 378 434 369 Q422 361 418 356 Q414 351 408 351 Q403 352 398 351 Q393 350 390 358 Q386 365 382 368 Q379 371 376 372 Q373 373 367 373 Q361 372 352 368 Q344 363 337 361 Q330 359 325 360 Q320 361 317 363 Q313 366 309 376 Q305 386 305 397 Q305 409 300 416 Q295 424 291 435 Q287 445 279 450 Q271 455 268 461 Q264 467 261 470 Q258 473 255 474 Q252 475 245 475 Q238 475 234 476 Q231 477 226 491 Q221 504 215 510 Q210 516 210 518 Q210 520 213 525 Q216 530 217 533 Q217 536 207 559 Q197 582 195 591 Q194 601 188 620 Q183 639 182 660 Q180 681 179 685 Q177 689 173 694 Q169 699 168 702 Q166 706 166 722 Q167 738 168 741 Q170 743 177 747 Q183 750 185 755 Q186 761 185 765 Q184 770 177 781 Q170 792 165 804 Q161 816 159 830 Q158 845 158 863 Q158 882 160 894 Q162 907 168 921 Q173 935 185 953 Q198 971 200 976 Q202 980 501 981 Q801 982 804 980 Q807 978 827 937 Q847 897 862 856 Q877 816 896 773 Q916 731 919 726 Q922 721 925 719 Q927 717 929 717 Q931 717 934 720 Q938 722 942 719 Q946 716 955 716 Q963 715 966 713 Q968 711 968 663 Q969 615 969 609 Q970 604 971 601 Q973 598 978 595 Q983 592 985 589 Q987 587 988 579 Q989 572 992 565 Q994 559 994 550 Q993 541 991 532 Q989 524 989 514 Q988 505 988 503 Q987 501 986 503 Q985 506 984 535 Q982 564 981 565 Q980 567 978 568 Q977 569 975 568 Q973 567 972 565 Q971 564 970 555 Q969 547 969 528 Q969 510 967 503 Q966 497 965 483 Q965 470 965 467 Q966 465 970 463 Q973 461 974 459 Q975 457 972 452 Q968 447 967 440 Q966 433 959 417 Q951 401 947 364 Q943 327 943 322 Q944 317 946 315 Q947 313 971 311 Q996 309 998 307 Q1001 306 1002 304 Q1002 302 999 298 Q996 294 980 286 Q965 279 963 277 Q961 274 958 238 Q955 201 952 195 Q949 189 948 181 Q948 173 944 168 Q941 163 940 152 Q938 140 937 134 Q935 128 929 116 L924 104 Z"],"f":["M439 980 Q434 979 426 980 L419 981 Z","M686 884 Q681 896 681 927 Q681 958 681 960 Q682 962 683 961 Q684 960 684 949 Q684 939 686 927 Q688 916 688 903 L688 891 Z","M681 865 Q677 875 682 876 Q688 878 689 876 Q690 875 690 871 Q691 867 690 871 Q689 875 687 876 Q686 877 683 875 L681 874 Z","M746 760 Q754 770 756 771 Q758 772 759 772 Q760 771 759 767 Q759 762 757 761 Q755 760 758 763 Q761 767 760 768 Q759 769 758 770 Q757 770 754 768 L751 766 Z","M576 757 Q570 761 571 764 Q573 767 573 775 Q573 783 575 787 Q577 791 577 775 L578 759 Z","M364 758 Q358 755 351 756 Q345 758 344 759 Q343 761 345 762 Q348 764 352 765 Q356 766 359 765 L363 764 Z","M447 763 Q441 752 433 744 Q425 736 414 740 Q403 744 399 743 Q396 743 385 746 Q374 750 375 752 Q377 754 381 754 Q386 755 397 753 Q408 752 411 750 Q414 748 417 747 Q421 747 424 748 Q426 750 428 753 Q430 757 437 763 L445 769 Z","M491 718 Q485 720 482 733 Q478 747 479 748 Q480 749 483 749 Q486 750 488 748 Q489 746 491 735 Q494 725 493 722 L493 720 Z","M941 715 Q939 723 937 722 Q935 722 935 719 Q934 716 935 720 Q937 723 938 723 L940 722 Z","M966 709 Q959 711 959 713 Q960 715 961 716 Q963 716 964 715 L966 714 Z","M473 700 Q471 694 468 694 Q466 694 460 699 Q454 705 451 705 Q448 704 445 708 Q443 711 440 712 Q437 713 433 712 Q429 712 426 711 Q424 710 420 711 Q417 712 405 709 Q394 705 393 706 Q392 707 391 709 Q390 712 394 718 Q399 724 402 720 Q405 717 410 717 Q416 718 419 721 Q422 723 425 722 Q428 721 433 722 Q439 724 443 722 Q447 720 451 716 Q455 712 463 707 L472 703 Z","M364 694 Q363 697 365 698 Q367 700 372 703 Q377 705 379 707 Q381 709 382 709 Q384 708 382 705 Q381 702 381 699 Q381 697 376 693 L370 688 Z","M351 684 Q340 688 340 694 Q339 700 337 701 Q335 703 334 705 Q334 707 337 705 Q341 703 342 699 Q344 695 347 691 L351 688 Z","M482 685 Q483 687 485 686 Q486 685 485 684 L485 683 Z","M946 639 Q948 645 948 655 Q948 665 948 655 L948 645 Z","M402 636 Q419 644 425 645 Q431 646 423 638 L414 631 Z","M485 613 Q477 613 478 617 Q479 622 477 628 Q475 635 476 636 Q478 637 480 637 Q482 636 484 632 L486 629 Z","M474 584 Q467 587 469 591 Q471 595 475 593 L478 591 Z","M499 577 Q488 592 491 594 Q493 597 495 596 Q496 596 499 593 L502 589 Z","M948 569 Q947 576 949 583 Q951 591 951 598 Q951 606 951 596 Q951 587 952 586 Q953 585 953 588 Q954 590 954 587 Q954 585 952 578 L950 571 Z","M590 541 Q586 543 584 547 Q582 552 582 554 Q582 557 583 558 Q584 559 586 558 Q588 557 590 552 Q592 547 592 545 L592 543 Z","M940 531 Q941 543 943 547 Q946 552 949 554 Q952 556 951 552 L950 548 Z","M833 527 Q829 528 819 542 Q810 556 808 561 Q806 566 807 568 Q808 571 811 568 Q814 566 815 561 Q816 557 824 543 L833 529 Z","M210 514 Q209 520 211 521 L213 523 Z","M987 500 Q985 502 985 519 Q986 536 985 540 Q984 545 984 555 Q984 565 981 576 Q978 587 978 589 Q978 591 979 591 Q981 592 982 592 Q984 591 986 587 Q988 583 990 573 Q992 564 992 550 Q992 536 990 530 Q989 524 989 513 L989 502 Z","M680 496 Q679 501 681 505 Q683 509 682 507 Q682 506 683 503 Q684 501 686 502 Q688 503 688 505 Q687 508 688 507 Q689 506 689 504 L688 503 Z","M592 482 Q585 510 585 513 Q585 516 586 517 Q587 518 590 513 Q592 509 592 504 Q593 499 594 495 Q596 491 595 488 L595 485 Z","M481 462 Q476 465 474 469 Q472 473 472 484 Q473 495 472 496 Q471 498 473 499 Q475 500 475 502 Q476 504 478 506 Q480 509 483 509 Q485 509 486 507 Q487 505 488 504 Q490 504 491 492 Q492 481 489 473 L487 466 Z","M413 461 Q411 467 412 468 Q413 470 415 468 L417 466 Z","M379 459 Q374 461 371 464 Q368 467 365 476 Q363 486 365 492 Q367 499 371 502 Q375 505 378 502 Q382 498 383 498 Q384 498 383 496 Q383 495 385 489 Q388 484 387 475 L387 466 Z","M593 449 Q583 455 581 457 Q579 460 579 469 Q579 478 586 466 L593 454 Z","M967 447 Q968 454 971 458 Q973 462 974 460 L975 458 Z","M463 430 Q459 435 460 437 Q461 439 464 438 L467 437 Z","M927 423 Q927 439 927 433 L928 428 Z","M423 416 Q422 422 424 423 Q425 424 426 421 L427 419 Z","M329 408 Q326 408 327 410 Q328 411 329 410 L330 410 Z","M827 384 Q796 391 792 390 Q789 390 785 389 Q782 388 757 388 Q732 388 728 386 Q725 384 723 384 Q722 384 721 385 Q720 387 721 389 Q722 391 729 391 Q736 392 742 394 Q749 396 772 396 Q795 396 810 392 L825 388 Z","M941 328 Q940 334 941 338 Q942 342 942 338 L943 335 Z","M938 316 Q936 320 936 329 Q936 339 937 344 Q939 349 939 357 Q939 365 940 370 Q942 375 942 382 Q942 390 943 395 Q944 400 943 404 Q942 409 945 416 Q947 423 948 429 Q948 435 950 440 Q952 445 955 469 Q958 494 962 505 Q966 517 966 508 Q966 500 963 487 Q960 474 958 459 Q957 444 955 439 Q954 435 953 425 Q953 416 950 401 Q947 386 947 372 Q947 358 945 353 Q944 349 945 354 Q947 359 946 373 Q946 388 945 388 Q944 388 943 386 Q942 385 942 377 Q942 369 940 365 Q939 362 939 351 Q939 341 937 338 Q936 336 936 329 Q936 322 937 319 L939 317 Z","M875 315 Q871 327 873 325 Q875 324 877 326 L880 328 Z","M883 293 Q880 298 881 299 Q882 301 884 299 L886 296 Z","M748 237 Q720 283 720 288 Q721 293 725 298 Q729 303 733 306 Q738 308 740 307 Q742 306 741 303 Q741 300 735 292 Q729 284 736 271 Q744 259 747 253 Q750 247 750 243 L750 239 Z","M637 224 Q632 226 631 229 Q630 232 630 241 Q630 250 633 253 Q636 257 637 254 Q639 251 638 242 Q638 233 639 230 L640 227 Z","M790 221 Q793 225 801 224 Q809 223 821 227 Q833 231 834 230 Q835 229 836 226 Q836 223 831 220 Q826 217 820 217 Q815 217 811 215 Q807 214 801 214 L795 214 Z","M698 187 Q702 196 718 203 Q735 209 737 209 Q739 209 740 208 Q741 208 741 206 Q741 205 739 203 Q738 201 729 196 Q721 191 712 188 L703 186 Z"],"feat":["M704 322 Q704 326 705 328 Q707 330 714 333 Q722 337 737 340 Q753 343 758 342 Q763 341 764 339 Q766 338 765 335 Q765 333 761 334 Q758 336 753 336 Q749 336 735 332 Q722 329 714 325 L707 320 Z","M787 259 Q788 262 789 263 Q791 263 796 259 Q802 255 805 253 Q809 252 815 251 Q821 251 829 256 Q838 262 841 267 Q844 272 850 273 Q857 274 858 272 Q860 271 859 269 Q858 268 853 268 Q849 269 850 267 Q850 265 854 262 Q858 259 858 258 Q859 256 856 256 Q853 256 850 258 Q848 260 846 260 Q845 260 843 255 Q841 251 834 247 Q827 243 816 243 Q805 243 800 245 L796 248 Z","M679 223 Q681 223 683 227 Q685 231 690 228 Q695 225 701 225 Q708 225 713 229 Q719 234 722 239 Q725 244 726 244 Q728 243 729 241 Q730 239 730 236 Q730 234 729 231 Q727 228 723 223 Q719 219 714 217 Q710 215 704 214 Q698 214 695 210 Q693 207 692 208 Q691 209 690 213 Q690 218 687 219 Q685 220 683 218 L682 217 Z"]};
+
+/* ---------- outline drawing ---------- */
+function drawing({vb,sw,cls,anim,face}){
+  const st=ART.s.map((d,i)=>`<path d="${d}"${anim?` pathLength="1" style="animation-delay:${(i%12)*0.08}s"`:''}/>`).join('');
+  const fl=ART.f.map(d=>`<path d="${d}"/>`).join('');
+  const ft=face?`<g class="fx">${FACES[0]}</g>`:`<g>${ART.feat.map(d=>`<path d="${d}"/>`).join('')}</g>`;
+  return `<svg viewBox="${vb||`0 0 ${ART.w} ${ART.h}`}" role="img" aria-label="Line drawing of Ishika${face?'':' holding her dog'}"><g class="${cls||'st'}" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${st}</g><g class="fl" fill="currentColor">${fl}${ft}</g></svg>`;
+}
+const FEAT=ART.feat.map(d=>`<path d="${d}"/>`).join('');
+const sk=(d,w=7)=>`<path d="${d}" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round"/>`;
+const FACES=[
+ FEAT,
+ `<ellipse cx="706" cy="228" rx="10" ry="12"/><ellipse cx="820" cy="255" rx="10" ry="12"/>`+sk('M706 322 Q737 346 767 324'),
+ `<ellipse cx="706" cy="228" rx="10" ry="12"/>`+sk('M800 262 Q822 242 846 260')+sk('M702 320 Q737 354 770 322'),
+ `<ellipse cx="706" cy="228" rx="11" ry="14"/><ellipse cx="820" cy="255" rx="11" ry="14"/><ellipse cx="737" cy="334" rx="12" ry="15"/>`,
+ sk('M686 232 Q706 212 726 232')+sk('M800 264 Q822 242 844 262')+`<path d="M702 318 Q737 360 772 320 Z"/>`
+];
+$('#art').innerHTML=drawing({sw:3.4,anim:true});
+$('#art2').innerHTML=drawing({sw:3.2,cls:'st2'});
+/* ---------- the character: front-facing portrait of Ishika used across the site ---------- */
+const CS=(d,w=2.4,c='currentColor')=>`<path d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
+const MIR='matrix(-1 0 0 1 200 0)';
+const BROW=CS('M80 94 Q85.5 91.6 91 93',2.2,'var(--c-brow)')+CS('M120 94 Q114.5 91.6 109 93',2.2,'var(--c-brow)');
+const BROWUP=CS('M80 91 Q85.5 87.6 91 89.6',2.2,'var(--c-brow)')+CS('M120 91 Q114.5 87.6 109 89.6',2.2,'var(--c-brow)');
+const LASH=x=>CS(`M${x-7} 101.5 Q${x} 95 ${x+7} 100.8`,2.6);
+const OPEN=x=>`<path d="M${x-6.6} 101.4 Q${x} 95.6 ${x+6.6} 101 Q${x} 107.4 ${x-6.6} 101.4 Z" fill="#fff"/>`;
+const PUP=x=>`<circle cx="${x}" cy="101.6" r="3.9" fill="#2A1A17"/><circle cx="${x+1.3}" cy="100.2" r="1.25" fill="#fff"/>`;
+const SHUT=x=>CS(`M${x-6.5} 102.5 Q${x} 96.5 ${x+6.5} 102.5`,2.6);
+const SMILE=CS('M92.5 121.5 Q100 127 107.5 121.5',2.4,'var(--c-lip)');
+const EXPR=[
+ BROW+OPEN(85)+OPEN(115)+`<g class="pp">${PUP(85)+PUP(115)}</g>`+LASH(85)+LASH(115)+SMILE,
+ BROW+SHUT(85)+SHUT(115)+SMILE,
+ BROW+OPEN(85)+PUP(85)+LASH(85)+SHUT(115)+CS('M91.5 120.5 Q100 128.5 108.5 120.5',2.4,'var(--c-lip)'),
+ BROWUP+OPEN(85)+OPEN(115)+PUP(85)+PUP(115)+LASH(85)+LASH(115)+`<ellipse cx="100" cy="123.5" rx="3.4" ry="4.2" fill="var(--c-lip)"/>`,
+ BROW+SHUT(85)+SHUT(115)+`<path d="M91 119.5 Q100 132 109 119.5 Z" fill="#7A3B3B" stroke="var(--c-lip)" stroke-width="2" stroke-linejoin="round"/><path d="M95.5 126.5 Q100 129.6 104.5 126.5" fill="none" stroke="#E79AA4" stroke-width="2.4" stroke-linecap="round"/>`
+];
+/* hair: back mass, shoulder-length layers that flick out, curtain bangs parted in the middle */
+const H_BACK='M100 33 C70 33 52 52 51 82 C50 108 53 130 47 150 C44 159 39 164 33 168 C45 172 57 169 66 160 L134 160 C143 169 155 172 167 168 C161 164 156 159 153 150 C147 130 150 108 149 82 C148 52 130 33 100 33 Z';
+const H_SIDE='M100 33.5 C76 33.5 59 49 56 74 C53 98 57 122 52 141 C50 149 46 155 40 159 C36 162 33 161 30 158 C35 168 50 169 61 161 C64 166 68 169 75 170 C72 158 71 146 71 134 C71 126 70.4 118 70.6 111 C70.8 104 71.6 98 73.6 94 C75.6 90.4 78.6 88.6 82 88 C82.6 89.4 83.4 90.2 84.6 90.6 C86.6 88 90 86.6 93.6 86.4 C94.3 87.4 95 88.2 95.8 88.8 C97 76 98.8 60 100 49 Z';
+const H_STR=['M95 40 C80 46 68 60 64 80','M66 100 C63 118 62 134 55 150','M97 50 C93 62 88 74 84 86','M91 56 C84 66 78 76 75 90','M69 120 C69 138 70 152 74 166'];
+const hairFront=()=>{const half=`<path d="${H_SIDE}" fill="var(--c-hair)" stroke="var(--c-hline)" stroke-width="2.2" stroke-linejoin="round"/>`+H_STR.map(d=>CS(d,1.8,'var(--c-hl)')).join('');
+ return `<g>${half}</g><g transform="${MIR}">${half}</g>`+CS('M100 34 L100 52',1.6,'var(--c-hline)')+CS('M74.2 95 C73.2 99 72.8 103 73 107',1.3,'var(--c-hline)')+CS('M125.8 95 C126.8 99 127.2 103 127 107',1.3,'var(--c-hline)')};
+function chara({vb='40 30 120 120',cls='',body=false,hands=false,wave=false,start=0}={}){
+  const back=`<path d="${H_BACK}" fill="var(--c-hair2)" stroke="var(--c-hline)" stroke-width="2.2" stroke-linejoin="round"/>`;
+  const neck=`<path d="M90 128 L90 152 Q100 158 110 152 L110 128 Z" fill="var(--c-skin)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M90.5 138 Q100 146 109.5 138 L109.5 132 L90.5 132 Z" fill="var(--c-shade)"/>`;
+  const torso=body?`<path d="${wave?'M90 149 C80 156 62 158 52 166 C44 173 41 188 40 216 L139 216 C139 198 140 182 144 170 C138 160 122 156 110 149 Z':'M90 149 C80 156 62 158 52 166 C44 173 41 188 40 216 L160 216 C159 188 156 173 148 166 C138 158 120 156 110 149 Z'}" fill="var(--c-skin)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="${wave?'M63 170 C66 180 70 186 72 192 C82 197 118 197 128 192 C130 186 134 180 137 170 C138 182 139 198 139 216 L57 216 C58 198 60 182 63 170 Z':'M63 170 C66 180 70 186 72 192 C82 197 118 197 128 192 C130 186 134 180 137 170 C140 182 142 198 143 216 L57 216 C58 198 60 182 63 170 Z'}" fill="var(--c-top)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>${CS('M66 172 L68 160',3,'var(--c-top)')}${CS('M134 172 L132 160',3,'var(--c-top)')}`:'';
+  const face=`<path d="M100 45 C122 45 134 63 134 91 C134 119 118 138 100 138 C82 138 66 119 66 91 C66 63 78 45 100 45 Z" fill="var(--c-skin)" stroke="currentColor" stroke-width="2.4"/>`;
+  const ears=`<path d="M67 96 C60 94 59 106 66 110" fill="var(--c-skin)" stroke="currentColor" stroke-width="2.2"/><path d="M133 96 C140 94 141 106 134 110" fill="var(--c-skin)" stroke="currentColor" stroke-width="2.2"/>`;
+  const nose=CS('M99.5 109 Q98 113.5 101 114.6',2,'var(--c-shade2)');
+  const blush=`<ellipse cx="80" cy="115" rx="6" ry="3.6" fill="#E77F86" opacity=".32"/><ellipse cx="120" cy="115" rx="6" ry="3.6" fill="#E77F86" opacity=".32"/>`;
+  const waveArm=wave?`<g class="wave"><path d="M146 172 C154 160 160 146 162 128" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round"/><path d="M146 172 C154 160 160 146 162 128" fill="none" stroke="var(--c-skin)" stroke-width="10.6" stroke-linecap="round"/><path d="M155 124 C152 114 153 104 156 98 C157 94 161 95 161 99 L161 106 L162 93 C162 89 167 89 167 93 L167 105 L169 95 C170 91 175 92 174 96 L172 108 L176 102 C178 99 182 101 180 105 L174 120 C171 126 166 129 161 129 C158 129 156 127 155 124 Z" fill="var(--c-skin)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></g>`:'';
+  const hnd=hands?[64,114].map(x=>`<g><rect x="${x}" y="146" width="22" height="15" rx="7.5" fill="var(--c-skin)" stroke="currentColor" stroke-width="2.4"/>${CS(`M${x+6} 146 v6 M${x+11} 146 v6 M${x+16} 146 v6`,1.8)}</g>`).join(''):'';
+  return `<svg class="chara ${cls}" viewBox="${vb}" role="img" aria-label="Illustration of Ishika">${back}${torso}${neck}${ears}${face}${blush}${nose}<g class="cfx" data-e="${start}">${EXPR[start]}</g>${hairFront()}${waveArm}${hnd}</svg>`;
+}
+const cycleExpr=svg=>{const g=svg.querySelector('.cfx');if(!g)return;const n=((+g.dataset.e||0)+1)%EXPR.length;g.dataset.e=n;g.innerHTML=EXPR[n]};
+/* pupils follow the cursor */
+let pmx=innerWidth/2,pmy=innerHeight/2;addEventListener('pointermove',e=>{pmx=e.clientX;pmy=e.clientY},{passive:true});
+(function eyes(){document.querySelectorAll('.chara .pp').forEach(pp=>{const svg=pp.ownerSVGElement,r=svg.getBoundingClientRect();if(!r.width||r.bottom<0||r.top>innerHeight)return;const cx=r.left+r.width/2,cy=r.top+r.height*.62,dx=pmx-cx,dy=pmy-cy,d=Math.hypot(dx,dy)||1,k=Math.min(1,d/260)*1.8;pp.setAttribute('transform',`translate(${(dx/d*k).toFixed(2)} ${(dy/d*k).toFixed(2)})`)});requestAnimationFrame(eyes)})();
+
+$('#face').innerHTML=chara({});
+['mouseenter','click'].forEach(ev=>$('#face').addEventListener(ev,()=>cycleExpr($('#face svg'))));
+$$('[data-peek]').forEach((el,i)=>{el.innerHTML=chara({vb:'34 26 132 140',hands:true,start:0});const card=el.closest('.cw');card.addEventListener('mouseenter',()=>cycleExpr(el.querySelector('svg')))});
+$('#hey').innerHTML=chara({vb:'24 26 160 190',body:true,wave:true,start:1});$('#hey').addEventListener('mouseenter',()=>cycleExpr($('#hey svg')));
+/* resume */
+const rs=$('#rs');let rsLast=null;
+const openRS=()=>{rsLast=document.activeElement;rs.hidden=false;requestAnimationFrame(()=>rs.classList.add('open'));$('#rsX').focus();document.documentElement.style.overflow='hidden'};
+const closeRS=()=>{rs.classList.remove('open');setTimeout(()=>rs.hidden=true,350);if($('#csOv').hidden)document.documentElement.style.overflow='';rsLast&&rsLast.focus()};
+$$('[data-resume]').forEach(b=>b.addEventListener('click',openRS));$('#rsX').addEventListener('click',closeRS);rs.addEventListener('click',e=>{if(e.target===rs)closeRS()});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!rs.hidden)closeRS()});
+
+/* ---------- intro: name fades in, glass circles drop and can be dragged ---------- */
+const intro=$('#intro'),stage=$('.stage');
+const blobs=$$('.blob').map(el=>({el,x:0,y:-2000,vx:0,vy:0,mode:'hold'}));
+let introTimers=[],autoDone=false;
+const T=(f,ms)=>introTimers.push(setTimeout(f,ms));
+function bounds(b){const ir=intro.getBoundingClientRect(),sr=stage.getBoundingClientRect(),el=b.el;return{minX:ir.left-sr.left-el.offsetLeft,maxX:ir.right-sr.left-el.offsetLeft-el.offsetWidth,minY:ir.top-sr.top-el.offsetTop,maxY:ir.bottom-sr.top-el.offsetTop-el.offsetHeight}}
+let lastT=performance.now();
+(function loop(now){const dt=Math.min(.033,(now-lastT)/1000);lastT=now;
+  blobs.forEach(b=>{
+    if(b.mode==='spring'){const k=110,c=11;b.vy+=(-k*b.y-c*b.vy)*dt;b.vx+=(-k*b.x-c*b.vx)*dt;b.y+=b.vy*dt;b.x+=b.vx*dt;if(Math.abs(b.y)<.4&&Math.abs(b.vy)<4){b.y=0;b.vy=0;b.mode='rest'}}
+    else if(b.mode==='free'){const f=Math.exp(-2.6*dt);b.vx*=f;b.vy*=f;b.x+=b.vx*dt;b.y+=b.vy*dt;const B=bounds(b);if(b.x<B.minX){b.x=B.minX;b.vx=Math.abs(b.vx)*.7}if(b.x>B.maxX){b.x=B.maxX;b.vx=-Math.abs(b.vx)*.7}if(b.y<B.minY){b.y=B.minY;b.vy=Math.abs(b.vy)*.7}if(b.y>B.maxY){b.y=B.maxY;b.vy=-Math.abs(b.vy)*.7}}
+  });
+  for(let i=0;i<blobs.length;i++)for(let j=i+1;j<blobs.length;j++){const a=blobs[i],c=blobs[j];if(a.mode==='hold'||c.mode==='hold'||a.mode==='spring'||c.mode==='spring')continue;const ae=a.el,ce=c.el;const ax=ae.offsetLeft+ae.offsetWidth/2+a.x,ay=ae.offsetTop+ae.offsetHeight/2+a.y,cx=ce.offsetLeft+ce.offsetWidth/2+c.x,cy=ce.offsetTop+ce.offsetHeight/2+c.y;const ra=Math.min(ae.offsetWidth,ae.offsetHeight)/2,rc=Math.min(ce.offsetWidth,ce.offsetHeight)/2;let dx=cx-ax,dy=cy-ay,d=Math.hypot(dx,dy)||1;const ov=ra+rc-d;if(ov>0){dx/=d;dy/=d;const ma=a.mode==='drag'?0:1,mc=c.mode==='drag'?0:1,s=ma+mc||1;a.x-=dx*ov*ma/s;a.y-=dy*ov*ma/s;c.x+=dx*ov*mc/s;c.y+=dy*ov*mc/s;const rv=(c.vx-a.vx)*dx+(c.vy-a.vy)*dy;if(rv<0){if(ma){a.vx+=dx*rv*.9;a.vy+=dy*rv*.9;a.mode=a.mode==='rest'?'free':a.mode}if(mc){c.vx-=dx*rv*.9;c.vy-=dy*rv*.9;c.mode=c.mode==='rest'?'free':c.mode}}}}
+  blobs.forEach(b=>b.el.style.transform=`translate(${b.x}px,${b.y}px)`);
+  requestAnimationFrame(loop)})(lastT);
+blobs.forEach(b=>{let px=0,py=0,lx=0,ly=0,lt=0;
+  b.el.addEventListener('pointerdown',e=>{if(b.mode==='hold')return;b.el.setPointerCapture(e.pointerId);b.mode='drag';px=e.clientX-b.x;py=e.clientY-b.y;lx=e.clientX;ly=e.clientY;lt=performance.now();b.vx=b.vy=0;e.preventDefault()});
+  b.el.addEventListener('pointermove',e=>{if(b.mode!=='drag')return;const now=performance.now(),dt=Math.max(.008,(now-lt)/1000);b.vx=.6*b.vx+.4*(e.clientX-lx)/dt;b.vy=.6*b.vy+.4*(e.clientY-ly)/dt;lx=e.clientX;ly=e.clientY;lt=now;b.x=e.clientX-px;b.y=e.clientY-py});
+  const up=()=>{if(b.mode==='drag')b.mode='free'};b.el.addEventListener('pointerup',up);b.el.addEventListener('pointercancel',up)});
+function autoScroll(){
+  if(autoDone)return;autoDone=true;const se=document.scrollingElement||document.documentElement;
+  if(se.scrollTop>10)return;
+  const card=$('#goodreads-sec .card');const target=card.getBoundingClientRect().top+se.scrollTop-innerHeight*.42;
+  if(target<=0)return;
+  const can=se.scrollHeight>se.clientHeight+20;
+  if(!can){intro.classList.add('peek');return}
+  const y0=se.scrollTop,t0=performance.now(),dur=reduce?1:1300,ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+  document.documentElement.style.scrollBehavior='auto';
+  (function step(now){const p=Math.min(1,(now-t0)/dur);se.scrollTop=y0+(target-y0)*ease(p);if(p<1)requestAnimationFrame(step);else{document.documentElement.style.scrollBehavior='';if(se.scrollTop<5)intro.classList.add('peek')}})(t0);
+}
+function playIntro(first){
+  introTimers.forEach(clearTimeout);introTimers=[];
+  intro.classList.remove('named','drawn','done','peek');
+  blobs.forEach(b=>{b.mode='hold';b.x=0;b.y=-(b.el.offsetTop+b.el.offsetHeight+80);b.vx=b.vy=0});
+  void intro.offsetWidth;
+  if(reduce){intro.classList.add('drawn','named','done');blobs.forEach(b=>{b.y=0;b.mode='rest'});if(first)T(autoScroll,600);return}
+  T(()=>intro.classList.add('drawn'),60);
+  T(()=>intro.classList.add('named'),350);
+  blobs.forEach((b,i)=>T(()=>{b.mode='spring';b.vy=200},1900+i*220));
+  T(()=>intro.classList.add('done'),3300);
+  if(first)T(autoScroll,4400);
+}
+playIntro(true);
+$('#replay').addEventListener('click',()=>playIntro(false));
+
+/* ---------- sidebar ---------- */
+const body=document.body,edge=$('#edge'),mob=matchMedia('(max-width: 900px)');
+if(scrollY<innerHeight*.5)body.classList.add('at-intro');
+requestAnimationFrame(()=>document.documentElement.classList.add('sb-ready'));
+function setSb(open){body.classList.toggle('sb-closed',!open);body.classList.toggle('sb-open',open&&mob.matches);edge.setAttribute('aria-expanded',String(open));const l=open?'Close sidebar':'Open sidebar';edge.setAttribute('aria-label',l);edge.title=l;if(!mob.matches)store('sb',open?'1':'0')}
+setSb(mob.matches?false:store('sb')!=='0');
+mob.addEventListener('change',()=>setSb(!mob.matches&&store('sb')!=='0'));
+edge.addEventListener('click',()=>setSb(body.classList.contains('sb-closed')));
+$('#scrim').addEventListener('click',()=>setSb(false));
+$$('.sidebar a').forEach(a=>a.addEventListener('click',()=>{if(mob.matches)setSb(false)}));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&mob.matches&&body.classList.contains('sb-open'))setSb(false)});
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'}):null;
+$$('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
+if('IntersectionObserver' in window){
+  new IntersectionObserver(es=>es.forEach(e=>body.classList.toggle('at-intro',e.intersectionRatio>.5)),{threshold:[0,.5,1]}).observe(intro);
+  const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('.sb-nav a').forEach(a=>a.classList.toggle('active',a.dataset.nav===e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+  ['goodreads-sec','fashion-sec','statler-sec','about','hello'].forEach(id=>navIO.observe(document.getElementById(id)));
+}
+
+/* ---------- cursor ring ---------- */
+const ring=$('#ring'),ringT=$('#ringT');
+if(fine&&!reduce){let mx=-100,my=-100,rx=-100,ry=-100;addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;ring.classList.add('on');const t=e.target.closest('[data-cursor]');const onPin=e.target.closest('.pn,.blob');ring.classList.toggle('big',!!t&&!onPin);ringT.textContent=t&&!onPin?t.dataset.cursor:''},{passive:true});document.addEventListener('pointerleave',()=>ring.classList.remove('on'));(function l(){rx+=(mx-rx)*.2;ry+=(my-ry)*.2;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(l)})()}
+
+/* ---------- run thumbnails only while visible ---------- */
+const whenVisible=(el,start,stop)=>{if(!('IntersectionObserver' in window)){start();return}new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.25}).observe(el)};
+
+/* Goodreads: cursor taps the app icon, the app opens into a carousel of designs */
+(function(){const gt=$('#gt'),D=['final-discover','final-home','final-group','hf-disc-a','hf-disc-b','hf-disc-c'];
+ const icons=['#F2B8C0','#B9D3B0','#F6D9A8','#C9C2E6','#9FC7D9','#F0A5A5','GR','#CFE0C3','#E8C3D8','#B8CDE8','#F5CDB6','#D7E6C8','#F2C4CB','#C6D9EE','#E9D9B4','#BFD8C6'];
+ gt.innerHTML=D.map((d,i)=>`<div class="slot" data-k="${i}">${i===0?`<div class="home"><span class="tm">9:41</span>${icons.map(c=>c==='GR'?'<i class="gr"></i>':`<i style="background:${c}"></i>`).join('')}</div><div class="launch"><img src="${A(d)}" alt="Goodreads Discover redesign"></div>`:`<img src="${A(d)}" alt="" loading="lazy">`}</div>`).join('')+`<span class="ripple"></span><svg class="cursor" viewBox="0 0 24 28" aria-hidden="true"><use href="#i-cursor"/></svg>`;
+ const slots=$$('.slot',gt),cur=$('.cursor',gt),rip=$('.ripple',gt);let timers=[],run=false,idx=0;
+ const at=(f,ms)=>timers.push(setTimeout(f,ms));
+ const layout=i=>slots.forEach((s,k)=>{const o=k-i;s.className='slot '+(o===0?'c':o===-1?'l':o===1?'r':o<-1?'ll':'rr')});
+ function cycle(){timers.forEach(clearTimeout);timers=[];const ln=$('.launch',gt),hm=$('.home',gt);ln.style.transition=hm.style.transition='none';gt.classList.remove('open','click');void ln.offsetWidth;ln.style.transition=hm.style.transition='';idx=0;slots.forEach(s=>s.className='slot rr');slots[0].className='slot c';cur.style.transition='none';cur.style.left='86%';cur.style.top='96%';cur.style.opacity=1;void cur.offsetWidth;cur.style.transition='';
+  at(()=>{const g=$('.gr',gt).getBoundingClientRect(),r=gt.getBoundingClientRect(),s0=slots[0].getBoundingClientRect();const x=(g.left+g.width/2-r.left)/r.width*100,y=(g.top+g.height/2-r.top)/r.height*100;cur.style.left=(x-.6)+'%';cur.style.top=(y-.8)+'%';rip.style.left=x+'%';rip.style.top=y+'%';slots[0].style.setProperty('--ix',((g.left+g.width/2-s0.left)/s0.width*100)+'%');slots[0].style.setProperty('--iy',((g.top+g.height/2-s0.top)/s0.height*100)+'%')},500);
+  at(()=>gt.classList.add('click'),1800);
+  at(()=>{gt.classList.remove('click');gt.classList.add('open')},2150);
+  let t=3300;for(let i=0;i<D.length;i++){const j=i;at(()=>layout(j),t);t+=1500}
+  at(cycle,t+600)}
+ if(reduce){gt.classList.add('open');layout(0);return}
+ whenVisible(gt,()=>{if(!run){run=true;cycle()}},()=>{run=false;timers.forEach(clearTimeout);timers=[]});
+})();
+
+/* Psychology & Fashion: a cursor browses the site's tabs */
+(function(){const ft=$('#ft'),tabs=['Home','Y2K Nostalgia','Streetwear','Core Aesthetics','Social Media'];
+ const heart='<svg class="heart" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21s-9-5.6-9-12A5 5 0 0 1 12 5a5 5 0 0 1 9 4c0 6.4-9 12-9 12z" fill="#D6246E"/></svg>';
+ ft.innerHTML=`<span class="spark" style="left:6%;top:14%">✦</span><span class="spark g" style="left:89%;top:10%;animation-delay:.8s">✦</span><span class="spark" style="left:91%;top:62%;animation-delay:1.4s">✧</span><span class="spark g" style="left:4%;top:70%;animation-delay:.4s">✧</span>`+[8,88,12,84].map((l,i)=>heart.replace('class="heart"',`class="heart" style="left:${l}%;bottom:${6+i*4}%;animation-delay:${i*1.1}s"`)).join('')+
+  `<div class="win"><div class="bar"><i></i><i></i><i></i></div><div class="hdr">Psychology &amp; Fashion</div><div class="tabs">${tabs.map(x=>`<span>${x}</span>`).join('')}</div><div class="shot"><img src="assets/fp/site.webp" alt="The Core Aesthetics page of the website"></div></div><svg class="fcur" viewBox="0 0 24 28" aria-hidden="true" style="left:80%;top:90%"><use href="#i-cursor"/></svg>`;
+ const sp=$$('.tabs span',ft),cur=$('.fcur',ft);let i=0,tm=null;
+ const go=()=>{sp.forEach((s,k)=>s.classList.toggle('on',k===i));const r=ft.getBoundingClientRect(),t=sp[i].getBoundingClientRect();cur.style.left=((t.left+t.width*.55-r.left)/r.width*100)+'%';cur.style.top=((t.top+t.height*.6-r.top)/r.height*100)+'%';i=(i+1)%sp.length};
+ if(reduce){sp[3].classList.add('on');return}
+ whenVisible(ft,()=>{if(!tm){go();tm=setInterval(go,1600)}},()=>{clearInterval(tm);tm=null});
+})();
+
+/* The Statler: floorplan pins reveal each touchpoint */
+const TP=[['tp1','01 · Efficiency',84,58],['tp2','02',51,91],['tp3','03',13,60],['tp4','04 · Relaxation',26,24],['tp5','05',58,10],['tp6','06 · Comfort',70,27]];
+(function(){const stt=$('#stt');
+ stt.innerHTML=`<img class="bg" src="${S('bedroom')}" alt="3D model of the redesigned Statler bedroom"><div class="shade"></div><div class="lens">${TP.map(t=>`<img src="${S(t[0])}" alt="Touchpoint ${t[1]}" loading="lazy">`).join('')}</div><span class="ltag" id="ltag"></span><div class="plan"><img src="${S('floorplan')}" alt="Floorplan of the redesigned room">${TP.map((t,k)=>`<button type="button" class="pn" style="left:${t[2]}%;top:${t[3]}%" data-k="${k}" aria-label="Show touchpoint ${t[1]}"><span>${k+1}</span></button>`).join('')}</div>`;
+ const pins=$$('.pn',stt),imgs=$$('.lens img',stt),tag=$('#ltag');let k=0,tm=null,hold=false;
+ const show=i=>{k=i;pins.forEach((p,j)=>p.classList.toggle('on',j===i));imgs.forEach((im,j)=>im.classList.toggle('on',j===i));tag.textContent='Touchpoint '+TP[i][1]};
+ pins.forEach((p,i)=>{p.addEventListener('mouseenter',()=>{hold=true;show(i)});p.addEventListener('mouseleave',()=>hold=false);p.addEventListener('click',e=>{e.stopPropagation();show(i)});p.addEventListener('focus',()=>show(i))});
+ show(0);if(reduce)return;
+ whenVisible(stt,()=>{if(!tm)tm=setInterval(()=>{if(!hold)show((k+1)%TP.length)},2000)},()=>{clearInterval(tm);tm=null});
+})();
+
+/* hobbies + contact */
+$('#pong').addEventListener('click',()=>{const b=$('#ball');b.animate&&b.animate([{transform:'none'},{transform:'translate(-60px,50px)'},{transform:'translate(10px,-10px)'},{transform:'none'}],{duration:700,easing:'ease-out'})});
+$('#copy').addEventListener('click',()=>{const t=$('#email').textContent;const sel=()=>{const r=document.createRange();r.selectNodeContents($('#email'));const g=getSelection();g.removeAllRanges();g.addRange(r);toast('Selected. Press copy.')};navigator.clipboard?navigator.clipboard.writeText(t).then(()=>toast('Email copied'),sel):sel()});
+/* ---------- case studies ---------- */
+const st=(id,lab,title,html)=>`<section class="st" id="st-${id}" data-st="${id}"><span class="label">${lab}</span><h2>${title}</h2>${html}</section>`;
+const facts=a=>`<dl class="cfacts">${a.map(f=>`<div><dt>${f[0]}</dt><dd>${f[1]}</dd></div>`).join('')}</dl>`;
+const rail=a=>`<nav class="rail" aria-label="Design process"><span class="label">The process</span><ol><span class="fill"></span>${a.map(x=>`<li><a href="#st-${x[0]}" data-go="${x[0]}"><small>${x[2]}</small>${x[1]}</a></li>`).join('')}</ol></nav>`;
+const zoom=(src,alt)=>`<button type="button" class="zoom" data-zoom="${src}" data-cursor="Zoom" aria-label="Enlarge: ${alt}"><img src="${src}" alt="${alt}" loading="lazy"><span class="zi">Click to enlarge</span></button>`;
+const hero=(p,inner,side,style)=>`<header class="cs-hero" style="${style||''}"><div><span class="label">${p.kind}</span><h1 id="csH" style="margin-top:1rem">${p.title}</h1><p class="sub">${p.sub}</p>${inner||''}</div>${side||''}</header>`;
+function hs(list){return list.map((h,i)=>`<button type="button" class="hs" style="left:${h[0]}%;top:${h[1]}%" aria-expanded="false" aria-label="Note ${i+1}" data-tip="${h[2].replace(/"/g,'&quot;')}">${i+1}</button>`).join('')+`<div class="tip" role="status"></div>`}
+const FIX=[
+ {img:'sk-hotbar',alt:'Sketch: adding a Groups tab to the hotbar',pros:['Easier to find','Recommendations make it more accessible for users','Easy scrollable format'],cons:['Claustrophobic hotbar','Less clickable area']},
+ {img:'sk-discover',alt:'Sketch: groups on the Discover page',chosen:1,pros:['More accessible','Less overwhelming and new-user friendly','Personalized recommendations','Less extra clutter in the hotbar'],cons:['Takes away book recommendation space','Inactive groups']},
+ {img:'sk-book',alt:'Sketch: groups reading this book on the book page',pros:['Users are more inclined to join when it\'s something they\'re already reading'],cons:['Less accessible','Need to scroll under the book info']}
+];
+const fixP=i=>{const f=FIX[i];return `<div class="tp fix" role="tabpanel">${zoom(A(f.img),f.alt)}<div class="pc">${f.chosen?'<span class="chosen">✓ Chosen direction</span>':''}<div><span class="label">Pros</span><ul>${f.pros.map(x=>`<li>${x}</li>`).join('')}</ul></div><div><span class="label">Cons</span><ul>${f.cons.map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div>`};
+const PERS=[{n:'Parents & friends',col:'#8E1B36',m:'Reconnect with their child or friend',e:'Excited, warm, sometimes emotional',x:'A comfortable, convenient stay that supports quality time',v:[1,.49,.77,1,0],th:['Warm anticipation','Desire smoothness','Balanced comfort & ease','Friendly service fosters warmth','Bittersweet']},
+ {n:'Invited speaker',col:'#E5A91B',m:'Perform well and make a strong impression',e:'Nervous but motivated, seeking welcome and clarity',x:'A calm, well-equipped room for rest, preparation and focus',v:[.25,.73,1,1,1],th:['Heightened nerves','Wants efficiency + professionalism','Calming & focus-driven','Professional service reduces stress','Reflective']},
+ {n:'Returning alumni',col:'#9C8A84',m:'Revisit campus memories and reconnect with campus',e:'Deeply nostalgic, sentimental, reflective',x:'Feel "at home" and enjoy both the familiar and the newly transformed Cornell',v:[.75,1,1,1,.73],th:['Immediate nostalgia','Feels sentimental','Enjoys personalized or heritage elements','Experiential touches amplify nostalgia','Emotional closure']}];
+const STAGES=['Arrival','Check-in','In-room','Services','Departure'];
+function emoChart(){const W=640,H=230,L=70,R=20,T=20,B=40,xs=i=>L+i*(W-L-R)/4,ys=v=>T+(1-v)*(H-T-B);
+ return `<div class="emo" id="emo"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Emotion curves for three guests across five stages"><text x="0" y="${ys(1)+4}">😊 high</text><text x="0" y="${ys(.5)+4}">😐</text><text x="0" y="${ys(0)+4}">☹ low</text>${[0,.5,1].map(v=>`<line x1="${L}" x2="${W-R}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--line)"/>`).join('')}${STAGES.map((s,i)=>`<g class="stg" data-stg="${i}"><rect x="${xs(i)-50}" y="${T-10}" width="100" height="${H-T-B+20}" rx="10"/><text x="${xs(i)}" y="${H-12}" text-anchor="middle">${s}</text></g>`).join('')}${PERS.map((p,k)=>`<path class="ln d${k}" data-p="${k}" d="${p.v.map((v,i)=>(i?'L':'M')+xs(i)+' '+ys(v)).join(' ')}" stroke="${p.col}"/>${p.v.map((v,i)=>`<circle class="pt" data-p="${k}" cx="${xs(i)}" cy="${ys(v)}" r="5.5" fill="${p.col}" stroke="var(--page)" stroke-width="2"/>`).join('')}`).join('')}</svg>
+ <div class="flow-ctl" style="margin-top:.4rem"><div class="seg" role="group" aria-label="Highlight a guest"><button type="button" data-jm="-1" aria-pressed="true">Everyone</button>${PERS.map((p,i)=>`<button type="button" data-jm="${i}" aria-pressed="false"><span class="leg"><i style="background:${p.col}"></i>${p.n}</span></button>`).join('')}</div></div></div>
+ <div class="thought" id="thought"></div>`}
+const PROJ=[
+ {id:'goodreads',kind:'Mobile UX case study',title:'Beyond the <em>Bookshelf</em>',plain:'Beyond the Bookshelf',sub:'Fostering Community on Goodreads'},
+ {id:'fashion',kind:'Web design',title:'Psychology &amp; <em>Fashion</em>',plain:'Psychology & Fashion',sub:'Website design'},
+ {id:'statler',kind:'Group project',title:'The Statler <em>Redesign</em>',plain:'The Statler Redesign',sub:'Approachable luxury'}
+];
+function goodreads(p){
+ const R=[['overview','What is Goodreads?','01'],['problem','The current issue','02'],['research','User research','03'],['ideate','Three fixes','04'],['solution','Solution','05'],['iterate','Designs','06'],['final','Final','07']];
+ return hero(p,'<p class="label by">Case study by Ishika Korla</p>',`<div class="hero-fan" id="heroFan"><img src="${A('final-home')}" alt="" style="transform:translate(-118%,-50%) rotate(-8deg) scale(.86)"><img src="${A('final-group')}" alt="" style="transform:translate(18%,-50%) rotate(8deg) scale(.86)"><img src="${A('final-discover')}" alt="Final Discover screen" style="transform:translate(-50%,-50%);z-index:2"></div>`,'--hb:#FFD6D6')+
+ facts([['Role','UX Designer'],['Team','Individual Project'],['Timeline','3 weeks'],['Category','Mobile Design']])+
+ `<div class="cs-body">${rail(R)}<div>`+
+ st('overview','01 · Overview','What is <em>Goodreads?</em>',
+  `<div class="logo-row"><img src="${A('gr-logo')}" alt="Goodreads logo"><div><p class="quote" style="margin:0;min-height:0;font-size:clamp(1.4rem,2.6vw,2rem)">“Knowledge is power, and power is best <b style="font-weight:600">shared</b> among readers.”</p><p class="quote-by">Otis Chandler, Co-Founder</p></div></div>
+  <div class="prose" style="margin-top:2rem"><p>Social platform for book lovers owned by Amazon:</p></div>
+  <div class="chips"><span>Book tracking</span><span>Reading challenges</span><span>Recommendations</span><span>Social connections</span></div>
+  <div class="prose" style="margin-top:1.5rem"><p>However, despite housing one of the largest concentrations of book lovers on the internet, the mobile app largely operates as an isolated experience. Over the course of three weeks, my goal as a UX designer was to investigate why readers feel so disconnected inside the platform.</p></div>
+  <div class="why"><span class="label">Why this project</span><p style="margin-top:.6rem">Having been an avid member of in-person book communities, I found that one of the things that frustrated me about Goodreads was the difficulty of unlocking the app’s community features. While they existed with the implementation of groups, they were highly inaccessible, and most users were completely unaware they existed.</p></div>`)+
+ st('problem','02 · The current issue','Individualistic <em>experience</em>',
+  `<div class="prose"><p>Goodreads is a platform meant to provide a place of community for book lovers, but with its outdated and difficult to navigate infrastructure, the app has begun to force an individualistic experience.</p></div>
+  <h3>Current design</h3>
+  <div class="walk"><div class="walk-ph" id="walkPh"><img src="${A('cur-home')}" alt="Current Goodreads Home" class="on"><img src="${A('cur-discover')}" alt="Current Discover page"><img src="${A('cur-more')}" alt="Current More menu"><img src="${A('cur-groups')}" alt="Current My Groups page"><span class="tap" id="tap"></span></div>
+  <div><div class="steps" id="steps">
+   <button type="button" class="step on" data-w="0" data-x="50" data-y="96"><span class="k">01</span><span><b>Home</b></span></button>
+   <button type="button" class="step" data-w="1" data-x="89" data-y="96"><span class="k">02</span><span><b>Discover</b></span></button>
+   <button type="button" class="step" data-w="2" data-x="50" data-y="72"><span class="k">03</span><span><b>More</b></span></button>
+   <button type="button" class="step" data-w="3" data-x="89" data-y="9"><span class="k">04</span><span><b>My Groups</b></span></button>
+  </div><button class="btn" type="button" id="walkNext" style="margin-top:1rem;color:var(--ink)">Next screen ${arrow}</button></div></div>
+  <h3>Issues</h3><div class="two"><div class="card"><p>Groups are inaccessible: you have to go to More, and have to search for groups.</p></div><div class="card"><p>The Home page and Discover page only focus on books, with no community aspect.</p></div></div>`)+
+ st('research','03 · User research','User <em>research</em>',
+  `<div class="three">${[['Angelina','Part of bookclub'],['Nitish','Avid Reader'],['Annabel','Solo Reader']].map(x=>`<div class="card persona"><span class="ic"><svg viewBox="0 0 24 24"><use href="#i-person"/></svg></span><span><b>${x[0]}</b><span>${x[1]}</span></span></div>`).join('')}</div>
+  <h3>Main pain points</h3><div class="pains">${[['Fear of spoilers','Regular reviews, Google and other platforms risk spoilers.'],['Multiple apps / platforms needed','Have to switch between apps to find info, but again relates to spoiler risk.'],['Inaccessible tab for group section','Many don’t even know Goodreads has the option for groups.'],['Lack of community','For solo readers who don’t have anyone to discuss with and aren’t in book clubs.']].map((x,i)=>`<button type="button" class="pain" aria-expanded="false"><span class="n">0${i+1}</span><b>${x[0]}</b><span class="more">${x[1]}</span><span class="h">Tap to read more</span></button>`).join('')}</div>
+  <div class="insight"><div class="card"><b>Isolating experience for the book community</b></div><div class="card"><b>Desire spoiler-free discussion</b></div></div>
+  <p class="quote" data-type="I wish I could talk about a plot twist with someone"></p>`)+
+ st('ideate','04 · Ideation','Three <em>fixes</em>',
+  `<div class="tabs" role="tablist" aria-label="Design directions"><button class="tab" role="tab" data-fix="0" aria-selected="false">Fix #1 · Hotbar</button><button class="tab" role="tab" data-fix="1" aria-selected="true">Fix #2 · Discover page</button><button class="tab" role="tab" data-fix="2" aria-selected="false">Fix #3 · Book section</button></div><div id="fixP"></div>`)+
+ st('solution','05 · Solution','Discover <em>feed</em>',
+  `<div class="three"><div class="card"><p>Still able to search groups</p></div><div class="card"><p>Personalized recommendation</p></div><div class="card"><p>More accessible</p></div></div>
+  <div class="prose" style="margin-top:1.5rem"><p>I ultimately landed on redesigning the Discover page to include group suggestions alongside the book ones, to contrast with the previous obscure design.</p></div>
+  <h3>User flow</h3><div class="flow"><div class="flow-grid">
+   <span class="fn" data-f="login" style="grid-row:1/6;grid-column:1">User login / sign up</span>
+   <span class="fa" style="grid-row:3;grid-column:2"></span>
+   <span class="fn" data-f="home" style="grid-row:1;grid-column:3">Home</span><span class="fn" data-f="books" style="grid-row:2;grid-column:3">My Books</span><span class="fn" data-f="disc" style="grid-row:3;grid-column:3">Discover</span><span class="fn" data-f="search" style="grid-row:4;grid-column:3">Search</span><span class="fn" data-f="more" style="grid-row:5;grid-column:3">More</span>
+   <span class="fa" style="grid-row:3;grid-column:4"></span><span class="fa" style="grid-row:5;grid-column:4"></span>
+   <span class="fn" data-f="scroll" style="grid-row:3;grid-column:5">Scroll through groups / books</span><span class="fn" data-f="mygroups" style="grid-row:5;grid-column:5">My groups</span>
+   <span class="fa" style="grid-row:3;grid-column:6"></span>
+   <span class="fn d" data-f="found" style="grid-row:3;grid-column:7">Found desired group?</span>
+   <span class="fa" style="grid-row:2;grid-column:8"></span><span class="fa" style="grid-row:4;grid-column:8"></span>
+   <span class="fn" data-f="yes" style="grid-row:2;grid-column:9">Yes: click group icon to visit page</span><span class="fn" data-f="no" style="grid-row:4;grid-column:9">No: continue looking</span>
+   <span class="fa" style="grid-row:1;grid-column:10"></span><span class="fa" style="grid-row:2;grid-column:10"></span>
+   <span class="fn" data-f="join" style="grid-row:1;grid-column:11">Join group</span><span class="fn" data-f="leave" style="grid-row:2;grid-column:11">Leave page</span>
+  </div></div>
+  <div class="flow-ctl"><button class="btn rose" type="button" id="play">Play the flow</button><div class="seg" role="group" aria-label="Choose a path"><button type="button" data-path="join" aria-pressed="true">Found a group</button><button type="button" data-path="no" aria-pressed="false">Continue looking</button><button type="button" data-path="mine" aria-pressed="false">My groups</button></div></div>`)+
+ st('iterate','06 · Designs','Designing in <em>Figma</em>',
+  `<h3 style="margin-top:0">Home page entry point</h3>${prow([['hf-home-1','Home page mid fidelity 1'],['hf-home-2','Home page mid fidelity 2']])}<p class="ask c">“Should group pages be included in Home itself?”</p>
+  <h3>Discover page</h3><div class="tabs" role="tablist" aria-label="Discover page designs"><button class="tab" role="tab" data-dv="0" aria-selected="true">Version 1</button><button class="tab" role="tab" data-dv="1" aria-selected="false">Version 2</button><button class="tab" role="tab" data-dv="2" aria-selected="false">Version 3</button></div><div id="dvP"></div>
+  <h3>Group page</h3>${prow([['hf-group-1','Version 1'],['hf-group-2','Version 2'],['hf-group-3','Version 3']])}<p class="ask c">“Best design for facilitating productive discussion?”</p>`)+
+ st('final','07 · Final','Final <em>designs</em>',
+  `<div class="finals"><figure class="fin"><div class="ph"><img src="${A('final-home')}" alt="Final Home screen"></div><figcaption>Home</figcaption></figure><figure class="fin"><div class="ph"><img src="${A('final-discover')}" alt="Final Discover screen"></div><figcaption>Discover</figcaption></figure><figure class="fin"><div class="ph"><img src="${A('final-group')}" alt="Final Group page"></div><figcaption>Group page</figcaption></figure></div>
+  <h3>Discover: before and after</h3><p class="quote-by" style="margin-top:0">Drag to compare</p>
+  <div class="ba" id="ba"><img src="${A('cur-discover')}" alt="Discover before the redesign"><img class="after" src="${A('final-discover')}" alt="Discover after the redesign"><span class="tg" style="left:.8rem">Before</span><span class="tg" style="right:.8rem">After</span><span class="handle"></span><input type="range" min="0" max="100" value="50" aria-label="Compare before and after"></div>
+  <div class="end"><p class="script">Thanks for listening!</p></div>`)+
+ `</div></div>`;
+}
+const prow=list=>`<div class="prow">${list.map(([img,cap])=>`<figure><button type="button" class="pz" data-zoom="${A(img)}" data-cursor="Zoom" aria-label="Enlarge: ${cap}"><img src="${A(img)}" alt="${cap}" loading="lazy"></button><figcaption>${cap}</figcaption></figure>`).join('')}</div>`;
+const DVI=['hf-disc-a','hf-disc-b','hf-disc-c'];
+const dvP=i=>`<div class="tp">${prow([[DVI[i],'Discover page · Version '+(i+1)]])}</div>`;
+function statler(p){
+ const R=[['role','My role','01'],['research','Personas','02'],['define','Journey map','03'],['concept','Concept','04'],['mood','Moodboard','05'],['design','3D models','06'],['plan','Key touchpoints','07'],['close','Would you visit?','08']];
+ return `<header class="cs-hero photo"><img src="${S('cover')}" alt=""><div style="color:#fff"><span class="label" style="color:#FFD6D6;opacity:1">The Statler</span><h1 id="csH" style="margin-top:1rem;text-transform:uppercase;letter-spacing:.02em">The Statler<br><em style="color:#FFD6D6;text-transform:none;font-family:var(--f-script);font-size:1.2em">Redesign</em></h1><p class="sub">Approachable Luxury · Mikayla, Bobbi, Jessica, Ishika, Dina</p></div></header>`+
+ facts([['My role','Research lead'],['Team','Mikayla, Bobbi, Jessica, Ishika, Dina'],['Type','Group project'],['Concept','Approachable luxury']])+`<div class="cs-body">${rail(R)}<div>`+
+ st('role','01 · My role','Research <em>lead</em>','<div class="three"><div class="card"><p>Research lead</p></div><div class="card"><p>Helped develop personas and touchpoints</p></div><div class="card"><p>Helped make final mockups</p></div></div>')+
+ st('research','02 · Personas','Persona <em>profiles</em>',`<div class="tabs" role="tablist" aria-label="Personas">${PERS.map((x,i)=>`<button class="tab" role="tab" data-per="${i}" aria-selected="${i===0}">${x.n}</button>`).join('')}</div><div id="perP"></div>`)+
+ st('define','03 · Journey map','Journey maps and <em>touchpoints</em>',emoChart())+
+ st('concept','04 · Concept','Approachable <em>luxury</em>',`<div class="concept"><img src="${S('library')}" alt="Library interior used for the concept"><div class="box"><span class="label" style="color:#1F3B2D">Concept:</span><h3>Approachable luxury</h3><p>high-end comfort<br>quality hospitality<br>authentically Cornell</p></div></div>`)+
+ st('mood','05 · Moodboard','Inspiration and <em>ideation</em>',`<div class="mood"><div>${zoom(S('mood1'),'Moodboard image: bright bathroom with soft lighting')}</div><div>${zoom(S('mood2'),'Moodboard image: warm bathroom with soft lighting')}</div><div style="display:grid;gap:1rem;align-content:start"><div class="pal">${['#6E1A1F','#F7EDA6','#D1CDC5','#B9A49B','#3D2A1D'].map(c=>`<button type="button" style="--sw:${c}" data-hex="${c}" aria-label="Copy color ${c}"><span>${c}</span></button>`).join('')}</div><div class="card"><p>Brighter color palette<br>Soft lighting<br>Cornell red accents</p></div></div></div>`)+
+ st('design','06 · 3D models','3D <em>models</em>',`<div class="two"><div>${zoom(S('bedroom'),'3D model: bedroom')}<p class="quote-by">3D model · Bedroom</p></div><div>${zoom(S('bathroom'),'3D model: bathroom')}<p class="quote-by">3D model · Bathroom</p></div></div>`)+
+ st('plan','07 · Floorplan','Key <em>touchpoints</em>',`<div class="fp"><div class="fp-map"><img src="${S('floorplan')}" alt="Floorplan">${TP.map((t,i)=>`<button type="button" class="fpin" style="left:${t[2]}%;top:${t[3]}%" data-tp="${i}" aria-pressed="${i===0}" aria-label="Touchpoint ${i+1}"><span>${i+1}</span></button>`).join('')}</div><div class="fp-card" id="fpCard"></div></div>`)+
+ st('close','08 · Statler Hotel','Would you <em>visit?</em>',`<div class="closer"><img src="${S('lobby')}" alt="The Statler hotel bar"><div><span class="label" style="color:#fff">Statler Hotel</span><h3>Would you visit?</h3><p>Beyond stay, an experience</p></div></div>`)+`</div></div>`;
+}
+const FPP=n=>'assets/fp/plan/'+n+'.webp',FSH=n=>'assets/fp/shots/'+n+'.webp',SITE='assets/fp/site/';
+const FPAGES=[['index','Home'],['y2k-nostalgia','Y2K Nostalgia'],['streetwear','Streetwear'],['core-aesthetics','Core Aesthetics'],['social-media','Social Media']];
+const INSPO=[
+ {img:'inspo-1',url:'https://fashionispsychology.com/',host:'fashionispsychology.com',theme:'The website has a modern, almost editorial look like a fashion magazine. It uses a bold mixture of green and pink which generates excitement and inspiration in the user.',resp:'In narrow view the website utilizes a hamburger menu, while in wide screen the navigation is in a row in the header. Additionally the logo/title becomes smaller in mobile and larger in desktop along with other elements changing size to ensure a responsive usable layout at all times.',take:'I would want to include a similar read more button as well as a clean looking responsive navigation. I also want to use high contrast colors like this website does to give it a bold look.'},
+ {img:'inspo-2',url:'https://modgirlstyle.com/psychology-of-fashion/',host:'modgirlstyle.com',theme:'The website uses soft neutral tones and pinks to evoke a sense of comfort, calm, and consistency.',resp:'For the wide view, the site places the navigation bar, which is horizontal, in the header and uses a hamburger menu for mobile. The site also responsively adapts from side-by-side elements to being vertically stacked in mobile.',take:'I would like to implement a consistent color scheme similar to this website and also clear distinct section heading to break up large blocks of text.'}];
+const FQ=['How did you decide on your outfit today? What factors influenced your choice?','Thinking back to the last time you bought a piece of clothing, what drove you to pick it?','Think about the last time you wore one of your favorite pieces of clothing. What about it makes you drawn to it or want to wear it more often? What emotions does it make you feel?','Tell me about a time you felt you were not dressed correctly for an event and how that affected your mood and confidence.','Think back to a time you were on social media and saw style or fashion content. How did that influence your clothing choices and style?','What specific style would you consider your outfits to typically fall under? How does dressing this way make you feel?'];
+const FPPL=[
+ {n:'Mikayla',bio:'College student at UCI who is very interested in fashion and clothing. She often engages in thrifting, shopping, and is active on sites such as Depop.',a:['She is wearing a graphic tee with denim shorts and said she considered the weather and just wanted what she felt was a good outfit that made her feel good and confident.','She talked about considering factors such as cost, the item’s cohesiveness with the rest of her style, and its uniqueness.','Her current favorite piece is a vintage jacket with a fur lining she found while thrifting, and she finds herself drawn to it because it makes her excited to wear it and proud of her outfit.','She recently had a picnic gathering with her hometown friends and noted how she feels comfortable experimenting with her style around people she’s close with.<span class="fu"><b>Follow-up:</b> How would you feel wearing an experimental outfit around people you aren’t familiar with? She believes she would still wear what she likes, as it is part of her identity, and she is confident in that.</span>','She often gets inspired by social media posts and finds it a good place to look for outfit ideas, especially since you can explore so many different styles.','While she feels it can depend on the day-to-day, her style does have a leaning towards alternative, but also Y2K.<span class="fu"><b>Follow-up:</b> How do you maintain your style? She finds the best place to find vintage pieces is through thrifting and getting second-hand clothing from the 2000s.</span>']},
+ {n:'Angelina',bio:'18 year old college student at UCLA majoring in Design and Art. Interested in fashion and making outfits and often goes thrifting and shopping.',a:['She is wearing a flowy lace tank top, and she chose it because it is a new top she got while thrifting and has been looking forward to wearing.','She bought a white top from Brandy Melville because she thought it would look cute with a cardigan she owns, and she often shops at Brandy and enjoys their clothing.','She talks about feeling more motivated when she wears her favorite outfits and that it energizes her, but also how if she gets a compliment on her outfit, it is a nice way to have a conversation and meet people.','She talks about wearing sweats to the last rally of senior year, rather than dressing up nice, and how it makes her not want to be in pictures and feel less invested in the festivities.','She enjoys getting inspo on Pinterest and TikTok and has been influenced in buying viral items that she ended up not wearing as much.','She says she has a bit of a coquettish style, but also wears Y2K pieces she gets from Depop and thrifting, and she likes the feeling of finding a good item for cheap while looking.']},
+ {n:'Mina',bio:'19 year old college student at Cornell studying CS who enjoys occasional shopping.',a:['She wore sweats and a cardigan for physical comfort and warmth, prioritizing efficiency to help reduce her stress during her exam today.','The last item she bought was Aritzia sweats because of the practical comfort and good quality.','Her favorite pieces are her 100% cotton Brandy Melville tops, as she views it as better for her skin and makes her feel cleaner and healthier, since they have fewer chemicals than polyester.','She reflected on getting dressed for a St. Patrick’s Day party where she specifically wore green to conform to the group’s social expectations to make herself feel much more confident and secure in the setting.','She admitted to being influenced by items she has liked on social media, as it gives her more exposure to things she could see herself buying.','She considers her style to be similar to elevated athleisure, with a more predictable, comfortable rotation of outfits in order to avoid added stress.']}];
+const FGOALS=['Finding comfort in their style and clothing.','Feeling confident and motivated in what they wear.','Affordability and quality in clothing.','Expressing one’s identity through clothing.','Balancing their own self expression with social norms.'];
+const FCONTENT=[['Home',[['Text','Introductory paragraph on the home page introducing the concept of psychology and fashion and “enclothed cognition”'],['Text','Bullet points of current fashion trends'],['Button','Read more'],['Image','Image of current popular fashion trends on the home page to complement the text']]],
+ ['Y2K Nostalgia',[['Text','Paragraph(s) on the psychology behind the recurring trend of Y2K and why it has regained popularity'],['Image','Images showing Y2K fashion']]],
+ ['Streetwear',[['Text','Paragraph(s) explaining the psychology behind the streetwear style and its appeal'],['Image','Images of streetwear']]],
+ ['Core Aesthetics',[['Text','Paragraph(s) explaining psychology behind the popularity of popular “core” aesthetics and their relation to individuals’ identities'],['Text','Bullet points of “core” aesthetics list'],['Image','Images of popular “core” aesthetics (Cottagecore, Dark Academia, Downtown)']]],
+ ['Social Media',[['Text','Paragraph(s) explaining social media influence on fashion and identity'],['Image','Complementary images of social media and fashion']]]];
+const FSORT=[['cardsort-1','Content cards','First, I just wrote down all the pieces of content and topics I knew were going to be needed for the site.'],['cardsort-2','Iteration 1',''],['cardsort-3','Iteration 2 · Final','I organized it so that there would be a home page with all the introductory content of psychology and fashion and, to resonate with the audience, I had 3 main fashion styles that are popular in Gen Z while also acknowledging social media’s influence in fashion.']];
+const FSK=[['sketch-home','Home'],['sketch-y2k','Y2K Nostalgia'],['sketch-streetwear','Streetwear'],['sketch-core','Core Aesthetics'],['sketch-social','Social Media']];
+const FIX2={modal:{name:'Modal',fin:['sketch-modal','Modal design sketches'],plan:['plan-modal','Modal planning sketches'],code:`When a thumbnail button is clicked:
+  Update the src attribute of #modal-img-display to the clicked image's source
+  Remove the .hidden class from the #image-modal-overlay element
+
+When the #read-more-btn is clicked:
+  Remove the .hidden class from the #text-modal-overlay element
+
+When the #close-modal-btn or #close-text-btn is clicked:
+  Add the .hidden class to the corresponding modal overlay`},
+ nav:{name:'Hamburger menu',fin:['sketch-nav','Navigation design sketches'],plan:['plan-nav','Navigation planning sketches'],code:`when the hamburger button is clicked:
+  if the navigation menu is not visible:
+    remove .hidden class from #nav-menu
+  else:
+    add .hidden class to #nav-menu
+
+on page load (ready) and on window resize:
+  if window is narrow:
+    add .hidden class to #nav-menu
+  else if window is wide:
+    remove .hidden class from #nav-menu`}};
+const fxP=k=>{const f=FIX2[k];return `<div class="tp"><div class="two">${[f.fin,f.plan].map(x=>`<figure class="fp-fig">${zoom(FPP(x[0]),x[1])}<figcaption>${x[1]}</figcaption></figure>`).join('')}</div><div class="fp-code"><span class="label">${f.name} pseudocode</span><pre><code>${f.code}</code></pre></div></div>`};
+function fashion(p){
+ const R=[['overview','Overview','01'],['inspo','Inspiration','02'],['research','User interviews','03'],['goals','Audience goals','04'],['organize','Card sorting','05'],['sketch','Sketching','06'],['interact','Interactivity','07'],['site','Final website','08'],['reflect','Reflection','09']];
+ const ext='<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>';
+ return hero(p,`<div class="fp-hbtn"><button class="btn rose" type="button" data-jump="site">See it in action</button></div>`,
+  `<div class="fp-hero" id="fpHero"><div class="fp-win"><div class="fp-bar"><i></i><i></i><i></i><span id="fpHUrl">index.html</span></div><div class="fp-shots">${FPAGES.map((x,i)=>`<img src="${FSH('d-'+x[0])}" alt="${x[1]} page, desktop" class="${i?'':'on'}"${i?' loading="lazy"':''}>`).join('')}</div></div><div class="fp-phone"><div class="fp-shots">${FPAGES.map((x,i)=>`<img src="${FSH('m-'+x[0])}" alt="${x[1]} page, mobile" class="${i?'':'on'}"${i?' loading="lazy"':''}>`).join('')}</div></div></div>`,'--hb:#E8F4E6')+
+ facts([['Role','UX Design, UI Design'],['Category','Web Design'],['Pages','5'],['Built with','HTML, CSS, JavaScript']])+`<div class="cs-body">${rail(R)}<div>`+
+ st('overview','01 · Overview','Project <em>overview</em>',`<div class="prose"><p>My website will be about psychology and fashion and how different psychologies relate to some common fashion styles.</p><p>This website design intertwines psychology and fashion to present the current representations of fashion and the psychology behind certain styles.</p></div>
+  <h3>Site pages</h3><div class="fp-nav" aria-label="Pages of the website">${FPAGES.map(x=>`<span>${x[1]}</span>`).join('')}</div>
+  <h3>Process</h3><ol class="fp-steps"><li><b>Milestone 1</b><span>Research, content and design plan</span></li><li><b>Milestone 2</b><span>Building the pages</span></li><li><b>Milestone 3</b><span>Interactivity design</span></li><li><b>Final</b><span>Interactive, responsive website</span></li></ol>`)+
+ st('inspo','02 · Inspiration','Example <em>websites</em>',`<div class="two fp-inspo">${INSPO.map(w=>`<article class="card"><div class="fp-crop">${zoom(FPP(w.img),'Screenshot of '+w.host)}</div><a class="fp-host" href="${w.url}" target="_blank" rel="noopener">${w.host} ${ext}</a><dl><dt>Theme</dt><dd>${w.theme}</dd><dt>Responsiveness</dt><dd>${w.resp}</dd><dt>What I’d include</dt><dd>${w.take}</dd></dl></article>`).join('')}</div>`)+
+ st('research','03 · User interviews','User <em>interviews</em>',`<div class="prose"><p>I planned a user interview to identify the audience and their goals, then interviewed three people.</p></div>
+  <div class="three" style="margin-top:1.5rem">${FPPL.map(x=>`<div class="card persona fp-per"><span class="ic">${x.n[0]}</span><span><b>${x.n}</b><span>${x.bio}</span></span></div>`).join('')}</div>
+  <h3>Compare answers</h3><div class="tabs" role="tablist" aria-label="Interview questions">${FQ.map((q,i)=>`<button class="tab" role="tab" data-fq="${i}" aria-selected="${i===0}">Q${i+1}</button>`).join('')}</div><div id="fqP"></div>`)+
+ st('goals','04 · Audience goals','Audience <em>goals</em>',`<ol class="fp-goals">${FGOALS.map((g,i)=>`<li><span class="n">0${i+1}</span><b>${g}</b></li>`).join('')}</ol>
+  <h3>Planned content</h3><div class="fp-content">${FCONTENT.map(([pg,items])=>`<div class="card"><span class="label">${pg}</span><ul>${items.map(([t,d])=>`<li><i data-t="${t}">${t}</i>${d}</li>`).join('')}</ul></div>`).join('')}</div>
+  <div class="why"><span class="label">Content justification</span><p style="margin-top:.6rem">The paragraphs and text provide the site’s audience the information they are visiting the site for about the psychology of various current popular styles, typically seen in Gen Z fashion. Since the site has a focus on clothing and fashion, images are essential for giving users visual context on what type of style they are reading about.</p></div>`)+
+ st('organize','05 · Card sorting','Content <em>organization</em>',`<div class="fp-sort"><div class="fp-sort-img">${FSORT.map((x,i)=>`<button type="button" class="pz${i===2?' on':''}" data-zoom="${FPP(x[0])}" data-cursor="Zoom" aria-label="Enlarge: ${x[1]}"><img src="${FPP(x[0])}" alt="Card sort: ${x[1]}" loading="lazy"></button>`).join('')}</div>
+  <div class="steps" id="fpSort">${FSORT.map((x,i)=>`<button type="button" class="step${i===2?' on':''}" data-s="${i}"><span class="k">0${i+1}</span><span><b>${x[1]}</b>${x[2]?`<span>${x[2]}</span>`:''}</span></button>`).join('')}</div></div>
+  <div class="two" style="margin-top:2rem"><div class="card"><span class="label">Final organization</span><p>I will be using the second iteration (the third card sort image).</p><p style="margin-top:.6rem">The final organization ensures each page is not cluttered with multiple different topics and makes it easier for users to navigate to exactly what they need and are interested in. It ensures only closely related topics remain on the same page.</p></div>
+  <div class="card"><span class="label">Navigation</span><div class="fp-nav sm">${['Home','Y2K Nostalgia','Streetwear','Core Aesthetics','Social Media Influence'].map(x=>`<span>${x}</span>`).join('')}</div><p style="margin-top:.8rem">These names make sense as they are short and to the point and use terminology that the audience is already familiar with. As the audience is primarily Gen Z and young adults, these names target efficiency with language they already understand.</p></div></div>`)+
+ st('sketch','06 · Sketching','Design <em>sketches</em>',`<h3 style="margin-top:0">Design brainstorm</h3><div class="two">${[['sketch-narrow-home','Mobile layout ideas'],['sketch-wide-home','Desktop layout ideas']].map(x=>`<figure class="fp-fig">${zoom(FPP(x[0]),x[1])}<figcaption>${x[1]}</figcaption></figure>`).join('')}</div>
+  <h3>Responsive design, page by page</h3><div class="tabs" role="tablist" aria-label="Page sketches">${FSK.map((x,i)=>`<button class="tab" role="tab" data-fsk="${i}" aria-selected="${i===0}">${x[1]}</button>`).join('')}</div><div id="fskP"></div>
+  <div class="why"><span class="label">Design rationale</span><p style="margin-top:.6rem">This design utilizes familiar design patterns in formatting the header as well as having the logo link back to the home page which users are familiar with. It also vertically stacks content in the mobile layout while implementing a side-by-side approach in the desktop layout, ensuring usability for users. The organization is easy to follow with appropriate images next to the written content they represent. Larger titles and smaller regular text establishes hierarchy and makes it clear to users which page they are on.</p></div>`)+
+ st('interact','07 · Interactivity','Designing the <em>interactivity</em>',`<h3 style="margin-top:0">Modal brainstorm</h3><div class="three">${[['Thumbnail images for the 4 core-aesthetic images that get bigger when you click on it and darkens the background so you can focus on just one core aesthetic.',1],['A Read More button that expands to a pop up of more text with a darkened background to make sure the page isn’t too crowded with text.',1],['A modal that gives the definition for a key word like enclothed cognition so that users understand key concepts better.',0]].map((x,i)=>`<div class="card fp-idea"><span class="n">0${i+1}</span><p>${x[0]}</p>${x[1]?'<span class="chosen">✓ Built</span>':''}</div>`).join('')}</div>
+  <h3>Design ideation</h3><figure class="fp-fig fp-narrow">${zoom(FPP('sketch-interactivity'),'Interactivity design sketches')}<figcaption>Design sketches</figcaption></figure>
+  <h3>Final sketches and plan</h3><div class="tabs" role="tablist" aria-label="Interactivity"><button class="tab" role="tab" data-fx="0" aria-selected="true">Modal</button><button class="tab" role="tab" data-fx="1" aria-selected="false">Hamburger menu</button></div><div id="fxP"></div>
+  <div class="two" style="margin-top:2rem"><div class="card"><span class="label">Interactivity rationale</span><p>My proposed interactivity allows for the website to be better accessible and functional. The drop down hamburger menu saves space and provides users with familiarity. My 2 proposed modal designs make the content better arranged as the Read More buttons helps provide a cleaner look and the core aesthetic images modal makes the images more accessible to look at.</p></div>
+  <div class="card"><span class="label">Usability justification</span><p>My interactivity which includes the hamburger menu and my two modals helps to create a familiar and clear layout for my audience to explore the fashion psychology content. The hamburger menu uses familiarity with the three line icon so that users can easily navigate to different pages. The pointer cursor, hover color change, and button outline affordances also contribute with visual feedback. Finally, the thumbnail modal on the core aesthetics page allows users to focus on specific patterns of interest along with the Read More button modal that eliminates clutter and keeps the page visually appealing.</p></div></div>`)+
+ st('site','08 · Final website','The <em>website</em>',`<div class="fp-live" id="fpLive"><div class="fp-ctl"><div class="seg" role="group" aria-label="Page">${FPAGES.map((x,i)=>`<button type="button" data-lp="${x[0]}" aria-pressed="${i===0}">${x[1]}</button>`).join('')}</div><div class="seg" role="group" aria-label="Screen size"><button type="button" data-dev="d" aria-pressed="true">Desktop</button><button type="button" data-dev="m" aria-pressed="false">Mobile</button></div></div>
+  <div class="fp-stage"><div class="fp-win"><div class="fp-bar"><i></i><i></i><i></i><span id="fpLUrl">index.html</span></div><div class="fp-frame"><iframe id="fpIf" title="Psychology and Fashion website, live" src="${SITE}index.html" loading="lazy"></iframe></div></div></div>
+  <p class="fp-hint">This is the real site running. Click around: try the Read More button, the Core Aesthetics thumbnails, or switch to Mobile and open the hamburger menu.</p></div>
+  <h3>Interactivity in action</h3><div class="fp-act"><figure class="fp-fig">${zoom(FSH('x-menu'),'Hamburger menu open on mobile')}<figcaption><b>Hamburger menu</b>On every page in the top right corner of the header, used to view the nav menu</figcaption></figure><figure class="fp-fig">${zoom(FSH('x-readmore'),'Read More modal on the home page')}<figcaption><b>“Read More” modal</b>On the home page, click the button to make the additional information pop up</figcaption></figure><figure class="fp-fig">${zoom(FSH('x-modal'),'Image modal on the Core Aesthetics page')}<figcaption><b>Image modal</b>On the Core Aesthetics page, click one of the 4 image thumbnails to open up just that image</figcaption></figure></div>`)+
+ st('reflect','09 · Reflection','Self-<em>reflection</em>',`<div class="why" style="margin-top:0"><p>I have learned a lot about the interaction of CSS, HTML, and JavaScript to create an accessible and interactive site that addresses an audience’s needs. My organization and ability to write interactive code has improved a lot since the beginning of the semester as I now know how to use media queries and mobile first design. Something I would do differently next time is figuring out my interactivity earlier so I can plan behaviors that I know are possible from the very beginning as I had to change my final implementation for the core aesthetics thumbnails.</p></div>
+  <div class="two" style="margin-top:2rem"><div class="card"><span class="label">GitHub Copilot reflection</span><p>I used GitHub Copilot for very basic HTML structuring. While I initially tried using it to structure the HTML I ultimately ended up removing and changing a good portion aside from some very basic structuring such as &lt;p&gt; and &lt;main&gt;. It did not do a good job structuring images in the HTML and I wanted to use different elements than what it suggested. For example I wanted to use &lt;article&gt; or &lt;section&gt; for certain portions and have more control over that. Overall it did do a good job at basic HTML structure but definitely needed to be looked over as I wanted to have design control over my CSS and needed it to align with my HTML structure at some points.</p></div>
+  <div class="card"><span class="label">References</span><p>I used Google Gemini for my text content.</p><p style="margin-top:.6rem">Images used as content for my web pages: Fizzy Mag, Jonathan Frips, Grazia Magazine, Lindy News, Everlasting Fabric, Who What Wear, The Vou, Green Wedding Shoes, Fashinnovation.</p></div></div>`)+
+ `</div></div>`}
+
+const BUILD={goodreads,statler,fashion};
+const ORDER=['goodreads','fashion','statler'];
+
+/* ---------- sheet: case studies flow into each other ---------- */
+const ov=$('#csOv'),sc=$('#csSc');let curId=null,last=null,IOS=[],shown=[];
+const nextUnshown=()=>{const from=shown[shown.length-1];for(let k=1;k<=ORDER.length;k++){const n=ORDER[(ORDER.indexOf(from)+k)%ORDER.length];if(!shown.includes(n))return n}return null};
+const block=(id,first)=>{const p=PROJ.find(x=>x.id===id);return `<div class="cs-proj" data-proj="${id}">${first?'':`<div class="cs-div"><span class="label">Next case study</span></div>`}${BUILD[id](p)}</div>`};
+const sentinel=()=>{const n=nextUnshown();if(!n)return `<div class="cs-end">${chara({vb:'24 26 160 190',body:true,start:4})}<h3>That’s all of my case studies</h3><button class="btn rose" type="button" data-close>Back to the portfolio ${arrow}</button></div>`;const np=PROJ.find(x=>x.id===n);return `<div class="cs-sent" data-nid="${n}"><span class="label">Keep scrolling · Next case study</span><span class="nt">${np.plain}</span><span class="chev" aria-hidden="true">↓</span></div>`};
+function setCur(id){curId=id;const p=PROJ.find(x=>x.id===id);$('#csT').innerHTML=`${p.plain} <i>· ${p.sub}</i>`;try{history.replaceState(null,'','#'+id)}catch(e){}}
+function watchSentinel(){const s=$('.cs-sent',sc);if(!s)return;const o=new IntersectionObserver(es=>{if(es[0].isIntersecting){o.disconnect();appendNext()}},{root:sc,rootMargin:'0px 0px 500px 0px'});o.observe(s);IOS.push(o)}
+function watchBlock(b){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setCur(b.dataset.proj)}),{root:sc,rootMargin:'-45% 0px -50% 0px'});o.observe(b);IOS.push(o)}
+function appendNext(){const s=$('.cs-sent',sc);if(!s)return;const n=s.dataset.nid;shown.push(n);s.insertAdjacentHTML('beforebegin',block(n,false));s.remove();const b=$(`.cs-proj[data-proj="${n}"]`,sc);b.insertAdjacentHTML('afterend',sentinel());wire(b);watchBlock(b);watchSentinel()}
+function openCS(id){
+ if(id==='hello'||id==='mind'){document.getElementById(id).scrollIntoView({behavior:reduce?'auto':'smooth'});return}
+ if(!BUILD[id])return;
+ const existing=!ov.hidden&&$(`.cs-proj[data-proj="${id}"]`,sc);
+ if(existing){sc.scrollTo({top:existing.offsetTop,behavior:reduce?'auto':'smooth'});return}
+ IOS.forEach(o=>o.disconnect());IOS=[];shown=[id];
+ sc.innerHTML=block(id,true)+sentinel();
+ const b=$('.cs-proj',sc);wire(b);watchBlock(b);watchSentinel();setCur(id);
+ if(ov.hidden){last=document.activeElement;ov.hidden=false;requestAnimationFrame(()=>ov.classList.add('open'));document.documentElement.style.overflow='hidden'}
+ sc.scrollTop=0;$('#csX').focus();
+}
+sc.addEventListener('scroll',()=>{const p=sc.scrollTop/((sc.scrollHeight-sc.clientHeight)||1);$('#csProg').style.transform=`scaleX(${p})`;$$('.cs-proj',sc).forEach(b=>{const fill=$('.rail .fill',b);if(!fill)return;const bp=(sc.scrollTop-b.offsetTop)/((b.offsetHeight-sc.clientHeight)||1);fill.style.height=(Math.max(0,Math.min(1,bp))*fill.parentNode.clientHeight)+'px'})},{passive:true});
+function closeCS(){ov.classList.remove('open');document.documentElement.style.overflow='';setTimeout(()=>{ov.hidden=true;sc.innerHTML=''},500);IOS.forEach(o=>o.disconnect());IOS=[];try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}last&&last.focus()}
+$('#csX').addEventListener('click',closeCS);ov.addEventListener('click',e=>{if(e.target===ov)closeCS();if(e.target.closest('[data-close]'))closeCS()});
+$('#csPrev').addEventListener('click',()=>openCS(ORDER[(ORDER.indexOf(curId)-1+ORDER.length)%ORDER.length]));
+$('#csNext').addEventListener('click',()=>openCS(ORDER[(ORDER.indexOf(curId)+1)%ORDER.length]));
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){e.preventDefault();openCS(o.dataset.open)}});
+document.addEventListener('keydown',e=>{
+ if(!$('#lb').hidden){if(e.key==='Escape')closeLB();return}
+ if(ov.hidden)return;
+ if(e.key==='Escape'){closeCS();return}
+ if(e.key==='Tab'){const f=$$('button,a[href],input,[tabindex]:not([tabindex="-1"])',$('#cs')).filter(x=>x.offsetParent!==null);if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){z.focus();e.preventDefault()}else if(!e.shiftKey&&document.activeElement===z){a.focus();e.preventDefault()}}
+});
+const lb=$('#lb');let lbLast=null;
+function openLB(src,alt){lbLast=document.activeElement;$('#lbImg').src=src;$('#lbImg').alt=alt||'';lb.hidden=false;requestAnimationFrame(()=>lb.classList.add('open'));$('#lbX').focus()}
+function closeLB(){lb.classList.remove('open');setTimeout(()=>lb.hidden=true,350);lbLast&&lbLast.focus()}
+lb.addEventListener('click',closeLB);
+
+function wire(root){
+ const links=$$('.rail a',root),secs=$$('.st',root),fill=$('.rail .fill',root),prog=$('#csProg');
+ links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=$('#st-'+a.dataset.go,root);t&&sc.scrollTo({top:t.getBoundingClientRect().top-sc.getBoundingClientRect().top+sc.scrollTop-(mob.matches?60:20),behavior:reduce?'auto':'smooth'})}));
+ const mark=id=>links.forEach(a=>{const on=a.dataset.go===id;a.classList.toggle('active',on);on?a.setAttribute('aria-current','step'):a.removeAttribute('aria-current');if(on&&mob.matches)a.closest('ol').scrollTo({left:a.offsetLeft-20,behavior:'smooth'})});
+ const stIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)mark(e.target.dataset.st)}),{root:sc,rootMargin:'-30% 0px -60% 0px'});secs.forEach(x=>stIO.observe(x));IOS.push(stIO);secs[0]&&mark(secs[0].dataset.st);
+
+ const fan=$('#heroFan',root);if(fan&&fine&&!reduce){const base=$$('img',fan).map(i=>i.style.transform);fan.closest('.cs-hero').addEventListener('pointermove',e=>{const r=fan.getBoundingClientRect(),dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;$$('img',fan).forEach((im,i)=>im.style.transform=base[i]+` translate(${dx*(i===2?24:12)}px,${dy*(i===2?18:10)}px)`)})}
+ $$('[data-zoom]',root).forEach(b=>b.addEventListener('click',()=>openLB(b.dataset.zoom,$('img',b).alt)));
+ const steps=$$('#steps .step',root);if(steps.length){const imgs=$$('#walkPh img',root),tap=$('#tap',root);let w=0;const go=i=>{w=i;imgs.forEach((im,k)=>im.classList.toggle('on',k===i));steps.forEach((s,k)=>s.classList.toggle('on',k===i));tap.style.left=steps[i].dataset.x+'%';tap.style.top=steps[i].dataset.y+'%';$('#walkNext',root).innerHTML=i===3?'Start over '+arrow:'Next screen '+arrow};steps.forEach((s,k)=>s.addEventListener('click',()=>go(k)));$('#walkNext',root).addEventListener('click',()=>go((w+1)%4));go(0)}
+ $$('.pain',root).forEach(b=>b.addEventListener('click',()=>{const o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));$('.h',b).textContent=o?'Tap to read more':'Tap to close'}));
+ $$('[data-type]',root).forEach(q=>{const txt='“'+q.dataset.type+'”';q.textContent=txt;if(reduce)return;let done=false;const t=new IntersectionObserver(es=>{if(es[0].isIntersecting&&!done){done=true;t.disconnect();let k=0;q.innerHTML='<span></span><i class="cur"></i>';const sp=q.firstChild;(function ty(){sp.textContent=txt.slice(0,++k);if(k<txt.length)setTimeout(ty,40)})()}},{root:sc,threshold:.6});t.observe(q)});
+ const tabset=(attr,panel,render,def)=>{const p=$(panel,root);if(!p)return;const set=i=>{$$(`[${attr}]`,root).forEach(t=>t.setAttribute('aria-selected',String(+t.getAttribute(attr)===i)));p.innerHTML=render(i);$$('[data-zoom]',p).forEach(b=>b.addEventListener('click',()=>openLB(b.dataset.zoom,$('img',b).alt)))};$$(`[${attr}]`,root).forEach(t=>t.addEventListener('click',()=>set(+t.getAttribute(attr))));set(def)};
+ if(typeof fixP!=='undefined'){tabset('data-fix','#fixP',fixP,1);tabset('data-dv','#dvP',dvP,0)}
+ tabset('data-per','#perP',i=>{const x=PERS[i];return `<div class="tp three"><div class="card" style="border-top:4px solid ${x.col}"><span class="label">Motivations</span><p>${x.m}</p></div><div class="card" style="border-top:4px solid ${x.col}"><span class="label">Emotions</span><p>${x.e}</p></div><div class="card" style="border-top:4px solid ${x.col}"><span class="label">Expectations</span><p>${x.x}</p></div></div>`},0);
+ $$('[role="tablist"]',root).forEach(tl=>tl.addEventListener('keydown',e=>{if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;const ts=$$('[role="tab"]',tl),i=ts.indexOf(document.activeElement);if(i<0)return;const n=ts[(i+(e.key==='ArrowRight'?1:-1)+ts.length)%ts.length];n.focus();n.click()}));
+ const play=$('#play',root);if(play){let path='join',tm;const P={join:['login','disc','scroll','found','yes','join'],no:['login','disc','scroll','found','no'],mine:['login','more','mygroups']};const run=()=>{clearTimeout(tm);$$('.fn',root).forEach(n=>n.classList.remove('lit'));let k=0;const seq=P[path];(function s(){if(k>=seq.length)return;const n=$(`.fn[data-f="${seq[k]}"]`,root);n&&n.classList.add('lit');k++;tm=setTimeout(s,reduce?0:480)})()};play.addEventListener('click',run);$$('[data-path]',root).forEach(b=>b.addEventListener('click',()=>{path=b.dataset.path;$$('[data-path]',root).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));run()}))}
+ $$('.fin .ph',root).forEach(ph=>{const tip=$('.tip',ph);$$('.hs',ph).forEach(h=>h.addEventListener('click',e=>{e.stopPropagation();const on=h.getAttribute('aria-expanded')!=='true';$$('.hs',ph).forEach(x=>x.setAttribute('aria-expanded','false'));h.setAttribute('aria-expanded',String(on));tip.textContent=h.dataset.tip;tip.style.top=`calc(${h.style.top} + 22px)`;tip.classList.toggle('on',on)}))});
+ const ba=$('#ba',root);if(ba){const r=$('input',ba);r.addEventListener('input',()=>ba.style.setProperty('--x',r.value+'%'))}
+ /* statler: emotion chart */
+ const emo=$('#emo',root);if(emo){const th=$('#thought',root);const showStage=i=>{$$('.stg',emo).forEach(g=>g.classList.toggle('on',+g.dataset.stg===i));th.innerHTML=PERS.map(p=>`<div class="card tp" style="border-top:4px solid ${p.col}"><span class="label">${p.n} · ${STAGES[i]}</span><b>${p.th[i]}</b></div>`).join('')};$$('.stg',emo).forEach(g=>{g.addEventListener('click',()=>showStage(+g.dataset.stg));g.addEventListener('mouseenter',()=>{if(fine)showStage(+g.dataset.stg)})});showStage(0);
+  $$('[data-jm]',emo).forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.jm;$$('[data-jm]',emo).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));emo.classList.toggle('focus',v!=='-1');$$('.ln,.pt',emo).forEach(l=>l.classList.toggle('on',l.dataset.p===v))}));
+  const eio=new IntersectionObserver(es=>{if(es[0].isIntersecting){emo.classList.add('in');eio.disconnect()}},{root:sc,threshold:.4});eio.observe(emo)}
+ /* fashion */
+ if($('#fqP',root)){tabset('data-fq','#fqP',i=>`<div class="tp"><p class="fp-q"><span>Q${i+1}</span>${FQ[i]}</p><div class="three">${FPPL.map(x=>`<div class="card fp-ans"><span class="label">${x.n}</span><p>${x.a[i]}</p></div>`).join('')}</div></div>`,0);
+  tabset('data-fsk','#fskP',i=>`<div class="tp"><figure class="fp-fig fp-narrow">${zoom(FPP(FSK[i][0]),FSK[i][1]+' responsive sketches')}<figcaption>${FSK[i][1]} · responsive sketches</figcaption></figure></div>`,0);
+  tabset('data-fx','#fxP',i=>fxP(i?'nav':'modal'),0);
+  const ss=$$('#fpSort .step',root),si=$$('.fp-sort-img .pz',root);ss.forEach((s,k)=>s.addEventListener('click',()=>{ss.forEach((x,j)=>x.classList.toggle('on',j===k));si.forEach((x,j)=>x.classList.toggle('on',j===k))}));
+  $$('[data-jump]',root).forEach(b=>b.addEventListener('click',()=>{const t=$('#st-'+b.dataset.jump,root);t&&sc.scrollTo({top:t.getBoundingClientRect().top-sc.getBoundingClientRect().top+sc.scrollTop-(mob.matches?60:20),behavior:reduce?'auto':'smooth'})}));
+  const hero=$('#fpHero',root);if(hero&&!reduce){const ds=$$('.fp-win img',hero),ms=$$('.fp-phone img',hero),u=$('#fpHUrl',root);let k=0,tm=null;const step=()=>{k=(k+1)%FPAGES.length;ds.forEach((x,j)=>x.classList.toggle('on',j===k));ms.forEach((x,j)=>x.classList.toggle('on',j===k));u.textContent=FPAGES[k][0]+'.html'};const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){if(!tm)tm=setInterval(step,2600)}else{clearInterval(tm);tm=null}},{root:sc});io.observe(hero);IOS.push(io)}
+  const live=$('#fpLive',root);if(live){const f=$('#fpIf',live),fr=$('.fp-frame',live),stg=$('.fp-stage',live);let dev='d',pg='index';
+   const fit=()=>{const W=dev==='d'?1280:390,H=dev==='d'?820:760,av=stg.clientWidth-(dev==='d'?0:0),s=Math.min(1,av/W);f.style.width=W+'px';f.style.height=H+'px';f.style.transform=`scale(${s})`;fr.style.width=W*s+'px';fr.style.height=H*s+'px';live.classList.toggle('mob',dev==='m')};
+   const load=()=>{const u=SITE+pg+'.html';if(!f.src.endsWith(u))f.src=u;$('#fpLUrl',live).textContent=pg+'.html';0};
+   f.addEventListener('load',()=>{try{const p=f.contentWindow.location.pathname.split('/').pop().replace('.html','');if(p&&FPAGES.some(x=>x[0]===p)){pg=p;$('#fpLUrl',live).textContent=p+'.html';$$('[data-lp]',live).forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.lp===p)))}}catch(e){}});
+   $$('[data-lp]',live).forEach(b=>b.addEventListener('click',()=>{pg=b.dataset.lp;$$('[data-lp]',live).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));load()}));
+   $$('[data-dev]',live).forEach(b=>b.addEventListener('click',()=>{dev=b.dataset.dev;$$('[data-dev]',live).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));fit()}));
+   if(window.ResizeObserver){const ro=new ResizeObserver(fit);ro.observe(stg);IOS.push(ro)}fit();if(mob.matches)$('[data-dev="m"]',live).click()}}
+ const fpc=$('#fpCard',root);if(fpc){const show=i=>{const t=TP[i];$$('.fpin',root).forEach((b,k)=>b.setAttribute('aria-pressed',String(k===i)));fpc.innerHTML=`<img src="${S(t[0])}" alt="Touchpoint ${i+1}"><div><b>Touchpoint ${t[1]}</b></div>`};$$('.fpin',root).forEach((b,i)=>b.addEventListener('click',()=>show(i)));show(0)}
+ $$('.pal button',root).forEach(b=>b.addEventListener('click',()=>{navigator.clipboard?navigator.clipboard.writeText(b.dataset.hex).then(()=>toast(b.dataset.hex+' copied'),()=>toast(b.dataset.hex)):toast(b.dataset.hex)}));
+}
+const h=location.hash.slice(1);if(BUILD[h])setTimeout(()=>openCS(h),400);
+
+})();
+
+</script>
+
+</html>
